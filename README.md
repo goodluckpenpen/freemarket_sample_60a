@@ -41,7 +41,7 @@ Things you may want to cover:
 |city|string|null :false|
 |block|string|null :false|
 |building|string|null :false|
-|user_id|references|
+|user_id|references|null :false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -51,7 +51,7 @@ Things you may want to cover:
 |number|string|null :false|
 |security_code|string|null :false|
 |expiraiton-date|date|null :false|
-|user-id|references|
+|user-id|references|null :false, foreign_key: true|
 
 ### Association
 - belongs_to :user
