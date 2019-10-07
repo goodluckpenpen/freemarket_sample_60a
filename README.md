@@ -13,6 +13,108 @@ Things you may want to cover:
 
 * Database creation
 
+# DB設計
+## usersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|nickname|string|null :false|
+|email|string|null :false, unique :true|
+|password|string|null: false|
+|first_name|string|null: false|
+|last_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
+|birthday|date|null: false|
+|profile|text||
+|tel|string|null :false, unique :true|
+|image|string||
+
+### Association
+- has_many :items
+- has_many :comments
+- has_one :address
+- has_one :card
+
+## addressesテーブル
+|postal_coad|string|null :false|
+|prefecture_id|references|null :false, foreign_key: true|
+|city|string|null :false|
+|block|string|null :false|
+|building|string|null :false|
+|user_id|references|
+
+### Association
+- belongs_to :user
+- belongs_to :prefecture
+
+## cardsテーブル
+|number|string|null :false|
+|security_code|string|null :false|
+|expiraiton-date|date|null :false|
+|user-id|references|
+
+### Association
+- belongs_to :user
+
+## itemsテーブル
+|name|string|null :false|
+|user_id|references|null :false, foreign_key: true|
+|size_id|references|null :false|
+|condition_id|references|null :false|
+|delivery_fee_id|references|null :false|
+|delivery_method_id|references|null :false|
+|delivery_area_id|references|null :false|
+|delivery_days_id|references¥null :false|
+|price|integer|null :false|
+|detail|text||
+|category_id|references|null :false, foreign_key: true|
+|brand_id|references||
+
+## Association
+- belongs_to :user
+- belongs_to :category
+- belings_to :size, :condition, :delivery_fee, :delivery_method, :delivery_area, :delivery_days
+- has_many :images
+- has_many :comments
+
+## categoriesテーブル
+|category|string||
+
+## Association
+- has_many :items
+- has_ancestry
+
+### brandsテーブル
+|name|string||
+
+## Association
+- has_many :items
+
+### brands-categoriesテーブル
+|brand_id|references|null :false, foreign_key: true|
+|category_id|references|null :false, foreign_key: true|
+
+## Association
+- belongs_to :brand
+- belongs_to :category
+
+### commentsテーブル
+|comment|text||
+|user_id|references|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
+
+## Association
+- belongs_to :user
+- belongs_to :item
+
+
+### imagesテーブル
+|image|string|null :false|
+|item_id|references|null :false, foreign_key: true|
+
+## Association
+- belongs_to :item
+
 * Database initialization
 
 * How to run the test suite
