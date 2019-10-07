@@ -50,5 +50,5 @@ test:
 production:
   <<: *default
    username: root
-  password: <%= ENV['melcari4444'] %>
+  password: <%= ENV[melcari4444] %>
   socket: /var/lib/mysql/mysql.sock
