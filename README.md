@@ -48,7 +48,7 @@ Things you may want to cover:
 - belongs_to :prefecture
 
 ## cardsテーブル
-|number|string|null :false|
+|number|string|null :false, unique :true|
 |security_code|string|null :false|
 |expiraiton-date|date|null :false|
 |user-id|references|null :false, foreign_key: true|
