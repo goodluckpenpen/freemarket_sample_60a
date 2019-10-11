@@ -52,6 +52,7 @@ end
 
 gem 'carrierwave'
 gem 'fog-aws'
+gem 'mini_magick'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
