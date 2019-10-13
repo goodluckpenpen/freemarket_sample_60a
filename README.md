@@ -36,6 +36,8 @@ Things you may want to cover:
 - has_one :card
 
 ## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |postal_coad|string|null :false|
 |prefecture_id|references|null :false, foreign_key: true|
 |city|string|null :false|
@@ -48,6 +50,8 @@ Things you may want to cover:
 - belongs_to :prefecture
 
 ## cardsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |number|string|null :false, unique :true|
 |security_code|string|null :false|
 |expiraiton-date|date|null :false|
@@ -57,6 +61,8 @@ Things you may want to cover:
 - belongs_to :user
 
 ## itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |name|string|null :false|
 |user_id|references|null :false, foreign_key: true|
 |size_id|references|null :false|
@@ -78,6 +84,8 @@ Things you may want to cover:
 - has_many :comments
 
 ## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |category|string||
 
 ## Association
@@ -85,12 +93,16 @@ Things you may want to cover:
 - has_ancestry
 
 ### brandsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |name|string||
 
 ## Association
 - has_many :items
 
 ### brands-categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |brand_id|references|null :false, foreign_key: true|
 |category_id|references|null :false, foreign_key: true|
 
@@ -99,6 +111,8 @@ Things you may want to cover:
 - belongs_to :category
 
 ### commentsテーブル
+|Column|Type|Options|
+|------|----|-------|
 |comment|text||
 |user_id|references|null: false, foreign_key: true|
 |item_id|references|null: false, foreign_key: true|
@@ -109,6 +123,8 @@ Things you may want to cover:
 
 
 ### imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |image|string|null :false|
 |item_id|references|null :false, foreign_key: true|
 
