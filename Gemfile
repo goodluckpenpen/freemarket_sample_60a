@@ -78,7 +78,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'capistrano-yarn'
+  # gem 'capistrano-yarn'
 end
 
 gem 'haml-rails'
