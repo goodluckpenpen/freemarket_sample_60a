@@ -49,10 +49,11 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-
+gem 'asset_sync'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
+gem 'sprockets-rails'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -75,6 +76,7 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-yarn'
 end
 
 gem 'haml-rails'
