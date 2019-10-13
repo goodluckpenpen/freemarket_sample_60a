@@ -51,7 +51,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
-gem 'asset_sync'
+# gem 'asset_sync'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
