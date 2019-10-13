@@ -56,6 +56,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'sprockets-rails'
+gem 'yui-compressor'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
