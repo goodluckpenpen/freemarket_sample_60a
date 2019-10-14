@@ -4,7 +4,10 @@ class ItemsController < ApplicationController
   end
 
   def items
+  
   end
 
+
   
+
 end
