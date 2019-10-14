@@ -15,9 +15,9 @@ set :default_env, {
 # --prefer-offline -> 高速化
 # --production -> devDependencies にあるパッケージはインストールしなくなる
 # --no-progress -> progress bar の非表示
-set :yarn_flags, "--prefer-offline --production --no-progress"
-set :yarn_roles, :app
-set :yarn_bin, "/usr/local/bin/yarn"
+# set :yarn_flags, "--prefer-offline --production --no-progress"
+# set :yarn_roles, :app
+# set :yarn_bin, "/usr/local/bin/yarn"
 
 # どのリポジトリからアプリをpullするかを指定する
 set :repo_url,  'git@github.com:goodluckpenpen/freemarket_sample_60a.git'
