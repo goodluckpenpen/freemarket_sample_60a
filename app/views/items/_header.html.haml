@@ -1,6 +1,6 @@
 .header-hyde.header-pop.hyde
   .header-hyde__top
-    =link_to "",class:"header-hyde__top__link" do
+    =link_to class:"header-hyde__top__link" do
       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class:"header-hyde__top__link__image"
     .header-hyde__top__button
       =link_to "新規会員登録","",class:"hyde-entry"
@@ -132,12 +132,12 @@
           .categorys.popup    
             %ul.categorys__lists
               %li.categorys__lists__list
-      -# .header__row__bottom__rigth
+      .header__row__bottom__rigth
         .header__row__bottom__rigth__entry
-          =link_to "新規会員登録", "",class:"entry-button" 
+          =link_to "新規会員登録", "http://localhost:3000/signups/registration",class:"entry-button" 
         .header__row__bottom__rigth__login
           =link_to "ログイン", "",class:"login-button"
-      %ul.header-users
+      -# %ul.header-users
         %li.header-users__menu
           =link_to "",class:"header-users__menu__link" do
             =fa_icon "heart",class:"header-users__menu__link__icon"
