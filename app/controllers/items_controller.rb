@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
   
-  def index
-    
+  def index  
   end
 
+  def create
+  end
 
 end
