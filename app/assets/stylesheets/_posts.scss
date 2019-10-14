@@ -12,7 +12,7 @@ $breakpoint-down: (
 ) !default;
 
 /////all////////
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tfoot, thead, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   vertical-align: baseline;
   margin: 0px;
   padding: 0px;
@@ -1446,6 +1446,14 @@ footer{
 
 /////item////////
 .item{
+  a{
+  color: #0099e8;
+  text-decoration: none;
+  &:hover{
+    text-decoration: underline;
+    opacity: .7;
+  }
+  }
  .item-price{
   margin: 0 8px 0 0;
   font-size: 32px;
@@ -1488,6 +1496,14 @@ footer{
   &:first-child{
    margin: 0;
   }
+ }
+ .clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+ }
+ .item-sold-badge{
+   
  }
 
  &__box{
@@ -1580,12 +1596,122 @@ footer{
   &__button{
    margin: 16px 0 0;
    font-size: 0;
+   i{
+    font-size: 14px;
+    vertical-align: middle;
+    color: #ccc;
+   }
+   a {
+    display: inline-block;
+   }
+   span{
+    display: inline-block;
+    margin: 1px 0 0 8px;
+    font-size: 12px;
+    vertical-align: middle;
+    @include mq(){
+      font-size: 14px;
+    }   
+   }
+   .item-button{
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 40px;
+    -webkit-transition: all ease-out .3s;
+    transition: all ease-out .3s;
+    color: #333;
+    border: 1px solid #f5f5f5;
+    background: #f5f5f5;
+    font-size: inherit;
+    line-height: inherit;
+   }
+   &__left{
+    
+    @include mq(){
+      float:left;
+     }
+     .like-num{
+      @include mq(){ 
+        font-size:14px;
+      }
+     }
+     .spam-button{
+      margin: 0 0 0 8px;
+      @include mq(){
+        margin: 0 0 0 16px;
+      }
+      i{
+        color: #333;
+      }
+     }
+   }
+   &__right{
+    margin: 16px 0 0;
+    @include mq(){
+      margin:8px 0 0;
+      float:right;
+    }
+    i{
+      color: #0099e8;
+    }
+
+   }
   }
  }
  &__message{
   margin: 8px auto;
   @include mq(){
    width: 700px;
+  }
+  &__box{
+    &__content{
+      padding: 24px 7.5%;
+      background: #fff;
+      @include mq(){
+        padding: 24px;
+      }
+      .item-message{
+        p{
+          padding: 8px;
+          font-size: 14px;
+          background: #fff6de;
+        }
+      }
+      .text-area{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        min-height: 104px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background: #fff;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 8px 0 0;
+      }
+      .message-submit{
+        width: 100%;
+        margin: 8px 0 0;
+        font-size: 0;
+        text-align: center;
+        background: #aaa;
+        border: 1px solid #aaa;
+        color: #fff;
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        border: 1px solid transparent;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        cursor: pointer;
+        text-align: center;
+        span{
+          font-size: 14px;
+          vertical-align: middle;
+        }
+      }
+    }
   }
  }
  &__nav{
@@ -1594,6 +1720,38 @@ footer{
    margin: 24px auto 0;
    width: 700px;
   }
+  li{
+    position: relative;
+    width: 43%;
+    word-wrap: break-word;
+    @include mq(){
+      width: 45%;
+     }
+  }
+  &__prev{
+    float: left;
+    padding: 0 0 0 14px;
+    i{
+      left: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  }
+  &__next{
+    float: right;
+    padding: 0 14px 0 0;
+    text-align: right;
+    i{
+      right: 0;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+    }
+  }
+
  }
  &__social{
   margin: 24px 0 0;
@@ -1604,14 +1762,182 @@ footer{
    padding: 32px 0 24px;
    width: 700px;
   }
+  &__box{
+    margin: 16px 0 0;
+    text-align: center;
+    font-size: 0;
+    i{
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      line-height: 44px;
+    }
+    .fb-button{
+      color: #fff;
+      background: #385185;
+      font-size: 26px;
+    }
+    .twi-button{
+      color: #fff;
+      background: #5d9dc9;
+      font-size: 24px;
+    }
+    .line-button{
+      color: #fff;
+      background: #00c137;
+      font-size: 22px;
+    }
+    .pin-button{
+      color: #fff;
+      background: #aa262a;
+      font-size: 18px;
+    }
+    li{
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      vertical-align: middle;
+      text-align: center;
+      a{
+        display: block;
+      }
+    }
+    &__hyde-button{
+      @include mq(lg){
+        display: none !important;
+      }
+    }
+  }
+
  }
  &__users{
   @include mq(){
    margin: 0 auto;
    width: 700px;
   }
+  &__box{
+    a:hover{
+    opacity: 1;
+    text-decoration: none;
+    }
+    &__head{
+      font-size: 18px;
+      margin: 24px 4% 8px;
+      line-height: 1.4;
+      font-weight: bold;
+      @include mq(){
+        font-size: 22px;
+        margin: 24px 0 8px;
+      }
+    }
+    &__content{
+      width: 92%;
+      margin: 0 auto;
+      @include mq(){
+        width: auto;
+      }
+      .item-box{
+        a{
+          display: block;
+          color: #333;
+        }
+        width: calc(33.3333% - 2.666666px);
+        margin: 0 4px 4px 0;
+        position: relative;
+        float: left;
+        width: 48%;
+        margin: 0 0 4% 4%;
+        background: #fff;
+        @include mq(){
+          width: 220px;
+          margin: 0 20px 20px 0;
+        }
+        &:nth-child(3n){
+          margin-right: 0;
+        }
+        &__photo{
+          overflow: hidden;
+          position: relative;
+          width: 100%;
+          height: 0;
+          padding: 0 0 100%;
+          @include mq(){
+            width: 220px;
+            height: 220px;
+          }
+          img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+        }
+        &__body{
+          padding: 8px;
+          height: 110px;
+          @include mq(){
+            padding: 16px;
+          }
+          &__name{
+            overflow: hidden;
+            position: relative;
+            font-weight: 400;
+            height: 3em;
+            line-height: 1.5;
+            word-break: break-word;
+            white-space: normal;
+            font-size: 16px;
+            color: #333;
+            &:after{
+              display: block;
+              content: '';
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 50%;
+              height: 1.5em;
+              background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
+            }
+          }
+          &__num{
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin: 8px 0 0;
+            &__price{
+              font-size: 20px;
+              font-weight: 600;
+              color: #333;
+              @include mq(){
+                font-size: 16px;
+              }
+              @include mq(lg){
+                font-size: 17px;
+              }
+            }
+            &__like{
+              font-size: 16px;
+              font-weight: 400;
+              color: #333;
+              i{
+                color: #ccc;
+              }
+
+            }
+          }
+        }
+      }
+    }
+  }
  }
- &__modal{
+ .item-modal{
   display: none;
   position: fixed;
   top: 0;
@@ -1628,10 +1954,48 @@ footer{
   -webkit-transform: translate(0, -10px);
   transform: translate(0, -10px);
  }
- &__bottom{
+ .item-nuv{
   position: relative;
   border-top: 1px solid #eee;
   background: #f5f5f5;
   box-shadow: none;
+  ul{
+    padding: 16px;
+    font-size: 0;
+    white-space: nowrap;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @include mq(){
+      overflow: visible;
+      width: 700px;
+      margin: 0 auto;
+      padding: 16px 0;
+      white-space: normal;      
+    }
+    @include mq(){
+      width: 1020px;
+    }
+  }
+  li{
+    display: inline-block;
+    font-size: 14px;
+    line-height: 1.2;
+    @include mq(){
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    &:last-child{
+      font-weight: 600;
+    }
+  }
+  i{
+    margin: 0 8px;
+    font-size: 9px;
+    color: #888;
+  }
+  a{
+    color:#333;
+  }
+
  }
 }
