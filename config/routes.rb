@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root "items#index"
+
   get "items/item"
   get "signups/registration"
   get "signups/newmember"
@@ -9,3 +10,4 @@ Rails.application.routes.draw do
   get "signups/payment"
   get "signups/completion"
 end
+
