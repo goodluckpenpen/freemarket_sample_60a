@@ -70,7 +70,7 @@ Things you may want to cover:
 |delivery_fee_id|references|null :false|
 |delivery_method_id|references|null :false|
 |delivery_area_id|references|null :false|
-|delivery_days_id|references¥null :false|
+|delivery_days_id|references|null :false|
 |price|integer|null :false|
 |detail|text||
 |category_id|references|null :false, foreign_key: true|
