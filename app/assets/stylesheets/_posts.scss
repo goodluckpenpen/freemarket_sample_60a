@@ -963,7 +963,7 @@ img {
         }
        }
      }
-     &__left{
+     .slick-prev{
       background-color: transparent;
       cursor: pointer;
       height: 46px;
@@ -975,11 +975,12 @@ img {
       border-color: initial;
       border-image: initial;
       padding: 0px;
+      z-index: 100;
       @include mq(){
        margin-left: 60px;
       }
      }
-     &__right{
+     .slick-next{
       background-color: transparent;
       cursor: pointer;
       height: 46px;
@@ -991,12 +992,14 @@ img {
       border-color: initial;
       border-image: initial;
       padding: 0px;
+      z-index: 100;
       @include mq(){
-       margin-left: 60px;
+       margin-right: 60px;
       }
      }
-     &__bottom{
-      margin-bottom: 20px;
+     .slick-dots{
+      margin-bottom: 35px;
+      z-index: 100;
      }
     }
 ////menu///////
