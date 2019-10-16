@@ -54,7 +54,8 @@ Things you may want to cover:
 |------|----|-------|
 |number|string|null :false, unique :true|
 |security_code|string|null :false|
-|expiraiton-date|date|null :false|
+|expiraiton_date_month|date|null :false|
+|expiraiton_date_year|date|null :false|
 |user-id|references|null :false, foreign_key: true|
 
 ### Association
