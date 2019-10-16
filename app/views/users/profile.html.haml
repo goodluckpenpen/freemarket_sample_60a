@@ -1,0 +1,96 @@
+= render "items/header"
+
+%main.container
+  .container__content
+    %section.container__content--group
+      %h2.container__content--group-head プロフィール
+      %form(action = "https://www.mercari.com/jp/mypage/profile/" method = "post" class="container__content--group-form")
+        %input(type="hidden" name = "a" value="8a7419b24c68d020c073236b35b18516a23f69de2762a8922be567da449fda2bed5c7a38f19ddbd157db4ddf2aa852914c55b730dc5c5a66da48c419c38c2bf8e")
+        .container__content--group-form-icon
+          %figure.container__content--group-form-icon-image
+            = image_tag '/merukari_member_photo.png', class:'.container__content--group-form-icon-image-new', width:'60', height:'60'
+          %input(type="text" value="" name="nickname" placeholder="例）AYA☆セール中" class="container__content--group-form-icon-text")
+        .container__content--group-form-body
+          %textarea(name="introduction" placeholder="例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪" class="container__content--group-form-body-text")
+          %input(type="hidden" value="https://www.mercari.com/jp/mypage/profile/" name="")
+          %button(type="submit" class="container__content--group-form-body-btn")
+            変更する
+
+
+  .container__side
+    .container__side--nav
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "マイページ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "お知らせ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "やることリスト", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "いいね！一覧", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "出品する", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 出品中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 売却済み", "",class:"container__side--nav-listing-list-item"
+        
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 過去の取引", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "ニュース一覧", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "評価一覧", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ガイド", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "お問い合わせ", "",class:"container__side--nav-listing-list-item"
+   
+      %h3.container__side--nav-merupay  メルペイ
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "残高・振込申請", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ポイント", "",class:"container__side--nav-listing-list-item"
+
+      %h3.container__side--nav-setting  設定
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "プロフィール", "",class:"container__side--nav-listing-list-choice"
+         
+        %li.container__side--nav-listing-list
+          =link_to "発送元・お届け先住所変更", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "支払い方法", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "メール/パスワード", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "本人情報", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "電話番号の確認", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ログアウト", "",class:"container__side--nav-listing-list-item"
+
+= render "items/footer"

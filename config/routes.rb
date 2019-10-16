@@ -10,5 +10,21 @@ Rails.application.routes.draw do
   get "signups/address"
   get "signups/payment"
   get "signups/completion"
+  
+
+  resources :users, only: :show do
+    member do
+      
+    end
+    collection do
+      get 'card_add_btn'
+      get 'card_delete_btn'
+      get 'card_input_info'
+      get 'information'
+      get 'logout'
+      get 'mypage'
+      get 'profile'
+    end
+  end
 end
 
