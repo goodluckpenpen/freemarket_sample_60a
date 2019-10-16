@@ -258,9 +258,9 @@
                       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class:"appaddimg"
                     =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
                       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class:"appaddimg"  
-        .mein__row__sliders__left
-        .mein__row__sliders__right
-        .mein__row__sliders__bottom 
+        -# .mein__row__sliders__left
+        -# .mein__row__sliders__right
+        -# .mein__row__sliders__bottom 
     .mein__row__menu
       %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4 
         人気のカテゴリー
@@ -289,7 +289,7 @@
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
               .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+                =link_to items_item_path(@item) ,class:"style_link__3tLB3,style_fluidLink__WTcwb" do
                   %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
                     %figcaption
                       %span
@@ -299,163 +299,163 @@
                         ¥9999999999
                       =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
               
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            メンズ新着アイテム          
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         メンズ新着アイテム          
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
               
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            家電・スマホ・カメラ新着アイテム
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         家電・スマホ・カメラ新着アイテム
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
             
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            おもちゃ・ホビー・グッズ新着アイテム
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         おもちゃ・ホビー・グッズ新着アイテム
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
             
-    .mein__row__menu
-      %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4
-        人気のブランド
-      .mein__row__menu__tags
-        %ul.mein__row__menu__tags__lists
-          %li.mein__row__menu__tags__lists__list
-            =link_to "シャネル","",class:"mein__row__menu__tags__lists__list__tag"
-            =link_to "シャネル","",class:"mein__row__menu__tags__lists__list__stag"
-          %li.mein__row__menu__tags__lists__list
-            =link_to "ルイヴィトン","",class:"mein__row__menu__tags__lists__list__tag"
-            =link_to "ルイヴィトン","",class:"mein__row__menu__tags__lists__list__stag"
-          %li.mein__row__menu__tags__lists__list
-            =link_to "シュプリーム","",class:"mein__row__menu__tags__lists__list__tag"
-            =link_to "シュプリーム","",class:"mein__row__menu__tags__lists__list__stag"
-          %li.mein__row__menu__tags__lists__list
-            =link_to "ナイキ","",class:"mein__row__menu__tags__lists__list__tag"
-            =link_to "ナイキ","",class:"mein__row__menu__tags__lists__list__stag"
-    .mein__row__new
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            シャネル新着アイテム
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -# .mein__row__menu
+    -#   %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4
+    -#     人気のブランド
+    -#   .mein__row__menu__tags
+    -#     %ul.mein__row__menu__tags__lists
+    -#       %li.mein__row__menu__tags__lists__list
+    -#         =link_to "シャネル","",class:"mein__row__menu__tags__lists__list__tag"
+    -#         =link_to "シャネル","",class:"mein__row__menu__tags__lists__list__stag"
+    -#       %li.mein__row__menu__tags__lists__list
+    -#         =link_to "ルイヴィトン","",class:"mein__row__menu__tags__lists__list__tag"
+    -#         =link_to "ルイヴィトン","",class:"mein__row__menu__tags__lists__list__stag"
+    -#       %li.mein__row__menu__tags__lists__list
+    -#         =link_to "シュプリーム","",class:"mein__row__menu__tags__lists__list__tag"
+    -#         =link_to "シュプリーム","",class:"mein__row__menu__tags__lists__list__stag"
+    -#       %li.mein__row__menu__tags__lists__list
+    -#         =link_to "ナイキ","",class:"mein__row__menu__tags__lists__list__tag"
+    -#         =link_to "ナイキ","",class:"mein__row__menu__tags__lists__list__stag"
+    -# .mein__row__new
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         シャネル新着アイテム
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
           
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            ルイヴィトン新着アイテム          
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         ルイヴィトン新着アイテム          
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
     
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            シュプリーム新着アイテム
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         シュプリーム新着アイテム
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
       
-      .mein__row__new__box
-        .mein__row__new__box__title.bottomSpace
-          %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
-            ナイキ新着アイテム
-          =link_to "",class:"mein__row__new__box__title__more" do
-            もっと見る
-        .mein__row__new__box__lists
-          .mein__row__new__box__lists__goods
-            .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+    -#   .mein__row__new__box
+    -#     .mein__row__new__box__title.bottomSpace
+    -#       %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
+    -#         ナイキ新着アイテム
+    -#       =link_to "",class:"mein__row__new__box__title__more" do
+    -#         もっと見る
+    -#     .mein__row__new__box__lists
+    -#       .mein__row__new__box__lists__goods
+    -#         .mein__row__new__box__lists__goods__good
+    -#           .visibility
+    -#             =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+    -#               %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+    -#                 %figcaption
+    -#                   %span
+    -#                     ??????????
+    -#                 .style_thumbnail__N_xAi
+    -#                   %span{"aria-label":"Price"}
+    -#                     ¥9999999999
+    -#                   =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
         
 
 .form
