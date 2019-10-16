@@ -1,0 +1,173 @@
+=render 'items/header'
+
+%main.container
+  .container__content
+    %section.container__content--mypage
+      =link_to "",class:"container__content--mypage-user" do
+        %figure.container__content--mypage-user-img
+          = image_tag '/merukari_member_photo.png', class:'container__content--mypage-user-img-new'
+        %h2.container__content--mypage-user-name  晃平
+        .container__content--mypage-user-number
+          .container__content--mypage-user-number-evaluation  評価
+          %span.container__content--mypage-user-number-value 27
+          .container__content--mypage-user-number-exhibit  出品数
+          %span.container__content--mypage-user-number-value 22
+
+    %section.container__content--mypage-tabs
+      %ul(id="tab-group " class="container__content--mypage-tabs-list")
+        %li(id="tab " class="container__content--mypage-tabs-list-notice")
+          %h3
+            =link_to "お知らせ", "",class:"container__content--mypage-tabs-list-notice-text"
+        %li(id="tab " class="container__content--mypage-tabs-list-todo")
+          %h3
+            =link_to "やることリスト", "",class:"container__content--mypage-tabs-list-todo-text"
+      .container__content--mypage-tabs-detail
+        %ul.container__content--mypage-tabs-detail-notice
+
+          %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
+          
+          -# %li.container__content--mypage-tabs-detail-notice-list
+          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
+          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
+          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
+          -#     .container__content--mypage-tabs-detail-notice-list-link-message
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
+          -#         事務職からのメッセージ
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
+          -#         = fa_icon 'picture-o', class: 'icon-time'
+          -#         %span １時間
+          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
+          -# %li.container__content--mypage-tabs-detail-notice-list
+          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
+          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
+          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
+          -#     .container__content--mypage-tabs-detail-notice-list-link-message
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
+          -#         事務職からのメッセージ
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
+          -#         = fa_icon 'picture-o', class: 'icon-time'
+          -#         %span １時間
+          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
+          -# %li.container__content--mypage-tabs-detail-notice-list
+          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
+          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
+          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
+          -#     .container__content--mypage-tabs-detail-notice-list-link-message
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
+          -#         事務職からのメッセージ
+          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
+          -#         = fa_icon 'picture-o', class: 'icon-time'
+          -#         %span １時間
+          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
+          -# %li.container__content--mypage-tabs-detail-notice-listing
+          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-listing-btn")
+          -#     一覧を見る
+         
+
+    %section.container__content--mypage-buy
+      %h2.container__content--mypage-buy-title 購入した商品
+      %ul.container__content--mypage-buy-tabs
+        %li.container__content--mypage-buy-tabs-trade
+          %h3.container__content--mypage-buy-tabs-trade-text
+            取引中
+        %li.container__content--mypage-buy-tabs-past
+          %h3.container__content--mypage-buy-tabs-past-text
+            過去の取引
+      .container__content--mypage-buy-detail
+        %ul.container__content--mypage-buy-detail-trade
+          %li.container__content--mypage-buy-detail-trade-list 取引中の商品がありません
+
+        -# %li.container__content--mypage-group-notice-list
+        -#   .container__content--mypage-group-notice-list-link
+        -#     %figure
+        -#     .container__content--mypage-group-notice-list-body
+        -#       .container__content--mypage-group-notice-list-body-text 
+        -#         事務職からのメッセージ
+        -#         .container__content--mypage-group-notice-list-body-text-time
+        -#           = fa_icon 'picture-o', class: 'icon'
+        -#           %span １時間
+        -#       = fa_icon 'chevron-right', class: 'icon'
+
+        -# %li.container__content--mypage-group-notice-list
+        -#   .container__content--mypage-group-notice-list-link  一覧を見る
+        
+
+  .container__side
+    .container__side--nav
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "マイページ", "",class:"container__side--nav-listing-list-choice"
+           
+        %li.container__side--nav-listing-list
+          =link_to "お知らせ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "やることリスト", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "いいね！一覧", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "出品する", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 出品中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 売却済み", "",class:"container__side--nav-listing-list-item"
+        
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 過去の取引", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "ニュース一覧", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "評価一覧", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ガイド", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "お問い合わせ", "",class:"container__side--nav-listing-list-item"
+   
+      %h3.container__side--nav-merupay  メルペイ
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "残高・振込申請", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ポイント", "",class:"container__side--nav-listing-list-item"
+
+      %h3.container__side--nav-setting  設定
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "プロフィール", "http://localhost:3000/users/profile",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "発送元・お届け先住所変更", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "支払い方法", "http://localhost:3000/users/card_delete_btn",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "メール/パスワード", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "本人情報", "http://localhost:3000/users/information",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "電話番号の確認", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ログアウト", "http://localhost:3000/users/logout",class:"container__side--nav-listing-list-item"
+         
+=render 'items/footer'
+        
+
