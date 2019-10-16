@@ -1,6 +1,6 @@
 .header-hyde.header-pop.hyde
   .header-hyde__top
-    =link_to class:"header-hyde__top__link" do
+    =link_to "/",class:"header-hyde__top__link" do
       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class:"header-hyde__top__link__image"
     .header-hyde__top__button
       =link_to "新規会員登録","",class:"hyde-entry"
@@ -35,7 +35,7 @@
   .header__row
     .header__row__top
       .header__row__top__title
-        %span.image
+        =link_to "/" do
           =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class:"titleimage"
       .header__row__top__search
         %form.search-form
