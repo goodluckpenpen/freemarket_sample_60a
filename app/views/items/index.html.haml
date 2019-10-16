@@ -288,16 +288,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to items_item_path(@item) ,class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @items.each do |item|
+                .visibility
+                  =link_to item_path(item) ,class:"style_link__3tLB3,style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = item.price
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
               
     -#   .mein__row__new__box
     -#     .mein__row__new__box__title.bottomSpace
