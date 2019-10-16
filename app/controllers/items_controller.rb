@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def items
-  
+  def show
+    @item = Item.find(params[:id])
   end
 
 
