@@ -25,7 +25,7 @@
       %section.l-single-container
         %h2.l-single-head.registration
           支払い方法
-        = form_for @user, url: completion_signups_path, method: :get, novalidate: "novalidate", html: {class: '.l-single-inner','.registration-form'} do |f|
+        = form_for @user, url: signups_index_path, method: :get, novalidate: "novalidate", html: {class: '.l-single-inner','.registration-form'} do |f|
           = f.hidden_field :__csrf_value, value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"
           .l-single-content
             .form-group
