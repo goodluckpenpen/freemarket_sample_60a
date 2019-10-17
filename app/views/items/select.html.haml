@@ -1,0 +1,19 @@
+-# 商品編集画面のクッション
+
+=render 'header'
+.item
+  .container.clearfix
+    .content
+      %section.item__box
+        =render 'item'
+      .item-change-box
+        =link_to "商品の編集","",class:"item-change-box__button btn-red"
+        %p or
+        %form
+          %button.item-change-box__button.btn-gray
+            出品を一旦停止する
+        %button.item-change-box__button.btn-gray
+          商品を削除する
+      =render 'comment'
+=render 'footer'
+  

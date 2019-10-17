@@ -258,9 +258,9 @@
                       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/app-store-a5c17948c6fd6d5b60b13d421cd60b35.svg",class:"appaddimg"
                     =link_to "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja" do
                       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/google-play-495575abb895b405aa6336b2a4304958.svg",class:"appaddimg"  
-        .mein__row__sliders__left
-        .mein__row__sliders__right
-        .mein__row__sliders__bottom 
+        -# .mein__row__sliders__left
+        -# .mein__row__sliders__right
+        -# .mein__row__sliders__bottom 
     .mein__row__menu
       %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4 
         人気のカテゴリー
@@ -288,16 +288,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @ladys.each do |item|
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"} 
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
               
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -308,16 +309,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @mens.each do |item|
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
               
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -328,16 +330,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @elecs.each do |item|  
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
             
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -348,16 +351,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @hobys.each do |item|
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
             
     .mein__row__menu
       %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4
@@ -386,16 +390,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @chanels.each do |item|  
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
           
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -406,16 +411,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @vuittons.each do |item|  
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
     
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -426,16 +432,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @supremes.each do |item|  
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
       
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -446,16 +453,17 @@
         .mein__row__new__box__lists
           .mein__row__new__box__lists__goods
             .mein__row__new__box__lists__goods__good
-              .visibility
-                =link_to "",class:"style_link__3tLB3,style_fluidLink__WTcwb" do
-                  %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
-                    %figcaption
-                      %span
-                        ??????????
-                    .style_thumbnail__N_xAi
-                      %span{"aria-label":"Price"}
-                        ¥9999999999
-                      =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              - @nikes.each do |item|  
+                .visibility
+                  =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                    %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                      %figcaption
+                        %span
+                          = item.title
+                      .style_thumbnail__N_xAi
+                        %span{"aria-label":"Price"}
+                          = "¥#{item.price.to_s(:delimited)}"
+                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
         
 
 .form
