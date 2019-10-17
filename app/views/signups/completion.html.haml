@@ -25,21 +25,20 @@
       %section.l-single-container
         %h2.l-single-head.registration
           会員登録完了
-        %form.l-single-inner.registration-form{action: "https://www.mercari.com/jp/signup/sms_confirmation/", method: "POST", novalidate: "novalidate"}
-          %input{name: "__csrf_value", type: "hidden", value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"}/
+        = form_for @user, url: phonenumber_signups_path, method: :get, novalidate: "novalidate", html: {class: '.l-single-inner','.registration-form'} do |f|
+          = f.hidden_field :__csrf_value, value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"
           .l-single-content
             .form-group
               %p.last-message
                 ありがとうございます。
                 %br/
                 会員登録が完了しました。
-            =link_to "http://localhost:3000", class: "btn-default btn-red" do
-              メルカリをはじめる
+            = f.submit 'メルカリをはじめる', class: "btn-default btn-red"
     %aside.app-banner-registration
       .app-banner-pc
         .app-banner-pc-inner
           %h2
-            ＼ スマホでかんたんフリマアプリ ／ 
+            \\ スマホでかんたんフリマアプリ /
           %p
             今すぐ無料ダウンロード!
           .app-banner-icon.clearfix
