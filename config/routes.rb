@@ -35,6 +35,9 @@ Rails.application.routes.draw do
       get 'logout'
       get 'mypage'
       get 'profile'
+      get 'seller_selling'
+      get 'seller_trading'
+      get 'seller_sold'
     end
   end
 end

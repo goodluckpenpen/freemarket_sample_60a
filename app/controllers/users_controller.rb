@@ -24,5 +24,13 @@ class UsersController < ApplicationController
   def profile
   end
 
+  def seller_selling
+  end
+
+  def seller_trading
+  end
+
+  def seller_sold
+  end
 
 end
