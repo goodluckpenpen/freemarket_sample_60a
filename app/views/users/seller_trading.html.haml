@@ -1,0 +1,113 @@
+= render "items/header"
+
+%main.container
+  .container__content
+    %section.container__content--group
+      %h2.container__content--group-head-selling 出品した商品
+      %ul.container__content--group-tabs
+        %li.container__content--group-tabs-list
+          %h3
+            =link_to "出品中","",class:"container__content--group-tabs-list-name"
+        %li.container__content--group-tabs-list-active
+          %h3
+            =link_to "取引中","",class:"container__content--group-tabs-list-active-name"
+        %li.container__content--group-tabs-list
+          %h3
+            =link_to "売却中","",class:"container__content--group-tabs-list-name"
+      .container__content--group-wrap
+        %ul.container__content--group-wrap-listing
+          %li 
+            =link_to "",class:"container__content--group-wrap-listing-item" do
+              %figure
+                = image_tag '/merukari_member_photo.png', class:'container__content--group-wrap-listing-item-image'
+              .container__content--group-wrap-listing-item-info
+                .container__content--group-wrap-listing-item-info-text ジャンパー
+                .container__content--group-wrap-listing-item-info-box-red
+                  発送待ち
+              %i.icon-arrow-right
+
+    %ul.container__content--pager
+      %li.container__content--pager-prev 
+        =link_to "",class:"container__content--pager-prev-link " do
+          %i.icon-arrow-left 
+      %li.container__content--pager-next
+        =link_to "",class:"container__content--pager-next-link" do
+          %i.icon-arrow-right
+
+  .container__side
+    .container__side--nav
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "マイページ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "お知らせ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "やることリスト", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "いいね！一覧", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "出品する", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 出品中", "",class:"container__side--nav-listing-list-choice"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 売却済み", "",class:"container__side--nav-listing-list-item"
+        
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 過去の取引", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "ニュース一覧", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "評価一覧", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ガイド", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "お問い合わせ", "",class:"container__side--nav-listing-list-item"
+   
+      %h3.container__side--nav-merupay  メルペイ
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "残高・振込申請", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ポイント", "",class:"container__side--nav-listing-list-item"
+
+      %h3.container__side--nav-setting  設定
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "プロフィール", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "発送元・お届け先住所変更", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "支払い方法", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "メール/パスワード", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "本人情報", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "電話番号の確認", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ログアウト", "",class:"container__side--nav-listing-list-item"
+
+= render "items/footer"

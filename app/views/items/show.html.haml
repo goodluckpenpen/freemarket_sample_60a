@@ -1,60 +1,7 @@
+=render 'header'
 .item
   %section.item__box
-    %h1.item__box__name
-      【ABCマート限定】itemname
-    .item__box__mein.clearfix
-      .item__box__mein__photo
-      .item-price-box.hyde
-        %span.item-price ¥999999
-        %span.item-tax (税込)
-        %span.item-postage 送料込み
-      %section.hyde
-        .item__box__mein__button
-          =link_to "購入画面に進む","",class:"item-buy-btn"
-      %table.item__box__mein__table
-        %tbody
-          %tr
-            %th 出品者
-            %td
-              =link_to "",""
-              %div
-                .item-rate
-                  .icon-good
-                .item-rate
-                  .icon-nomal
-                .item-rate
-                  .icon-bad
-          %tr
-            %th カテゴリー
-            %td
-              =link_to "",""    
-          %tr
-            %th ブランド
-            %td
-              =link_to "",""
-          %tr
-            %th 商品のサイズ
-            %td
-          %tr
-            %th 商品の状態
-            %td
-          %tr
-            %th 配送料の負担
-            %td
-          %tr
-            %th 配送の方法
-            %td
-          %tr
-            %th 配送元地域
-            %td
-              =link_to "",""  
-          %tr
-            %th 発想日の目安
-            %td
-    .item-price-box
-      %span.item-price ¥999999
-      %span.item-tax (税込)
-      %span.item-postage 送料込み
+    =render 'item'
     =link_to "購入画面に進む","",class:"item-buy-btn"
     =link_to "アプリで購入","",class:"item__box__appbutton","data-toggle":"open-app"
     .item__box__memo
@@ -79,16 +26,7 @@
         =link_to "" do
           =fa_icon "lock"
           %span あんしん・あんぜんへの取り組み
-  .item__message
-    .item__message__box
-      .item__message__box__content
-        %form.item-message
-          %p<>
-            相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        %textarea.text-area
-        %button.message-submit
-          %span コメントする
-      %aside.item-modal
+  =render 'comment'
   %ul.item__nav.clearfix
     %li.item__nav__prev
       =link_to "" do
@@ -302,4 +240,4 @@
         =fa_icon "chevron-right"
       %li
         %span 【ABCマート限定】adidas
-    
+=render 'footer'

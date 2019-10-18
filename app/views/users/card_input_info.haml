@@ -1,0 +1,168 @@
+= render "items/header"
+
+%main.container
+  .container__content
+    %section.container__content--card
+      %h2.container__content--card-title クレジットカード情報入力
+      %form(action ="https://www.mercari.com/jp/mypage/card/add/" class="container__content--card-form" id="add-card-form" data-adyen-id ="card-form" method ="POST" novalidate ="novalidate")
+        %input(name = "container__content--card-hidden" type = "hidden" value = "dde16ff9d081529f83fce669171595466dc2d75523c21d0756dabb30f820b4d3a9587edc91f5e0643feb308063ceffadb26855ee824f2c51cdeb856b314d12536")
+        .container__content--card-form-group
+          .container__content--card-form-group-number
+            %label(for ="payment_card_no") カード番号
+            %span.container__content--card-form-group-number-require 必須
+            %input(class="container__content--card-form-group-number-input" id="" data-input-type = "card" maxlength = "19" placeholder ="半角数字のみ" type = "text" value = "")
+            %ul#card-no-error-wrapper.container__content--card-form-group-number-error
+              -# %li.container__content--card-form-group-number-error-text 必須項目です
+            %ul.container__content--card-form-group-number-card
+              %li.container__content--card-form-group-number-card-type
+                =image_tag '//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615', width:'49', height:"20"
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?3466462615", width:"34", height:"20" 
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/saison-card.svg?3466462615", width:"30", height:"20" 
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/jcb.svg?3466462615", width:"32", height:"20"
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/american_express.svg?3466462615", width:"21", height:"20"
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/dinersclub.svg?3466462615", width:"32", height:"20"
+              %li.container__content--card-form-group-number-card-type
+                =image_tag  "//www-mercari-jp.akamaized.net/assets/img/card/discover.svg?3466462615", width:"32", height:"20"
+          .container__content--card-form-group-expiration
+            %label(for = "payment_card_expire") 有効期限
+            %span.container__content--card-form-group-expiration-require 必須
+            %br/
+            .container__content--card-form-group-expiration-wrap
+              %select#payment_card_expire_mm.container__content--card-form-group-expiration-wrap-select
+                %option(value = "01") 01
+                %option(value = "02") 02
+                %option(value = "03") 03
+                %option(value = "04") 04
+                %option(value = "05") 05
+                %option(value = "06") 06
+                %option(value = "07") 07
+                %option(value = "08") 08
+                %option(value = "09") 09
+                %option(value = "10") 10
+                %option(value = "11") 11
+                %option(value = "12") 12
+              %i.icon-arrow-bottom
+              %span 月
+            .container__content--card-form-group-expiration-wrap
+              %select#payment_card_expire_yy.container__content--card-form-group-expiration-wrap-select
+                %option(value = "19") 19
+                %option(value = "20") 20
+                %option(value = "21") 21
+                %option(value = "22") 22
+                %option(value = "23") 23
+                %option(value = "24") 24
+                %option(value = "25") 25
+                %option(value = "26") 26
+                %option(value = "27") 27
+                %option(value = "28") 28
+                %option(value = "29") 29
+              %i.icon-arrow-bottom
+              %span 年
+            %ul#expire-mm-error-wrapper.container__content--card-form-group-expiration-error
+              -# %li.container__content--card-form-group-expiration-error-text 必須項目です
+            %ul#expire-yy-error-wrapper.container__content--card-form-group-expiration-error
+              -# %li.container__content--card-form-group-expiration-error-text 必須項目です
+          .container__content--card-form-group-security
+            %label(for = "payment_card_security_code") セキュリティコード
+            %span.container__content--card-form-group-security-require 必須
+            %input#payment_card_security_code.container__content--card-form-group-security-input(placeholder = "カード背面4桁もしくは3桁の番号" type = "number" value = "")
+            %ul#security-code-error-wrapper.container__content--card-form-group-security-error
+              -# %li.container__content--card-form-group-security-error-text 必須項目です
+            .container__content--card-form-group-security-help
+              .container__content--card-form-group-security-help-text{"data-js" => "show-tips-toggle"}
+                %span.container__content--card-form-group-security-help-text-question ?
+                カード裏面の番号とは？
+              -# .container__content--card-form-group-security-help-info{"data-js" => "show-tips-content"}
+              -#   カードの裏面をご参照ください。
+              -#   %br/
+              -#   =image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615", width:"240"
+          %input#user_id(name = "user_id" type = "hidden" value = "249926553")
+          %input#encrypted_card_data(name = "encrypted_card_data" type = "hidden")
+          %p#primary-error.has-error-text
+          %input(name = "after_save_callback" type = "hidden" value = "")
+          %button#submit-button.btn-default.container__content--card-form-group-btn(type = "button") 追加する
+        %script(async = "" src = "https://p01.mul-pay.jp/ext/js/token.js")
+        %script(async = "" src = "//www-mercari-jp.akamaized.net/assets/js/get_gmopg_card_token.js?2821841460")
+
+  .container__side
+    .container__side--nav
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "マイページ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "お知らせ", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "やることリスト", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "いいね！一覧", "",class:"container__side--nav-listing-list-item"
+           
+        %li.container__side--nav-listing-list
+          =link_to "出品する", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 出品中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "出品した商品 - 売却済み", "",class:"container__side--nav-listing-list-item"
+        
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "購入した商品 - 過去の取引", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "ニュース一覧", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "評価一覧", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ガイド", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "お問い合わせ", "",class:"container__side--nav-listing-list-item"
+   
+      %h3.container__side--nav-merupay  メルペイ
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "残高・振込申請", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ポイント", "",class:"container__side--nav-listing-list-item"
+
+      %h3.container__side--nav-setting  設定
+      %ul.container__side--nav-listing
+        %li.container__side--nav-listing-list
+          =link_to "プロフィール", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "発送元・お届け先住所変更", "",class:"container__side--nav-listing-list-item"
+          
+        %li.container__side--nav-listing-list
+          =link_to "支払い方法", "",class:"container__side--nav-listing-list-choice"
+         
+        %li.container__side--nav-listing-list
+          =link_to "メール/パスワード", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "本人情報", "",class:"container__side--nav-listing-list-item"
+    
+        %li.container__side--nav-listing-list
+          =link_to "電話番号の確認", "",class:"container__side--nav-listing-list-item"
+         
+        %li.container__side--nav-listing-list
+          =link_to "ログアウト", "",class:"container__side--nav-listing-list-item"
+
+= render "items/footer"

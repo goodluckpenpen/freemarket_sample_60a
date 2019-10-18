@@ -1,0 +1,55 @@
+%h1.item__box__name
+  aaaaaa
+.item__box__mein.clearfix
+  .item__box__mein__photo
+  .item-price-box.hyde
+    %span.item-price ¥999999
+    %span.item-tax (税込)
+    %span.item-postage 送料込み
+  %section.hyde
+    .item__box__mein__button
+      =link_to "購入画面に進む","",class:"item-buy-btn"
+  %table.item__box__mein__table
+    %tbody
+      %tr
+        %th 出品者
+        %td
+          =link_to "username","" 
+          %div
+            .item-rate
+              .icon-good
+            .item-rate
+              .icon-nomal
+            .item-rate
+              .icon-bad
+      %tr
+        %th カテゴリー
+        %td
+          =link_to "",""    
+      %tr
+        %th ブランド
+        %td
+          =link_to "",""
+      %tr
+        %th 商品のサイズ
+        %td
+      %tr
+        %th 商品の状態
+        %td
+      %tr
+        %th 配送料の負担
+        %td
+      %tr
+        %th 配送の方法
+        %td
+      %tr
+        %th 配送元地域
+        %td
+          =link_to "",""  
+      %tr
+        %th 発想日の目安
+        %td
+.item-price-box
+  %span.item-price ¥999999
+  %span.item-tax (税込)
+  %span.item-postage 送料込み
