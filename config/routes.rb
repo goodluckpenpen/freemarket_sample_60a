@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       get "address"
       get "payment"
       get "completion"
+    end
+  end
 
   resources :items,only: [:show, :index]
   # get "items/item"
