@@ -14,9 +14,9 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
 
-  # config.assets.digest = true
-  # config.assets.enabled = true
-  # config.assets.initialize_on_precompile = true
+  config.assets.digest = true
+  config.assets.enabled = true
+  config.assets.initialize_on_precompile = true
 
   config.assets.css_compressor = :yui
   config.assets.js_compressor = :uglifier
