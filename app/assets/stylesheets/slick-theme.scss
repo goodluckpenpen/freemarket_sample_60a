@@ -39,7 +39,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-/* Slider */
+// Slider
 
 .slick-list {
     .slick-loading & {
@@ -47,7 +47,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-/* Icons */
+// Icons
 @if $slick-font-family == "slick" {
     @font-face {
         font-family: "slick";
@@ -58,7 +58,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-/* Arrows */
+// Arrows
 
 .slick-prev,
 .slick-next {
@@ -127,7 +127,7 @@ $slick-opacity-not-active: 0.25 !default;
     }
 }
 
-/* Dots */
+// Dots
 
 .slick-dotted.slick-slider {
     margin-bottom: 30px;

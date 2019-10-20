@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#index"
+  get "items/item"
+  get "signups/registration"
+  resources :signups do
+    collection do
+      get "newmember"
+      get "phonenumber"
+      get "address"
+      get "payment"
+      get "completion"
+    end
+  end
 
 
   get "items/select"
@@ -30,6 +41,9 @@ Rails.application.routes.draw do
       get 'logout'
       get 'mypage'
       get 'profile'
+      get 'seller_selling'
+      get 'seller_trading'
+      get 'seller_sold'
     end
   end
 end
