@@ -2,8 +2,8 @@
 .item
   %section.item__box
     =render 'item'
-    -# =link_to "購入画面に進む","",class:"item-buy-btn"
-    .item-buy-btn.disabled 売り切れました
+    =link_to "購入画面に進む","",class:"item-buy-btn"
+    -# .item-buy-btn.disabled 売り切れました
     =link_to "アプリで購入","",class:"item__box__appbutton","data-toggle":"open-app"
     .item__box__memo
       %p.item__box__memo__text
@@ -99,7 +99,7 @@
   %nav.item-nuv
     %ul
       %li
-        =link_to "メルカリ","" 
+        =link_to "メルカリ","/" 
         =fa_icon "chevron-right"
       %li
         %span #{@item.title}
