@@ -1,0 +1,110 @@
+=render 'header'
+.signups-body
+  %main.l-container.clearfix
+    .l-content
+      %section.l-chapter-container
+        %h2.l-chapter-head
+          取引画面
+        =render 'pop-transact'
+        %ul.transact-guide
+          %li
+            =link_to "https://www.mercari.com/jp/help_center/category/5/" do
+              %span 購入した後の流れ
+              =fa_icon "chevron-right"
+          %li
+            =link_to "https://www.mercari.com/jp/help_center/article/142/" do
+              %span 出品者からのお届け先確認について
+              =fa_icon "chevron-right"
+        %section.l-single-inner.rakuraku
+          %h3 
+            配送状況
+          %nav.progress-bar
+            %ol.clearfix
+              %li
+                発送済み
+                .progress-status-first.stop-cicle
+              %li
+                輸送中
+                .progress-status.no-cicle
+              %li
+                配達中
+                .progress-status
+              %li
+                配達済み
+                .progress-status-last
+          =link_to "",class:"change-address-link" do
+            %p 〒834-0000
+            %p 福岡県**市******
+            %p 
+              %span.buyer-name
+                田中 太郎    
+              様        
+          %p
+            %span.bold ※らくらくメルカリ便に関するお問い合わせは#{link_to 'こちら',"https://www.mercari.com/jp/mypage/support/"}よりお願いします
+            %br
+            （ヤマト運輸には、直接お問い合わせされないようお願いします）
+        .message-container
+          .message-content
+            %form.messsage-form
+              %p 取引メッセージの内容は、必要に応じて事務局で確認しています
+              %text_area.textarea-default
+              %button.message-submit.btn-default.btn-gray
+                %span 取引メッセージを送る
+        .message-content
+          ※お困りの際は#{link_to "よくある質問","https://www.mercari.com/jp/help_center/category/1/"}をご確認ください。
+      %aside.modal
+      %aside.modal
+    .l-side
+      %section.l-side-container
+        %h3.transact-info-head 取引情報
+        .transact-info-inner
+          %ul.transact-info-table
+            %li.transact-info-table-row
+              %span.transact-info-table-cell 商品
+              %ul.transact-info-table-cell
+                %li
+                  =link_to "" do
+                    =image_tag src="https://static.mercdn.net/thumb/photos/m88079333407_1.jpg?1571292583"
+                    .transact-info-item.bold
+                      user item
+                      %br
+                      ¥300
+            %li.transact-info-table-row
+              %span.transact-info-table-cell 送料
+              %ul.transact-info-table-cell
+                %li
+                  送料込み(出品者負担)
+            %li.transact-info-table-row
+              %span.transact-info-table-cell 購入日時
+              %ul.transact-info-table-cell
+                %li
+                  10月18日 14:43
+            %li.transact-info-table-row
+              %span.transact-info-table-cell 商品ID	
+              %ul.transact-info-table-cell
+                %li
+                  m88079333407
+            %li.transact-info-table-row
+              %span.transact-info-table-cell お届け先
+              %ul.transact-info-table-cell
+                %li
+                  %p 〒834-0000
+                  %p 福岡県**市****
+                  %p 
+                    %span.buyer-name.bold
+                      田中 太郎    
+                    様      
+      %section.l-side-container
+        %h3.transact-info-head 出品者情報
+        .transact-info-inner
+          =link_to "",class:"transact-info-user" do
+            %figure
+              =image_tag src="https://static.mercdn.net/images/member_photo_noimage.png",class:"transact-info-user-image"
+              %figcaption.bold
+                .transact-info-user-name
+                  user name
+            =fa_icon "chevron-right"
+
+
+
+=render 'footer'

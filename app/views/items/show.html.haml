@@ -2,7 +2,8 @@
 .item
   %section.item__box
     =render 'item'
-    =link_to "購入画面に進む","",class:"item-buy-btn"
+    -# =link_to "購入画面に進む","",class:"item-buy-btn"
+    .item-buy-btn.disabled 売り切れました
     =link_to "アプリで購入","",class:"item__box__appbutton","data-toggle":"open-app"
     .item__box__memo
       %p.item__box__memo__text
@@ -18,7 +19,7 @@
           %span いいね！
           %span{"data-num":"like",class:"like-num"}
         =link_to "",class:"item-button spam-button" do
-          =fa_icon "flag"
+          =icon "far","flag"
           %span 不適切な商品の報告
         %input{type:"hidden",name:"like_add_url"}
         %input{type:"hidden",name:"like_del_url"}
@@ -29,208 +30,70 @@
   =render 'comment'
   %ul.item__nav.clearfix
     %li.item__nav__prev
-      =link_to "" do
-        =fa_icon "chevron-left"
-        CAMELBAK キャメルバック ストロー
+      - if @item.previous.present?
+        = link_to item_path(@item.previous) do
+          =fa_icon "chevron-left"
+          = @item.previous.title
     %li.item__nav__next
-      =link_to "" do
-        =fa_icon "chevron-right"
-        パナソニック 美顔器 光エステ ESーWH20
+      - if @item.next.present?
+        = link_to item_path(@item.next) do
+          =fa_icon "chevron-right"
+          = @item.next.title
   .item__social
     .fb-save.fb_iframe_widget
     %ul.item__social__box
       %li
         =link_to "",class:"item__social__box__button" do
-          =fa_icon "facebook",class:"fb-button"
+          =icon "fab","facebook",class:"fb-button"
       %li
         =link_to "",class:"item__social__box__button" do
-          =fa_icon "twitter",class:"twi-button"
+          =icon "fab","twitter",class:"twi-button"
       %li.item__social__box__hyde-button
         =link_to "" do
-          =fa_icon "line",class:"line-button"
+          =icon "fab","line",class:"line-button"
       %li
         =link_to "",class:"item__social__box__button" do
-          =fa_icon "pinterest",class:"pin-button"
+          =icon "fab","pinterest",class:"pin-button"
   .item__users
     %section.item__users__box.clearfix
       %h2.item__users__box__head
-        =link_to "usernameさんのその他の出品",""
+        =link_to "#{@item.user.nickname}さんのその他の出品"
       .item__users__box__content.clearfix
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            %figcaption
-              .item-sold-badge
-              
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99          
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              /=image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99              
+        - @users.each do |item|
+          %section.item-box
+            =link_to item_path(item) do
+              %figure.item-box__photo
+                -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
+                =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              .item-box__body
+                %h3.item-box__body__name
+                  = item.title
+                .item-box__body__num
+                  .item-box__body__num__price
+                    = "¥#{item.price.to_s(:delimited)}"
+                  .item-box__body__num__like
+                    =fa_icon "heart"
+                    %span 99
+                      
     %section.item__users__box.clearfix
       %h2.item__users__box__head
-        =link_to "userbrandのその他の商品",""
+        =link_to "#{@item.brand.name}のその他の商品"
       .item__users__box__content.clearfix
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99          
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
-        %section.item-box
-          =link_to "" do
-            %figure.item-box__photo
-              =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-              -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            .item-box__body
-              %h3.item-box__body__name
-                Marmot★シェルジャケット　メンズXS
-              .item-box__body__num
-                .item-box__body__num__price
-                  ¥9999999999
-                .item-box__body__num__like
-                  =fa_icon "heart"
-                  %span 99
+        - @brands.each do |item|  
+          %section.item-box
+            =link_to item_path(item) do
+              %figure.item-box__photo
+                -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
+                =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+              .item-box__body
+                %h3.item-box__body__name
+                  = item.title
+                .item-box__body__num
+                  .item-box__body__num__price
+                    = "¥#{item.price.to_s(:delimited)}"
+                  .item-box__body__num__like
+                    =fa_icon "heart"
+                    %span 99
         
   %aside.item-modal
   %nav.item-nuv
@@ -239,5 +102,5 @@
         =link_to "メルカリ","" 
         =fa_icon "chevron-right"
       %li
-        %span 【ABCマート限定】adidas
+        %span #{@item.title}
 =render 'footer'
