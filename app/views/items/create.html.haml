@@ -1,8 +1,4 @@
-.single-container	
-  %header.single-header
-    %h1
-      =link_to "https://www.mercari.com/jp/" do
-        %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308" alt="mercari")
+= render "create-header"
 .items-sell
   .items-sell__infomations
     %h2.items-sell__infomations__item
@@ -290,18 +286,4 @@
       出品する
     %button.items-sell__exhibit__return 
       もどる 
-%footer.single-footer
-  %ul.single-footer__clearfix
-    %li.single-footer__clearfix__lists
-      =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
-    %li.single-footer__clearfix__lists
-      =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
-    %li.single-footer__clearfix__lists
-      =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
-  .single-footer__logo
-    = link_to "", href: "https://www.mercari.com/jp/"
-    %img.single-footer__logo__image{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", width: "80"}
-  %p
-    %small
-      &copy 2019 Mercari
-  %script{src: "/app/assets/javascripts/signups.js"}
+= render "create-footer"
