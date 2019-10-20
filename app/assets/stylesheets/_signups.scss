@@ -311,7 +311,7 @@
   .l-container{
    margin: 24px auto 0;
    padding: 0 0 40px;
-   @include mq{
+   @include md{
     width: 700px;
    }
    @include lg{
@@ -321,7 +321,7 @@
   }
   .l-content{
    width:100%;
-   @include mq{
+   @include md{
     float: none;
     width: 700px;
    }
@@ -343,7 +343,7 @@
    font-size: 18px;
    margin-block-end: 0;
    margin-block-start: 0;
-   @include mq{
+   @include md{
     font-size: 24px;
     padding: 8px 24px;
    }
@@ -361,7 +361,7 @@
 
   .l-side{
    margin: 40px auto 0;
-   @include mq{
+   @include md{
     width: 700px;
    }
    @include lg {
@@ -370,7 +370,7 @@
     margin: 0 40px 0 0;
    }
    &-container{
-    @include mq{
+    @include md{
      margin: 40px 0 0;
     }
     &:first-of-type{
@@ -428,7 +428,7 @@
      font-size: 16px;
      margin-block-start: 0;
      margin-block-end: 0;
-     @include mq{
+     @include md{
       padding: 0;
      }
     }
@@ -443,7 +443,7 @@
      border-bottom: 1px solid #eee;
      padding: 0;
      margin:0;
-     @include mq{
+     @include md{
       border: 1px solid #eee;
      }
      &-row{
@@ -512,7 +512,7 @@
       vertical-align: middle;
       white-space: nowrap;
       text-overflow: ellipsis;
-      @include mq{
+      @include md{
        max-width: 592px;
        height: auto;
       }
@@ -530,7 +530,7 @@
       font-size: 16px;
       white-space: nowrap;
       text-overflow: ellipsis;
-      @include mq{
+      @include md{
        overflow: visible;
        text-overflow: inherit;
        white-space: normal;
@@ -550,7 +550,7 @@
   .message-content{
    padding: 24px 7.5%;
    background: #fff;
-   @include mq{
+   @include md{
     padding: 24px;
    }
   }
