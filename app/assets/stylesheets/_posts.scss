@@ -975,7 +975,7 @@ img {
       border-color: initial;
       border-image: initial;
       padding: 0px;
-      z-index: 100;
+      z-index: 1;
       @include mq(){
        margin-left: 60px;
       }
@@ -992,7 +992,7 @@ img {
       border-color: initial;
       border-image: initial;
       padding: 0px;
-      z-index: 100;
+      z-index: 1;
       @include mq(){
        margin-right: 60px;
       }
@@ -1341,7 +1341,7 @@ footer{
    vertical-align: top;
    width: 50%;
    padding: 0px 10px;
-   float:left;
+   
    @include mq(lg){
     width: auto;
     padding: 0px 40px 0px 0px;
@@ -1349,7 +1349,7 @@ footer{
    &__link{
     display: inline-block;
     margin-top: 30px;
-    &__icon{
+    i{
      font-size:30px;
      max-width: 100%;
      height: auto;
@@ -1361,6 +1361,12 @@ footer{
   }
   &__about:first-child{
    padding-left: 0px;
+  }
+  &__about:nth-child(n+2){
+    float:right;
+    @include mq(lg){
+      float:none;
+    }
   }
   &__privacy{
    display: inline-block;
@@ -1491,6 +1497,10 @@ footer{
    line-height: 60px;
   }
  }
+ .disabled{
+  background-color: #888;
+  cursor: not-allowed;
+ }
  .item-price-box{
    margin: 24px 0 0;
    text-align: center;
@@ -1508,7 +1518,45 @@ footer{
   clear: both;
  }
  .item-sold-badge{
+   &:after{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 120px 120px 0 0;
+    border-color: #ea352d transparent;
+   }
+   &-text{
+    top: 24px;
+    font-size: 28px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    color: #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    letter-spacing: 2px;
+    font-weight: 600;
+    @include mq(){
+      top: 20px;
+      font-size: 26px;
+    }
+   }
    
+ }
+ .icon-good{
+  color: #ef5185;
+ }
+ .icon-bad{
+  color: #6ab5d8;
+ }
+ .icon-nomal{
+  color:#fba933;
  }
 
  &__box{
@@ -1693,7 +1741,11 @@ footer{
         font-size: 16px;
         line-height: 1.5;
         margin: 8px 0 0;
+        &:disabled{
+          background-color: #f5f5f5;
+        }
       }
+
       .message-submit{
         width: 100%;
         margin: 8px 0 0;
@@ -1714,6 +1766,11 @@ footer{
         span{
           font-size: 14px;
           vertical-align: middle;
+        }
+        &:disabled{
+          border: 1px solid #888;
+          background: #888;
+          color: #fff;
         }
       }
     }
@@ -2053,4 +2110,7 @@ footer{
     color: #fff;
   }
  }
+ 
+ 
+
 }
