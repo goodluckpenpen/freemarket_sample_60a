@@ -1,38 +1,17 @@
 .signups-body
   .single-container	
-    %header.single-header
-      %h1
-        =link_to "http://localhost:3000/items/index" do
-          %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308" alt="mercari")
-      %nav.progress-bar.signup-bar
-        %ol.clearfix
-          %li.active
-            会員情報
-            .progress-status-first
-          %li
-            電話番号認証
-            .progress-status
-          %li
-            お届け先住所入力
-            .progress-status
-          %li
-            支払い方法
-            .progress-status
-          %li
-            完了
-            .progress-status-last
+    = render 'newmember_bar'
     %main.single-main
       %section.l-single-container
         %h2.l-single-head.registration
           会員情報入力
-        = form_for @user, url: phonenumber_signups_path, method: :get, novalidate: "novalidate", html: {class: '.l-single-inner','.registration-form'} do |f|
-          = f.hidden_field :__csrf_value, value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"
+        = form_for @user,local: true, url: phonenumber_signups_path, method: :get, novalidate: "novalidate", html: {class: "l-single-inner registration-form"} do |f|
           .l-single-content
             .form-group
               = f.label :nickname, "ニックネーム"
               %sapn.form-require
                 必須
-              = f.text_field :nickname, placeholder: '例) メルカリ太郎', class: 'input-default'
+              = f.text_field :nickname, placeholder: "例) メルカリ太郎", class: "input-default"
             .form-group
               = f.label :email, "メールアドレス"
               %sapn.form-require
@@ -58,15 +37,15 @@
                 = f.label :name, "お名前(全角)"
                 %sapn.form-require
                   必須
-              = f.text_field :last_name, placeholder: '例) 山田', class: 'input-default half'
-              = f.text_field :first_name, placeholder: '例) 彩', class: 'input-default half'
+              = f.text_field :last_name, placeholder: "例) 山田", class: "input-default half"
+              = f.text_field :first_name, placeholder: "例) 彩", class: "input-default half"
             .form-group
               %div
                 = f.label :name_kana, "お名前(カナ)"
                 %sapn.form-require
                   必須
               = f.text_field :last_name_kana, placeholder: '例) ヤマダ', class: 'input-default half'
-              = f.text_field :first_name_kana, placeholder: '例) アヤ', class: 'input-default half'
+              = f.text_field :first_name_kana, placeholder: '例) アヤ', class: 'input-default half'
             .form-group
               = f.label :birthdate, "生年月日"
               %sapn.form-require
@@ -75,21 +54,20 @@
               .birthday-select-wrap
                 .select-wrap
                   = fa_icon 'chevron-down'
-                  = f.date_select :birthdate_year, {discard_day, discard_month, start_year:1900, end_year:2019, default:{year:2019}, prompt: "--", class: "select-default"}
+                  = f.date_select :birthdate_year , {discard_day: true, discard_month: true, start_year: Time.now.year, end_year: 1900, prompt: "--"}, class: "select-default"
                 %span 年
                 .select-wrap.select-wrap__month
                   = fa_icon 'chevron-down'
-                  = f.date_select :birthdate_month, {use_month_numbers:ture, discard_year, discard_day, default:{month:1}, prompt: "--", class: "select-default"}
+                  = f.select :birthdate_month, [1,2,3,4,5,6,7,8,9,10,11,12],{prompt: "--"}, class: "select-default"
                 %span 月
                 .select-wrap.select-wrap__day
                   = fa_icon 'chevron-down'
-                  = f.date_select :birthdate_day, {discard_day, discard_month, default:{month:1}, prompt: "--", class: "select-default"}
+                  = f.select :birthdate_day, [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31],{prompt: "--"}, class: "select-default"
                 %span 日
               .clearfix
               %p.form-info-text
                 ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
           .l-single-content
-            = f.hidden_field :after_save_callback
             .form-group
               .g-recaptcha.signup-recaptcha{"data-sitekey": "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
                 %div{style: "width: 304px; height: 78px;"}
@@ -108,17 +86,4 @@
                 =link_to "https://www.mercari.com/jp/help_center/article/423", target: "_blank" do
                   本人情報の登録について
                   = fa_icon 'chevron-right'
-    %footer.single-footer
-      %nav
-        %ul.clearfix
-          %li
-            =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
-          %li
-            =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
-          %li
-            =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
-      %a.single-footer-logo{href: "https://www.mercari.com/jp/"}
-        %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", width: "80"}
-      %p
-        %small
-          &copy 2019 Mercari
+    = render 'registration_footer'

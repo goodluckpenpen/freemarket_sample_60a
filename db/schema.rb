@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_17_033901) do
+ActiveRecord::Schema.define(version: 2019_10_19_105722) do
 
   create_table "brands", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_033901) do
     t.integer "card_expiration_date_month", null: false
     t.integer "card_expiration_date_year", null: false
     t.integer "home_phone_number"
+    t.integer "authentication_code"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
