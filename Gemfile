@@ -87,5 +87,5 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'ancestry'
-gem 'font-awesome-sass'
+gem 'font-awesome-sass', '~> 5.0.13'
 gem 'pry-rails'
