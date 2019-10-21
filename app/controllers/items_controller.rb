@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
   def select
   end
 
-
   def buy
   end
 
