@@ -1,0 +1,144 @@
+.buy-main {
+  height: 745px;
+  width: 700px;
+  background-color: #fff;
+  margin: 0 auto;
+  
+  &__header {
+    height: 65px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0;
+    padding: 22px 16px 16px;
+    border-bottom: 1px;
+    text-align: center;
+  }
+  &__price {
+    height: 312px;
+    width: 320px;
+    margin: 24px auto 0;
+    
+    &__title {
+      height: 64px;
+      width: 320px;
+      font-size: 16px;
+      text-align: left;
+      font-weight: 600;
+    
+      &__name {
+        float: left;
+        height: 64px;
+        width: 240; 
+        padding: 0 0 0 16px;
+        text-align: top;
+      }
+    }
+    &__tax {
+      height: 41px;
+      line-height: 1.5;
+      text-align: center;
+      margin-top: 8px;
+      padding: 0 95px;
+
+      &__number {
+        font-size: 20px;
+        font-weight: 550;
+        padding-top: 2px;
+        float: left;
+        
+      }
+      &__send {
+        float: right; 
+        padding-top: 9px;
+      }
+    }
+    &__point {
+      height: 48px;
+      background-color: #ccc;
+      margin-top: 8px;
+      padding: 16px;
+      text-align: center;
+    }
+    &__pay {
+      height: 60px;
+      padding:16px 0;
+      
+      &__paying {
+        float: left;
+        width: 50%;
+        font-weight: 550;
+        font-size: 18px;
+        padding-top: 8px;
+      }
+      &__number {
+        float: right;
+        width: 50%;
+        font-weight: 550;
+        font-size: 26px;
+        
+        &__position {
+          float: right;
+        }
+      }
+    }
+    &__decide {
+      height: 50px;
+      width: 320px;
+      font-size: 14px;
+      text-align: center;
+      font-weight: 600;
+      color: white;
+      background-color:#ea352d;
+      margin-top: 8px;
+      padding: 20px;
+    }
+  }
+  &__delivery {
+    height: 127px;
+    width: 320px;
+    margin: 25px auto 0;
+
+    &__to {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    &__adress {
+      height: 57px;
+      width: 320px;
+      margin-top: 8px;
+    }
+    &__change {
+      width: 320px;
+      text-align: right;
+      color: #0099e8;
+    }
+    i {
+      height: 10px;
+      width: 6px;
+      float: right;
+      content: '\e005';
+    }
+  }
+  &__method {
+    height: 127px;
+    width: 320px;
+    margin: 25px auto 0;
+
+    &__pay {
+      font-size: 14px;
+      font-weight: bold;
+    }
+    p {
+      margin-top: 8px;
+    }
+    &__change {
+      width: 320px;
+      text-align: right;
+      color: #0099e8;
+
+      i {
+
+      }
+    }
+  }
+}

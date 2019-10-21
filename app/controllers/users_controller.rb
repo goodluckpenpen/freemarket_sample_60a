@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   def show
   end
 
+  def create
+  end
+
   def card_add_btn
   end
 
