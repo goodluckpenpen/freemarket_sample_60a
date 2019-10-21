@@ -45,7 +45,7 @@
           %span.items-sell__details__right__category__head__required
             必須
         .items-sell__details__right__category__frame
-          -# =icon("fas","angle-down")
+          =icon("fas","angle-down", class: "fa-2x")
           %select.items-sell__details__right__category__frame__main  
             %option{value: "カテゴリー0"} ---
             %option{value: "カテゴリー1"} レディース
@@ -62,6 +62,7 @@
             %option{value: "カテゴリー12"} 自動車・オートバイ
             %option{value: "カテゴリー13"} その他
       -#   .items-sell__details__right__category__frame
+      -#     =icon("fas","angle-down", class: "fa-2x")
       -#     %select.items-sell__details__right__category__frame__main
       -#       %option{value: "カテゴリー0"} ---
       -#       %option{value: "カテゴリー1"} レディース
@@ -85,6 +86,7 @@
       -#       %option{value: "カテゴリー19"} おもちゃ・ホビー・グッズ
       -#       %option{value: "カテゴリー20"} コスメ・香水・美容
       -#   .items-sell__details__right__category__frame
+      -#     =icon("fas","angle-down", class: "fa-2x")
       -#     %select.items-sell__details__right__category__frame__main
       -#       %option{value: "カテゴリー0"} ---
       -#       %option{value: "カテゴリー1"} レディース
@@ -98,7 +100,8 @@
       -#     サイズ
       -#     %span.items-sell__details__right__size__head__required
       -#       必須
-      -#   .items-sell__details__right__size__frame    
+      -#   .items-sell__details__right__size__frame 
+      -#     =icon("fas","angle-down", class: "fa-2x")   
       -#     %select.items-sell__details__right__size__frame__main
       -#       %option{value: "サイズ0"} ---
       -#       %option{value: "サイズ1"} XXS以下
@@ -124,6 +127,7 @@
           %span.items-sell__details__right__status__head__required
             必須
         .items-sell__details__right__status__frame
+          =icon("fas","angle-down", class: "fa-2x")
           %select.items-sell__details__right__status__frame__main
             %option{value: "状態0"} ---
             %option{value: "状態1"} 新品、未使用
@@ -144,7 +148,8 @@
           配送料の負担
           %span.items-sell__delivery__right__burden__head__required
             必須
-        .items-sell__delivery__right__burden__frame      
+        .items-sell__delivery__right__burden__frame 
+          =icon("fas","angle-down", class: "fa-2x")     
           %select.items-sell__delivery__right__burden__frame__main
             %option{value: "負担者0"} ---
             %option{value: "負担者1"} 送料込み（出品者負担）
@@ -155,6 +160,7 @@
       -#     %span.items-sell__delivery__right__method__head__required
       -#       必須
       -#   .items-sell__delivery__right__method__frame
+      -#     =icon("fas","angle-down", class: "fa-2x")
       -#     %select.items-sell__delivery__right__method__frame__main
       -#       %option{value: "方法0"} ---
       -#       %option{value: "方法1"} 未定
@@ -167,6 +173,7 @@
       -#       %option{value: "方法8"} クリップポスト
       -#       %option{value: "方法8"} ゆうポケット
       -#   .items-sell__delivery__right__method__frame
+      -#     =icon("fas","angle-down")
       -#     %select.items-sell__delivery__right__method__frame__main
       -#       %option{value: "方法0"} ---
       -#       %option{value: "方法1"} 未定
@@ -180,61 +187,63 @@
             必須
       .items-sell__delivery__right__area__frame
         .items-sell__delivery__right__area__frame__icon
-        %select.items-sell__delivery__right__area__frame__main
-          %option{value: ""} ---
-          %option{value: "北海道"} 北海道
-          %option{value: "青森県"} 青森県
-          %option{value: "岩手県"} 岩手県
-          %option{value: "宮城県"} 宮城県
-          %option{value: "秋田県"} 秋田県
-          %option{value: "山形県"} 山形県
-          %option{value: "福島県"} 福島県
-          %option{value: "茨城県"} 茨城県
-          %option{value: "栃木県"} 栃木県
-          %option{value: "群馬県"} 群馬県
-          %option{value: "埼玉県"} 埼玉県
-          %option{value: "千葉県"} 千葉県
-          %option{value: "東京都"} 東京都
-          %option{value: "神奈川県"} 神奈川県
-          %option{value: "新潟県"} 新潟県
-          %option{value: "富山県"} 富山県
-          %option{value: "石川県"} 石川県
-          %option{value: "福井県"} 福井県
-          %option{value: "山梨県"} 山梨県
-          %option{value: "長野県"} 長野県
-          %option{value: "岐阜県"} 岐阜県
-          %option{value: "静岡県"} 静岡県
-          %option{value: "愛知県"} 愛知県
-          %option{value: "三重県"} 三重県
-          %option{value: "滋賀県"} 滋賀県
-          %option{value: "京都府"} 京都府
-          %option{value: "大阪府"} 大阪府
-          %option{value: "兵庫県"} 兵庫県
-          %option{value: "奈良県"} 奈良県
-          %option{value: "和歌山県"} 和歌山県
-          %option{value: "鳥取県"} 鳥取県
-          %option{value: "島根県"} 島根県
-          %option{value: "岡山県"} 岡山県
-          %option{value: "広島県"} 広島県
-          %option{value: "山口県"} 山口県
-          %option{value: "徳島県"} 徳島県
-          %option{value: "香川県"} 香川県
-          %option{value: "愛媛県"} 愛媛県
-          %option{value: "高知県"} 高知県
-          %option{value: "福岡県"} 福岡県
-          %option{value: "佐賀県"} 佐賀県
-          %option{value: "長崎県"} 長崎県
-          %option{value: "熊本県"} 熊本県
-          %option{value: "大分県"} 大分県
-          %option{value: "宮崎県"} 宮崎県
-          %option{value: "鹿児島県"} 鹿児島県
-          %option{value: "沖縄県"} 沖縄県
+          =icon("fas","angle-down", class: "fa-2x")
+          %select.items-sell__delivery__right__area__frame__main
+            %option{value: ""} ---
+            %option{value: "北海道"} 北海道
+            %option{value: "青森県"} 青森県
+            %option{value: "岩手県"} 岩手県
+            %option{value: "宮城県"} 宮城県
+            %option{value: "秋田県"} 秋田県
+            %option{value: "山形県"} 山形県
+            %option{value: "福島県"} 福島県
+            %option{value: "茨城県"} 茨城県
+            %option{value: "栃木県"} 栃木県
+            %option{value: "群馬県"} 群馬県
+            %option{value: "埼玉県"} 埼玉県
+            %option{value: "千葉県"} 千葉県
+            %option{value: "東京都"} 東京都
+            %option{value: "神奈川県"} 神奈川県
+            %option{value: "新潟県"} 新潟県
+            %option{value: "富山県"} 富山県
+            %option{value: "石川県"} 石川県
+            %option{value: "福井県"} 福井県
+            %option{value: "山梨県"} 山梨県
+            %option{value: "長野県"} 長野県
+            %option{value: "岐阜県"} 岐阜県
+            %option{value: "静岡県"} 静岡県
+            %option{value: "愛知県"} 愛知県
+            %option{value: "三重県"} 三重県
+            %option{value: "滋賀県"} 滋賀県
+            %option{value: "京都府"} 京都府
+            %option{value: "大阪府"} 大阪府
+            %option{value: "兵庫県"} 兵庫県
+            %option{value: "奈良県"} 奈良県
+            %option{value: "和歌山県"} 和歌山県
+            %option{value: "鳥取県"} 鳥取県
+            %option{value: "島根県"} 島根県
+            %option{value: "岡山県"} 岡山県
+            %option{value: "広島県"} 広島県
+            %option{value: "山口県"} 山口県
+            %option{value: "徳島県"} 徳島県
+            %option{value: "香川県"} 香川県
+            %option{value: "愛媛県"} 愛媛県
+            %option{value: "高知県"} 高知県
+            %option{value: "福岡県"} 福岡県
+            %option{value: "佐賀県"} 佐賀県
+            %option{value: "長崎県"} 長崎県
+            %option{value: "熊本県"} 熊本県
+            %option{value: "大分県"} 大分県
+            %option{value: "宮崎県"} 宮崎県
+            %option{value: "鹿児島県"} 鹿児島県
+            %option{value: "沖縄県"} 沖縄県
       .items-sell__delivery__right__date
         %label.items-sell__delivery__right__date__head
           発送までの日数
           %span.items-sell__delivery__right__date__head__required
             必須
       .items-sell__delivery__right__date__frame
+        =icon("fas","angle-down", class: "fa-2x")
         %select.items-sell__delivery__right__date__frame__main
           %option{value: "日数0"} ---
           %option{value: "日数1"} 1~2日で発送
