@@ -19,7 +19,7 @@
           %span いいね！
           %span{"data-num":"like",class:"like-num"}
         =link_to "",class:"item-button spam-button" do
-          =icon "far","flag"
+          %i.far.fa-flag
           %span 不適切な商品の報告
         %input{type:"hidden",name:"like_add_url"}
         %input{type:"hidden",name:"like_del_url"}
@@ -44,16 +44,16 @@
     %ul.item__social__box
       %li
         =link_to "",class:"item__social__box__button" do
-          =icon "fab","facebook",class:"fb-button"
+          %i.fab.fa-facebook.fb-button
       %li
         =link_to "",class:"item__social__box__button" do
-          =icon "fab","twitter",class:"twi-button"
+          %i.fab.fa-twitter.twi-button
       %li.item__social__box__hyde-button
         =link_to "" do
-          =icon "fab","line",class:"line-button"
+          %i.fab.fa-line.line-button
       %li
         =link_to "",class:"item__social__box__button" do
-          =icon "fab","pinterest",class:"pin-button"
+          %i.fab.fa-pinterest.pin-button
   .item__users
     %section.item__users__box.clearfix
       %h2.item__users__box__head
