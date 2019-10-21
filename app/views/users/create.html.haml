@@ -45,8 +45,8 @@
           %span.items-sell__details__right__category__head__required
             必須
         .items-sell__details__right__category__frame
-          %select.items-sell__details__right__category__frame__main
-            %i.items-sell__details__right__category__frame__icon
+          -# =icon("fas","angle-down")
+          %select.items-sell__details__right__category__frame__main  
             %option{value: "カテゴリー0"} ---
             %option{value: "カテゴリー1"} レディース
             %option{value: "カテゴリー2"} メンズ
@@ -179,6 +179,7 @@
           %span.items-sell__delivery__right__area__head__required
             必須
       .items-sell__delivery__right__area__frame
+        .items-sell__delivery__right__area__frame__icon
         %select.items-sell__delivery__right__area__frame__main
           %option{value: ""} ---
           %option{value: "北海道"} 北海道
@@ -251,6 +252,7 @@
           %span.items-sell__price__right__list1__top__required
             必須
         .items-sell__price__right__list1__plices
+          %p.items-sell__price__right__list1__plices__yen
           ¥
           %input.items-sell__price__right__list1__plices__example{placeholder: "例）300"}
           
