@@ -2110,6 +2110,48 @@ footer{
     color: #fff;
   }
  }
+
+ .slick-slide{
+   img{
+     height:300px;
+     width:100%;
+     object-fit:cover;
+   }
+ }
+ .slick-dotted{
+   margin-bottom:0;
+ }
+ .slick-slider{
+   margin-bottom:0;
+ }
+ 
+ .slick-dots{
+   position:static;
+   text-align: left;
+   line-height: 0;
+  
+   li{
+    overflow: hidden;
+    width: 20%;
+    height: 60px;
+    max-height: 90px;
+    opacity: .4;
+    cursor: pointer;
+    @include mq(){
+      width: 60px;
+      height: 60px;
+      max-height: none;
+    }
+     img{
+      width: 100%;
+      vertical-align: bottom;
+     }
+   }
+   .slick-active{
+    opacity: 1;
+    cursor: default;
+   }
+ }
  
  
 
