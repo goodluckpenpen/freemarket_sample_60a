@@ -2,6 +2,7 @@
 
 %main.container
   .container__content
+
     %section.container__content--mypage
       =link_to "",class:"container__content--mypage-user" do
         %figure.container__content--mypage-user-img
@@ -12,70 +13,115 @@
           %span.container__content--mypage-user-number-value 27
           .container__content--mypage-user-number-exhibit  出品数
           %span.container__content--mypage-user-number-value 22
+    //--タブ1--//
+    %section.container__content--tabs.tabs
+      %input(id="notice" class="container__content--tabs-notice" type="radio" name="tab_item" checked="checked")
+      %label(class="tab_item" for="notice") お知らせ
+      %input(id="todo" class="container__content--tabs-list-todo" type="radio" name="tab_item" )
+      %label(class="tab_item" for="todo") やることリスト
 
-    %section.container__content--mypage-tabs
-      %ul(id="tab-group " class="container__content--mypage-tabs-list")
-        %li(id="tab " class="container__content--mypage-tabs-list-notice")
-          %h3
-            =link_to "お知らせ", "",class:"container__content--mypage-tabs-list-notice-text"
-        %li(id="tab " class="container__content--mypage-tabs-list-todo")
-          %h3
-            =link_to "やることリスト", "",class:"container__content--mypage-tabs-list-todo-text"
-      .container__content--mypage-tabs-detail
-        %ul.container__content--mypage-tabs-detail-notice
+      //---内容---//
+      .container__content--tabs-detail#all_notice
+        %ul.container__content--tabs-detail-notice
 
-          %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
+          -# %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
           
-          -# %li.container__content--mypage-tabs-detail-notice-list
-          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
-          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
-          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
-          -#     .container__content--mypage-tabs-detail-notice-list-link-message
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
-          -#         事務職からのメッセージ
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
-          -#         = fa_icon 'picture-o', class: 'icon-time'
-          -#         %span １時間
-          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
-          -# %li.container__content--mypage-tabs-detail-notice-list
-          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
-          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
-          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
-          -#     .container__content--mypage-tabs-detail-notice-list-link-message
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
-          -#         事務職からのメッセージ
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
-          -#         = fa_icon 'picture-o', class: 'icon-time'
-          -#         %span １時間
-          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
-          -# %li.container__content--mypage-tabs-detail-notice-list
-          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-list-link")
-          -#     %figure.container__content--mypage-tabs-detail-notice-list-link-body
-          -#       = image_tag '/mercari_profile.png', class:'container__content--mypage-tabs-detail-notice-list-link-body-img'
-          -#     .container__content--mypage-tabs-detail-notice-list-link-message
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-text 
-          -#         事務職からのメッセージ
-          -#       .container__content--mypage-tabs-detail-notice-list-link-message-time
-          -#         = fa_icon 'picture-o', class: 'icon-time'
-          -#         %span １時間
-          -#     = fa_icon 'chevron-right', class: 'icon-chevron'
-          -# %li.container__content--mypage-tabs-detail-notice-listing
-          -#   %a(href= "" class="container__content--mypage-tabs-detail-notice-listing-btn")
-          -#     一覧を見る
-         
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務職からのメッセージ
+                .container__content--tabs-detail-notice-list-link-message-time
+                  = fa_icon 'picture-o', class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
 
-    %section.container__content--mypage-buy
-      %h2.container__content--mypage-buy-title 購入した商品
-      %ul.container__content--mypage-buy-tabs
-        %li.container__content--mypage-buy-tabs-trade
-          %h3.container__content--mypage-buy-tabs-trade-text
-            取引中
-        %li.container__content--mypage-buy-tabs-past
-          %h3.container__content--mypage-buy-tabs-past-text
-            過去の取引
-      .container__content--mypage-buy-detail
-        %ul.container__content--mypage-buy-detail-trade
-          %li.container__content--mypage-buy-detail-trade-list 取引中の商品がありません
+          %li.container__content--tabs-detail-notice-listing
+            %a(href= "" class="container__content--tabs-detail-notice-listing-btn")
+              一覧を見る
+
+      .container__content--tabs-detail#all_todo
+        %ul.container__content--tabs-detail-notice
+
+          -# %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
+          
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  ああああああああああ
+                .container__content--tabs-detail-notice-list-link-message-time
+                  = fa_icon 'picture-o', class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+
+          %li.container__content--tabs-detail-notice-listing
+            %a(href= "" class="container__content--tabs-detail-notice-listing-btn")
+              一覧を見る     
+    //--タブ2--//
+    %section.container__content--buy.tabs2
+      %h2.container__content--buy-title 購入した商品
+      %input(id="trade" class="container__content-buy-trade" type="radio" name="tab_item2" checked="checked")
+      %label(class="tab_item2" for="trade") 取引中
+      %input(id="past" class="container__content--buy-past" type="radio" name="tab_item2" )
+      %label(class="tab_item2" for="past") 過去の取引
+      //内容//
+      .container__content--tabs-detail#all_trade
+        %ul.container__content--tabs-detail-notice
+
+          -# %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
+          
+          %li 
+            =link_to "",class:"container__content--tabs-detail-notice-item" do
+              %figure
+                = image_tag '/merukari_member_photo.png', class:'container__content--tabs-detail-notice-item-image'
+              .container__content--tabs-detail-notice-item-info
+                .container__content--tabs-detail-notice-item-info-text ジャンパー
+                .container__content--tabs-detail-notice-item-info-box
+                  取引中
+              %i.icon-arrow-right
+
+          %li.container__content--tabs-detail-notice-listing
+            %a(href= "" class="container__content--tabs-detail-notice-listing-btn")
+              一覧を見る
+
+      .container__content--tabs-detail#all_past
+        %ul.container__content--tabs-detail-notice
+
+          -# %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
+          
+          %li 
+            =link_to "",class:"container__content--tabs-detail-notice-item" do
+              %figure
+                = image_tag '/merukari_member_photo.png', class:'container__content--tabs-detail-notice-item-image'
+              .container__content--tabs-detail-notice-item-info
+                .container__content--tabs-detail-notice-item-info-text ジャンパー
+                .container__content--tabs-detail-notice-item-info-box-gray
+                  売却済
+              %i.icon-arrow-right
+
+          %li.container__content--tabs-detail-notice-listing
+            %a(href= "" class="container__content--tabs-detail-notice-listing-btn")
+              一覧を見る 
+
+      
+
+
+
+      -# %ul.container__content--buy-tabs
+      -#   %li.container__content--buy-tabs-trade
+      -#     %h3.container__content--buy-tabs-trade-text
+      -#       取引中
+      -#   %li.container__content--buy-tabs-past
+      -#     %h3.container__content--buy-tabs-past-text
+      -#       過去の取引
+      -# .container__content--buy-detail
+      -#   %ul.container__content--buy-detail-trade
+      -#     %li.container__content--buy-detail-trade-list 取引中の商品がありません
 
         -# %li.container__content--mypage-group-notice-list
         -#   .container__content--mypage-group-notice-list-link
