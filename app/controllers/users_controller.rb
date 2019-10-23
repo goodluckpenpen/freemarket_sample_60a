@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    @user = User.new
   end
 
   def card_add_btn
@@ -36,4 +37,9 @@ class UsersController < ApplicationController
   def seller_sold
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :image)
+  end
 end
