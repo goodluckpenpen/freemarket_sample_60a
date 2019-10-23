@@ -13,18 +13,20 @@
             =link_to "取引中","",class:"container__content--group-tabs-list-active-name"
         %li.container__content--group-tabs-list
           %h3
-            =link_to "売却中","",class:"container__content--group-tabs-list-name"
+            =link_to "売却済","",class:"container__content--group-tabs-list-name"
       .container__content--group-wrap
         %ul.container__content--group-wrap-listing
-          %li 
-            =link_to "",class:"container__content--group-wrap-listing-item" do
-              %figure
-                = image_tag '/merukari_member_photo.png', class:'container__content--group-wrap-listing-item-image'
-              .container__content--group-wrap-listing-item-info
-                .container__content--group-wrap-listing-item-info-text ジャンパー
-                .container__content--group-wrap-listing-item-info-box-red
-                  発送待ち
-              %i.icon-arrow-right
+          - @item_trading.each do |item|
+            %li 
+              =link_to "",class:"container__content--group-wrap-listing-item" do
+                %figure
+                  = image_tag "#{item.images.first.image}", class:'container__content--group-wrap-listing-item-image'
+                .container__content--group-wrap-listing-item-info
+                  .container__content--group-wrap-listing-item-info-text 
+                    = "#{item.title}"
+                  .container__content--group-wrap-listing-item-info-box-red
+                    発送待ち
+                %i.icon-arrow-right
 
     %ul.container__content--pager
       %li.container__content--pager-prev 

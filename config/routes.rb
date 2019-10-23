@@ -22,7 +22,14 @@ Rails.application.routes.draw do
   get "items/select"
   get "items/buy"
   get "items/transaction"
-  resources :items,only: [:show, :index]
+  resources :items,only: [:show, :index] do
+    member do
+      get 'select'
+    end
+    collection do
+      
+    end
+  end
 
   resources :users, only: [:show] do
     member do
