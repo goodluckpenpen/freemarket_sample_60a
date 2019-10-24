@@ -13,23 +13,23 @@ class User < ApplicationRecord
   VALID_NAME_KANA = /\A[\p{katakana}\p{blank}ー－]+\z/
   
   #newmember
-  validates :nickname, presence: true, length: { maximum: 20}
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'},allow_blank: true #エラーメッセージの重複を避ける
-  validates :password, presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字(大・小文字)と数字両方を含むパスワードを設定してください'}, allow_blank: true
-  validates :password_confirmation, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字(大・小文字)と数字両方を含むパスワードを設定してください'}, allow_blank: true
+  validates :nickname, presence: true, on: :validates_newmember, length: { maximum: 20}
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX, message: 'のフォーマットが不適切です'},allow_blank: true, on: :validates_newmember #エラーメッセージの重複を避ける
+  validates :password, presence: true, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字(大・小文字)と数字両方を含むパスワードを設定してください'}, allow_blank: true, on: :validates_newmember
+  validates :password_confirmation, length: {minimum: 7, maximum: 128}, format: { with: VALID_PASSWORD_REGEX, message: 'は英字(大・小文字)と数字両方を含むパスワードを設定してください'}, allow_blank: true, on: :validates_newmember
   validates :password_confirmation, presence: true
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :last_name_kana, format: { with: VALID_NAME_KANA, message: 'はカタカナで入力してください'}, allow_blank: true
+  validates :last_name, presence: true, on: :validates_newmember
+  validates :first_name, presence: true, on: :validates_newmember
+  validates :last_name_kana, format: { with: VALID_NAME_KANA, message: 'はカタカナで入力してください'}, allow_blank: true, on: :validates_newmember
   validates :last_name_kana, presence: true
-  validates :first_name_kana, format: { with: VALID_NAME_KANA, message: 'はカタカナで入力してください'}, allow_blank: true
-  validates :first_name_kana, presence: true
-  validates :birthdate_year, presence: true
-  validates :birthdate_month, presence: true
-  validates :birthdate_day, presence: true
+  validates :first_name_kana, format: { with: VALID_NAME_KANA, message: 'はカタカナで入力してください'}, allow_blank: true, on: :validates_newmember
+  validates :first_name_kana, presence: true, on: :validates_newmember
+  validates :birthdate_year, presence: true, on: :validates_newmember
+  validates :birthdate_month, presence: true, on: :validates_newmember
+  validates :birthdate_day, presence: true, on: :validates_newmember
 
   #phonenumber
-  validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX, message: 'の入力が正しくありません'}, allow_blank: true
+  validates :phone_number, presence: true, format: { with: VALID_PHONE_REGEX, message: 'の入力が正しくありません'}, allow_blank: true, on: :validates_phonenumber
 
   #authentication
   validates :authentication_code, presence: true, numericality: { only_integer: true }
