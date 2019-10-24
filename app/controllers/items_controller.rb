@@ -18,10 +18,13 @@ class ItemsController < ApplicationController
     @brands = @item.brand.items.order("created_at DESC").limit(6)
   end
 
+  def purchase
+  end
+
   def select
   end
 
-  def buy
-  end
+  def bought
+  end 
 
 end

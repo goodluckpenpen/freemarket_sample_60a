@@ -15,8 +15,8 @@
         ドラックアンドドロップ
         またはクリックしてファイルをアップロード
       = form_for @user do |f|
-        = f.file_field :image , id: :user_image
-       
+        = f.file_field :image , class: "image", id: :user_img
+        .preview
     %p.items-sell__imgs__no-imgs
       -# 画像がありません
   .items-sell__message
