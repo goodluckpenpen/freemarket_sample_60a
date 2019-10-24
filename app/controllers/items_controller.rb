@@ -9,7 +9,6 @@ class ItemsController < ApplicationController
     @vuittons = Item.where(brand_id:3).order('id DESC').limit(10)
     @supremes = Item.where(brand_id:4).order('id DESC').limit(10)
     @nikes = Item.where(brand_id:2).order('id DESC').limit(10)
-
   end
 
   def show
