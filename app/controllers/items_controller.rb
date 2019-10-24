@@ -25,4 +25,10 @@ class ItemsController < ApplicationController
   def buy
   end
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy 
+    redirect_to controller: 'users',action: 'seller_selling'
+  end
+
 end
