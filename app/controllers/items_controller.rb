@@ -13,9 +13,15 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @users = @item.user.items.order("created_at DESC").limit(6)
+    @brands = @item.brand.items.order("created_at DESC").limit(6)
   end
 
+  def select
+    @item = Item.find(params[:id])
+  end
 
-  
+  def buy
+  end
 
 end

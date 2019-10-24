@@ -1,8 +1,16 @@
+/*
+*= require_tree .
+*= require_self
+*/
+
 @import "reset";
 @import "slick-theme";
 @import "slick";
 @import "posts";
 @import "commons";
-@import "font-awesome";
 @import "signups";
 @import "users";
+@import "font-awesome";
+@import "create";
+@import "bought";
+@import "purchase";

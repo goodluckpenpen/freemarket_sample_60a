@@ -74,13 +74,22 @@
             %ul#security-code-error-wrapper.container__content--card-form-group-security-error
               -# %li.container__content--card-form-group-security-error-text 必須項目です
             .container__content--card-form-group-security-help
-              .container__content--card-form-group-security-help-text{"data-js" => "show-tips-toggle"}
+              -# .signup-seqcode
+              -#   %span.form-question?
+              -#   = f.label :label1, "カード裏面の番号とは？"
+              -#   = f.check_box, id: "label1"
+              -#   .seqcode-show
+              -#     カードの裏面をご参照ください。
+              -#     %img{src: "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615", width: "240", alt: ""}
+              .container__content--card-form-group-security-help-text
                 %span.container__content--card-form-group-security-help-text-question ?
-                カード裏面の番号とは？
-              .container__content--card-form-group-security-help-info{"data-js" => "show-tips-content"}
-                カードの裏面をご参照ください。
-                %br/
-                =image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615", width:"240"
+                %label(for = "label") カード裏面の番号とは？
+                %input( type = "checkbox" id="label" class="container__content--card-form-group-security-help-text-none") 
+                .container__content--card-form-group-security-help-text-content
+                  %p カードの裏面をご参照ください。
+                  %br/
+                  =image_tag "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615", width:"240"
+              
           %input#user_id(name = "user_id" type = "hidden" value = "249926553")
           %input#encrypted_card_data(name = "encrypted_card_data" type = "hidden")
           %p#primary-error.has-error-text

@@ -18,7 +18,8 @@
                 .container__content--box-inner-center-body-list-type-num ************0713
                 .container__content--box-inner-center-body-list-type-mum 04 / 23
                 %input(type="hidden" name="method" value="card")
-                %button(type="submit"class="container__content--box-inner-center-body-list-type-btn") 削除する
+                =link_to "http://localhost:3000/users/card_input_info", class: "container__content--box-inner-center-body-list-type-btn" do
+                  削除する
 
         .container__content--box-inner-help
           =link_to "",class:"container__content--box-inner-help-link" do
