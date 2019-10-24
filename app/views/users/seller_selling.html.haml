@@ -20,7 +20,7 @@
             %li 
               =link_to select_item_path(item),class:"container__content--group-wrap-listing-item" do
                 %figure
-                  = image_tag url_for(item.images.first.image), class:'container__content--group-wrap-listing-item-image'
+                  = image_tag "#{item.images.first.image}", class:'container__content--group-wrap-listing-item-image'
                 .container__content--group-wrap-listing-item-info
                   .container__content--group-wrap-listing-item-info-text
                     = "「#{item.title}」"

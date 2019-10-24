@@ -12,8 +12,24 @@
         %form
           %button.item-change-box__button.btn-gray
             出品を一旦停止する
-        %button.item-change-box__button.btn-gray
+        %button.item-change-box__button.btn-gray.modalBtn
           商品を削除する
       =render 'comment'
+
+      .overlay
+      %aside.modal.is-animate.is-show.js-modal
+        .modal-inner.modal-banner
+          .modal-body
+            .modal-head 
+              確認
+              %p 削除すると二度と復活できません。 
+              %p 削除する代わりに停止することもできます。
+              %br
+              %p 本当に削除しますか？
+          .clearfix 
+            .modal-btn.modal-btn-cancel.js-modal-close.close  キャンセル
+            %form
+              =link_to "削除する",@item,class:"modal-btn-submit",method: :delete
+
 =render 'footer'
   
