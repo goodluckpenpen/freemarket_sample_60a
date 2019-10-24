@@ -151,7 +151,8 @@ class SignupsController < ApplicationController
       card_security_code: "111",
     )
     # 仮で作成したインスタンスのバリデーションチェックを行う
-    render '/signups/newmember' unless @user.valid?(:validates_phonenumber)
+    render '/signup/newmember' unless @user.valid?(:validates_newmember)
+    render '/signup/newmember' unless @user.valid?(:validates_phonenumber)
   end
 
   def validates_phonenumber
