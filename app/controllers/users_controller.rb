@@ -29,9 +29,11 @@ class UsersController < ApplicationController
   end
 
   def seller_selling
+    @item_selling = User.find(1).selling_items
   end
 
   def seller_trading
+    @item_trading = User.find(1).sold_items
   end
 
   def seller_sold

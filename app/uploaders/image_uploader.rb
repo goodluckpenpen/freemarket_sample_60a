@@ -6,6 +6,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   process resize_to_fit: [100, 100]
 
+  # Include RMagick or MiniMagick support:
+  include CarrierWave::RMagick
+
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test?
     storage :file
@@ -35,4 +38,5 @@ class ImageUploader < CarrierWave::Uploader::Base
      var = :"@#{mounted_as}_secure_token"
      model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
   end
+
 end

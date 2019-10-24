@@ -79,7 +79,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  # gem 'capistrano-yarn'
 end
 
 gem 'haml-rails'
@@ -87,5 +86,6 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'ancestry'
-gem 'font-awesome-sass'
+# バリデーションのエラーメッセージを日本語化する
+gem 'rails-i18n'
 gem 'pry-rails'
