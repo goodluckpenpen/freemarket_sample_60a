@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      user:
+        create: "次へ進む"

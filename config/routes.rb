@@ -10,21 +10,13 @@ Rails.application.routes.draw do
       get "authentication"
       get "address"
       get "payment"
-      post "completion"
+      get "completion"
     end
   end
 
   resources :items,only: [:show, :index]
   # get "items/item"
   get "items/select"
-  get "signups/registration"
-  get "signups/newmember"
-  get "signups/phonenumber"
-  get "signups/authentication"
-  get "signups/address"
-  get "signups/payment"
-  get "signups/completion"
-  
 
   resources :users, only: :show do
     member do

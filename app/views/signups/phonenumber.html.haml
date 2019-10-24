@@ -5,11 +5,15 @@
       %section.l-single-container
         %h2.l-single-head.registration
           電話番号の確認
-        = form_for @user,local: true, url: authentication_signups_path, method: :get, novalidate: "novalidate", html: {class: "l-single-inner registration-form"} do |f|
+        = form_for @user,local: true, url: authentication_signups_path, method: :get, html: {class: "l-single-inner registration-form"}, novalidate: 'novalidate' do |f|
           .l-single-content
             .form-group
               = f.label :phone_number, "携帯電話の番号"
-              = f.number_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'input-default'
+              - if @user.errors.full_messages_for(:phone_number).any?
+                = f.number_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'input-default--has-error'
+              - else
+                = f.number_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'input-default'
+              = render partial: 'error-messages', locals: { user: @user, column: "phone_number"}
               %p
                 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
             = f.submit 'SMSを送信する', class: "btn-default btn-red"

@@ -5,11 +5,15 @@
       %section.l-single-container
         %h2.l-single-head.registration
           電話番号認証
-        = form_for @user,local: true, url: address_signups_path, method: :get, novalidate: "novalidate", html: {class: "l-single-inner registration-form"} do |f|
+        = form_for @user,local: true, url: address_signups_path, method: :get, html: {class: "l-single-inner registration-form"}, novalidate: 'novalidate' do |f|
           .l-single-content
             .form-group
               = f.label :authentication_code, "認証番号"
-              = f.number_field :authentication_code, placeholder: '認証番号を入力', class: 'input-default'
+              - if @user.errors.full_messages_for(:authentication_code).any?
+                = f.number_field :authentication_code, placeholder: '認証番号を入力', class: 'input-default--has-error'
+              - else
+                = f.number_field :authentication_code, placeholder: '認証番号を入力', class: 'input-default'
+              = render partial: 'error-messages', locals: { user: @user, column: "authentication_code"}
               %p
                 SMSで届いた認証番号を入力してください
             = f.submit '認証して完了', class: "btn-default btn-red"
