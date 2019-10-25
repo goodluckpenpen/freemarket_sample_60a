@@ -5,7 +5,7 @@
       %section.l-single-container
         %h2.l-single-head.registration
           電話番号の確認
-        = form_for @user,local: true, url: authentication_signups_path, method: :get, html: {class: "l-single-inner registration-form"}, novalidate: 'novalidate' do |f|
+        = form_with model: @user, local: true, url: authentication_signups_path, method: :get, class: "l-single-inner registration-form", novalidate: 'novalidate' do |f|
           .l-single-content
             .form-group
               = f.label :phone_number, "携帯電話の番号"

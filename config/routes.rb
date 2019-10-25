@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   # get "items/item"
   # get "items/bought"
   get "items/select"
+  
   # get "items/purchase"
 
   get "items/select"
