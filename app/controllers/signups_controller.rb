@@ -1,10 +1,10 @@
 class SignupsController < ApplicationController
-  before_action :validates_newmember, only: :phonenumber # newmember バリデーション
-  before_action :validates_phonenumber, only: :authentication # phonenumber バリデーション
-  before_action :validates_authentication, only: :address # authentication バリデーション
-  before_action :validates_address, only: :payment # address バリデーション
-  before_action :validates_payment, only: :create # payment バリデーション
-
+  before_action :validates_newmember, only: :phonenumber # step1のバリデーション
+  before_action :validates_phonenumber, only: :authentication # step2のバリデーション
+  before_action :validates_authentication, only: :address # step3のバリデーション
+  before_action :validates_address, only: :payment # step4のバリデーション
+  before_action :validates_payment, only: :create # step5のバリデーション
+  
   def registration
   end
 
@@ -109,8 +109,9 @@ class SignupsController < ApplicationController
       :card_expiration_date_year,
     )
   end
+  
   def validates_newmember
-    # newmemberで入力された値をsessionに保存
+      # newmemberで入力された値をsessionに保存
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
@@ -135,8 +136,8 @@ class SignupsController < ApplicationController
       birthdate_month: session[:birthdate_month],
       birthdate_day: session[:birthdate_day],
       # 入力前の情報は、バリデーションに通る値を仮で入れる
-      phone_number: "08012345678",
-      authentication_code: "123",
+      phone_number: "08000000000",
+      authentication_code: "123456",
       address_last_name: "山田",
       address_first_name: "太郎",
       address_last_name_kana: "ヤマダ",
@@ -145,17 +146,15 @@ class SignupsController < ApplicationController
       prefecture: "千葉県",
       city: "千葉市",
       block_number: "若葉区1-1-1",
-      card_number: "1234567812345678",
+      card_number: "12345678123456",
       card_expiration_date_year: "20",
       card_expiration_date_month: "3",
       card_security_code: "111",
     )
-    # 仮で作成したインスタンスのバリデーションチェックを行う
-    render '/signups/newmember' unless @user.valid?(:validates_phonenumber)
+    render '/signups/newmember' unless @user.valid?
   end
-
+  
   def validates_phonenumber
-    # phonenumberで入力された値をsessionに保存
     session[:phone_number] = user_params[:phone_number]
     
     @user = User.new(
@@ -172,7 +171,7 @@ class SignupsController < ApplicationController
       birthdate_day: session[:birthdate_day],
       phone_number: session[:phone_number],
       
-      authentication_code: "123",
+      authentication_code: "123456",
       address_last_name: "山田",
       address_first_name: "太郎",
       address_last_name_kana: "ヤマダ",
@@ -181,7 +180,7 @@ class SignupsController < ApplicationController
       prefecture: "千葉県",
       city: "千葉市",
       block_number: "若葉区1-1-1",
-      card_number: "1234567812345678",
+      card_number: "12345678123456",
       card_expiration_date_year: "20",
       card_expiration_date_month: "3",
       card_security_code: "111",
@@ -218,7 +217,7 @@ class SignupsController < ApplicationController
       block_number: "若葉区1-1-1",
       building_name: "yamadaビル",
       home_phone_number: "09000000000",
-      card_number: "1234567812345678",
+      card_number: "12345678123456",
       card_expiration_date_year: "20",
       card_expiration_date_month: "3",
       card_security_code: "111",
@@ -238,7 +237,6 @@ class SignupsController < ApplicationController
     session[:block_number] = user_params[:block_number]
     session[:building_name] = user_params[:building_name]
     session[:home_phone_number] = user_params[:home_phone_number]
-    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -264,10 +262,10 @@ class SignupsController < ApplicationController
       building_name: session[:building_name],
       home_phone_number: session[:home_phone_number],
 
-      card_number: "1234567812345678",
-      card_expiration_date_year: "20",
-      card_expiration_date_month: "3",
-      card_security_code: "111",
+      card_number: "11111111111111",
+      card_expiration_date_year: "19",
+      card_expiration_date_month: "1",
+      card_security_code: "0000",
     )
     render '/signups/address' unless @user.valid?
   end
@@ -309,4 +307,5 @@ class SignupsController < ApplicationController
     )
     render '/signups/payment' unless @user.valid?
   end
+
 end

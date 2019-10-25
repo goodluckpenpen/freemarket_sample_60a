@@ -18,6 +18,7 @@ ja:
         phone_number: 電話番号
         authentication_code: 認証番号
         address_last_name: 姓
+        address_first_name: 名
         address_last_name_kana: 姓カナ
         address_first_name_kana: 名カナ
         postal_code: 郵便番号
