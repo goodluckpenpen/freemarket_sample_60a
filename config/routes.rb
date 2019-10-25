@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   resources :items,only: [:show, :index]
   # get "items/item"
   # get "items/bought"
-  get "items/select"
-  
   # get "items/purchase"
 
   get "items/select"
