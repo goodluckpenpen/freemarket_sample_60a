@@ -18,10 +18,7 @@ Rails.application.routes.draw do
   # get "items/item"
   # get "items/bought"
   get "items/select"
-<<<<<<< HEAD
-=======
   # get "items/purchase"
->>>>>>> master
 
   get "items/select"
   get "items/buy"
