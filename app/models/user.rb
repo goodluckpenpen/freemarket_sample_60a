@@ -49,6 +49,7 @@ class User < ApplicationRecord
   validates :card_expiration_date_month, presence: true
   validates :card_security_code, presence: true, length: {minimum: 3, maximum: 4}, format: { with: VALID_SECURITY_CODE, message: 'の入力が正しくありません'}, allow_blank: true
   
+  has_many :items
 
   has_many :buyed_items, foreign_key: "buyer_id", class_name: "Item"
   has_many :selling_items, -> { where("buyer_id is NULL") }, foreign_key: "seller_id", class_name: "Item"
