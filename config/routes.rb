@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # get "items/bought"
   # get "items/purchase"
 
- 
+
   get "items/buy"
   get "items/transaction"
   resources :items,only: [:show, :index] do
