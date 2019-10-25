@@ -17,80 +17,8 @@
             変更する
 
 
-  .container__side
-    .container__side--nav
-      %ul.container__side--nav-listing
-        %li.container__side--nav-listing-list
-          =link_to "マイページ", "",class:"container__side--nav-listing-list-item"
-           
-        %li.container__side--nav-listing-list
-          =link_to "お知らせ", "",class:"container__side--nav-listing-list-item"
-           
-        %li.container__side--nav-listing-list
-          =link_to "やることリスト", "",class:"container__side--nav-listing-list-item"
-           
-        %li.container__side--nav-listing-list
-          =link_to "いいね！一覧", "",class:"container__side--nav-listing-list-item"
-           
-        %li.container__side--nav-listing-list
-          =link_to "出品する", "",class:"container__side--nav-listing-list-item"
-    
-        %li.container__side--nav-listing-list
-          =link_to "出品した商品 - 出品中", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "出品した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "出品した商品 - 売却済み", "",class:"container__side--nav-listing-list-item"
-        
-        %li.container__side--nav-listing-list
-          =link_to "購入した商品 - 取引中", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "購入した商品 - 過去の取引", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "ニュース一覧", "",class:"container__side--nav-listing-list-item"
-    
-        %li.container__side--nav-listing-list
-          =link_to "評価一覧", "",class:"container__side--nav-listing-list-item"
-         
-        %li.container__side--nav-listing-list
-          =link_to "ガイド", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "お問い合わせ", "",class:"container__side--nav-listing-list-item"
-   
-      %h3.container__side--nav-merupay  メルペイ
-      %ul.container__side--nav-listing
-        %li.container__side--nav-listing-list
-          =link_to "残高・振込申請", "",class:"container__side--nav-listing-list-item"
-         
-        %li.container__side--nav-listing-list
-          =link_to "ポイント", "",class:"container__side--nav-listing-list-item"
-
-      %h3.container__side--nav-setting  設定
-      %ul.container__side--nav-listing
-        %li.container__side--nav-listing-list
-          =link_to "プロフィール", "",class:"container__side--nav-listing-list-choice"
-         
-        %li.container__side--nav-listing-list
-          =link_to "発送元・お届け先住所変更", "",class:"container__side--nav-listing-list-item"
-          
-        %li.container__side--nav-listing-list
-          =link_to "支払い方法", "",class:"container__side--nav-listing-list-item"
-         
-        %li.container__side--nav-listing-list
-          =link_to "メール/パスワード", "",class:"container__side--nav-listing-list-item"
-         
-        %li.container__side--nav-listing-list
-          =link_to "本人情報", "",class:"container__side--nav-listing-list-item"
-    
-        %li.container__side--nav-listing-list
-          =link_to "電話番号の確認", "",class:"container__side--nav-listing-list-item"
-         
-        %li.container__side--nav-listing-list
-          =link_to "ログアウト", "",class:"container__side--nav-listing-list-item"
+  =render 'slide_bar'
 
 = render "items/footer"
+
+=render 'items/selling_btn'
