@@ -72,7 +72,7 @@ class SignupsController < ApplicationController
 
   def completion
     # sign_inメソッドを使いcreateアクションで作成・保存したデータのidを用いてサインイン
-    # sign_in User.find(session[:id]) unless user_signed_in?
+    sign_in User.find(session[:id]) unless user_signed_in?
   end
 
   
