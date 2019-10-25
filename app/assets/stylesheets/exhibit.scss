@@ -1,0 +1,40 @@
+.modal {
+  height: 80px;
+  width: 600px;
+  margin: 0 auto;
+  background-color: white;
+
+  &__head {
+    text-align: center;
+    line-height: 80px;
+    font-weight: bold;
+  }
+  &__text {
+    background-color: white;
+    padding: 40px;
+
+    p {
+      text-align: center;
+    }
+
+    &__continue {
+      display: block;
+      line-height: 48px;
+      font-size: 14px;
+      height: 50px;
+      margin-top: 40px;
+      background: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      text-align: center;
+
+    }
+    &__items-page {
+      display: block;
+      font-size: 14px;
+      text-align: center;
+      color: #0099E8;
+      padding: 8px 0 0 0;
+    }
+  }
+}

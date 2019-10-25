@@ -3,20 +3,10 @@
 .item__box__mein.clearfix
   .item__box__mein__photo
     .slider-for
-      .slider-for-box
-        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png",class:"slider-for-box-image"
-      .slider-for-box
-        =image_tag src="https://images.unsplash.com/photo-1569394679973-c56925f9d30d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",class:"slider-for-box-image"
-      .slider-for-box
-        =image_tag src="https://images.unsplash.com/photo-1569996564309-98ba19e39b4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",class:"slider-for-box-image"
-      .slider-for-box
-        =image_tag src="https://images.unsplash.com/photo-1555454762-24a52b98f75f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",class:"slider-for-box-image"
-      .slider-for-box
-        =image_tag src="https://images.unsplash.com/photo-1571406252288-cc9c25bb4a44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",class:"slider-for-box-image"
-      .slider-for-box
-        =image_tag src="https://images.unsplash.com/photo-1568559292595-361d16809d5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60",class:"slider-for-box-image"
-
-
+      - @item.images.each do |image|
+        .slider-for-box
+          =image_tag "#{image.image}",class:"slider-for-box-image"
+      
       -# =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
     -# .item-sold-badge
     -#   .item-sold-badge-text SOLD      

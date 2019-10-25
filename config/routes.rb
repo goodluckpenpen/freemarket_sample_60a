@@ -14,12 +14,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:show, :index]
+  resources :items,only: [:show, :index, :destroy]
   # get "items/item"
   # get "items/bought"
   # get "items/purchase"
 
-  get "items/select"
+ 
   get "items/buy"
   get "items/transaction"
   resources :items,only: [:show, :index] do
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     member do
-      
+
     end
     collection do 
       get 'card_add_btn'

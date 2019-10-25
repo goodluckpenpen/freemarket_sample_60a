@@ -17,11 +17,21 @@ class ItemsController < ApplicationController
     @brands = @item.brand.items.order("created_at DESC").limit(6)
   end
 
+
+  def purchase
+  end
+
   def select
     @item = Item.find(params[:id])
   end
 
-  def buy
+  def bought
+  end 
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy 
+    redirect_to controller: 'users',action: 'seller_selling'
   end
 
 end

@@ -9,11 +9,14 @@
       %span.items-sell__imgs__head__required
         必須
     %p.items-sell__imgs__contents
-      最大10文字までアップロードできます
-    .items-sell__imgs__main1{multiple: "", name: "image"}
+      最大10枚までアップロードできます
+    %label.items-sell__imgs__main1{multiple: "", name: "image"}
       %pre
         ドラックアンドドロップ
         またはクリックしてファイルをアップロード
+      = form_for @user do |f|
+        = f.file_field :image , class: "image", id: :user_img
+        .preview
     %p.items-sell__imgs__no-imgs
       -# 画像がありません
   .items-sell__message
