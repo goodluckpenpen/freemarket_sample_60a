@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#mypage"
+  root "items#index"
   get "items/item"
   resources :signups, only: [:create] do
     collection do
