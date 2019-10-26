@@ -49,9 +49,9 @@
               .select-wrap.half
                 -# = f.date_select(:card_expiration_date_year, discard_month: true, discard_day: true, start_year: (Time.now.year), end_year: (Time.now.year+10), prompt: "--")
                 - if @user.errors.full_messages_for(:card_expiration_date_year).any?
-                  = f.select :card_expiration_date_year,[19,20,21,22,23,24,25,26,27,28,29],{}, id: "payment_card_expire_yy", class: "select-default--has-error"
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default--has-error"
                 - else
-                  = f.select :card_expiration_date_year,[19,20,21,22,23,24,25,26,27,28,29],{}, id: "payment_card_expire_yy", class: "select-default"
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default"
                 = render partial: 'error-messages', locals: { user: @user, column: "card_expiration_date_year"}
                 = fa_icon 'chevron-down'
                 %span 年
