@@ -63,7 +63,7 @@ class SignupsController < ApplicationController
     
     if @user.save
       # ログイン状態維持のためuser_idをsessionに保存
-      session[:user_id] = @user.id
+      session[:id] = @user.id
       redirect_to '/signups/completion'
     else
       render '/signups/payment'
@@ -275,7 +275,7 @@ class SignupsController < ApplicationController
   def validates_payment
     session[:card_number] = user_params[:card_number]
     session[:card_expiration_date_month] = user_params[:card_expiration_date_month]
-    session[:ard_expiration_date_year] = user_params[:ard_expiration_date_year]
+    session[:card_expiration_date_year] = user_params[:card_expiration_date_year]
     session[:card_security_code] = user_params[:card_security_code]
     @user = User.new(
     # sessionに保存された値をインスタンスに渡す

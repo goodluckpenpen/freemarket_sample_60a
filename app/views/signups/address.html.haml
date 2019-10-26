@@ -40,9 +40,9 @@
               %sapn.form-require
                 必須
               - if @user.errors.full_messages_for(:postal_code).any?
-                = f.number_field :postal_code, placeholder: '例) 123-4567', class: 'input-default--has-error'
+                = f.text_field :postal_code, placeholder: '例) 123-4567', class: 'input-default--has-error'
               - else
-                = f.number_field :postal_code, placeholder: '例) 123-4567', class: 'input-default'
+                = f.text_field :postal_code, placeholder: '例) 123-4567', class: 'input-default'
               = render partial: 'error-messages', locals: { user: @user, column: "postal_code"}
             .form-group
               = f.label :prefecture, "都道府県"
