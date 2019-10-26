@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
          has_many :items
   
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10,11}\z/
