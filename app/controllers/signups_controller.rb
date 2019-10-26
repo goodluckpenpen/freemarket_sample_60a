@@ -72,7 +72,7 @@ class SignupsController < ApplicationController
 
   def completion
     # sign_inメソッドを使いcreateアクションで作成・保存したデータのidを用いてサインイン
-    sign_in User.find(session[:id]) unless user_signed_in?
+    sign_in User.find(session[:user_id]) unless user_signed_in?
   end
 
   
@@ -273,7 +273,7 @@ class SignupsController < ApplicationController
   def validates_payment
     session[:card_number] = user_params[:card_number]
     session[:card_expiration_date_month] = user_params[:card_expiration_date_month]
-    session[:ard_expiration_date_year] = user_params[:ard_expiration_date_year]
+    session[:card_expiration_date_year] = user_params[:card_expiration_date_year]
     session[:card_security_code] = user_params[:card_security_code]
     @user = User.new(
     # sessionに保存された値をインスタンスに渡す
