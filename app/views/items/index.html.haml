@@ -1,6 +1,5 @@
-
-=render 'header'
-
+.bordershadow
+  =render 'header'
 -# .header-hyde.header-pop
   .header-hyde__top
     =link_to "",class:"header-hyde__top__link" do
@@ -466,11 +465,8 @@
                         =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
         
 
-.form
-  =link_to "",class:"postform" do
-    .form__button
-      .form__button__title 出品
-      =fa_icon "camera",class:"form__button__icon fa-2x"
+=render 'selling_btn'
+
 -# %aside.ad
   .ad__hyde
     =link_to "",class:"ad__hyde__to" do
