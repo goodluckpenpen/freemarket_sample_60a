@@ -1,24 +1,47 @@
-= render "create-header"
+= render "new-header"
 .items-sell
   .items-sell__infomations
     %h2.items-sell__infomations__item
       商品の情報を入力
-  .items-sell__imgs
-    %h3.items-sell__imgs__head
-      出品画像
-      %span.items-sell__imgs__head__required
-        必須
-    %p.items-sell__imgs__contents
-      最大10枚までアップロードできます
-    %label.items-sell__imgs__main1{multiple: "", name: "image"}
-      %pre
-        ドラックアンドドロップ
-        またはクリックしてファイルをアップロード
-      = form_for @user do |f|
-        = f.file_field :image , class: "image", id: :user_img
-        .preview
+  = form_for @item do |f|
+    .items-sell__imgs
+      %h3.items-sell__imgs__head 
+        出品画像
+        %span.items-sell__imgs__head__required
+          必須 
+      %p 最大10枚までアップロードできます
+
+      = f.fields_for :images, @item.images.first do |image|
+        .items-sell__imgs__dropzone
+          #preview
+          -# １〜５枚目プレビュー表示
+          .items-sell__imgs__dropzone__input
+            = image.label :image, for: "upload-image" do
+              .input_area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+
+              .items-sell__imgs__dropzone__input__description
+                .items-sell__imgs__dropzone__input__description__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+
+        .items-sell__imgs__dropzone2
+          #preview2
+          -# ６〜１０枚目プレビュー表示
+          .items-sell__imgs__dropzone2__input2
+            = image.label :image, for: "upload-image" do
+              .input_area
+                = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+              .items-sell__imgs__dropzone2__input2__description
+                .items-sell__imgs__dropzone2__input2__description__text
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをアップロード
+  
     %p.items-sell__imgs__no-imgs
-      -# 画像がありません
+      画像がありません
+
   .items-sell__message
     .items-sell__message__name
       %label.items-sell__message__name__head
@@ -37,7 +60,7 @@
       %p.items-sell__message__content__no-content
         -# 入力してください
         -#下記は後ほど = form_for @name do |form| を挿入
-        -# = %form.text_field :name, id: :items_name
+        -# = text_field :name, id: :items_name
   .items-sell__details
     %label.items-sell__details__left
       商品の詳細
@@ -265,8 +288,7 @@
   .items-sell__price
     %label
       販売価格(300~9,999,999)
-      = link_to "", class: "items-sell__price__inquiry" do
-        ？
+      = link_to "？", class: "items-sell__price__inquiry"
     %ul.items-sell__price__right
       %li.items-sell__price__right__list1
         %label.items-sell__price__right__list1__top
@@ -290,24 +312,20 @@
           ー
   .items-sell__exhibit        
     %p.items-sell__exhibit__1
-      = link_to "", class: "items-sell__exhibit__1__ban" do
-        禁止されている出品
+      = link_to "禁止されている出品", class: "items-sell__exhibit__1__ban"  
       、
-      = link_to "", class: "items-sell__exhibit__1__action" do
-        行為
+      = link_to "行為", class: "items-sell__exhibit__1__action"
       を必ずご確認ください。
     %p.items-sell__exhibit__2
       またブランド品でシリアルナンバー等がある場合はご記載ください。
-      = link_to "", class: "items-sell__exhibit__2__fake" do
-        偽ブランドの販売
+      = link_to " 偽ブランドの販売", class: "items-sell__exhibit__2__fake"      
       は犯罪であり処罰される可能性があります。
     %p.items-sell__exhibit__3
       また、出品をもちまして
-      = link_to "", class: "items-sell__exhibit__3__terms" do
-        加盟店規約
+      = link_to "加盟店規約", class: "items-sell__exhibit__3__terms"
       に同意したことになります。
     %button.items-sell__exhibit__decide
-      出品する
+      = link_to "出品する", item_items_purchase_path(:item_id)
     %button.items-sell__exhibit__return 
-      もどる 
-= render "create-footer"
+      = link_to "もどる",  mypage_users_path
+= render "new-footer"

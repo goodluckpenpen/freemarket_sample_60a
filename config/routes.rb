@@ -14,11 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:show, :index, :destroy]
+  resources :items,only: [:show, :index, :new, :destroy] do
   # get "items/item"
-  # get "items/bought"
-
-  # get "items/purchase"
+  get "items/bought"
+  get "items/purchase"
 
  
   get "items/buy"
@@ -26,12 +25,13 @@ Rails.application.routes.draw do
   resources :items,only: [:show, :index] do
     member do
       get 'select'
-    end
+      end
     collection do
       
+      end
     end
   end
-
+  
   resources :users, only: [:show] do
     member do
 
