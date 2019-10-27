@@ -89,4 +89,10 @@ gem 'ancestry'
 # バリデーションのエラーメッセージを日本語化する
 gem 'rails-i18n'
 gem 'pry-rails'
+<<<<<<< HEAD
+
+gem 'gon'
+gem 'aws-sdk'
+=======
 gem "gretel"
+>>>>>>> master
