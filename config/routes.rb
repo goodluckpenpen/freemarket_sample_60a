@@ -14,14 +14,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:show, :index, :new, :destroy] do
+  resources :items,only: [:index, :new, :show,  :destroy] do
   # get "items/item"
   get "items/bought"
   get "items/purchase"
 
   get "items/buy"
   get "items/transaction"
-  resources :items,only: [:show, :index] do
+  
     member do
       get 'select'
       end
@@ -29,7 +29,6 @@ Rails.application.routes.draw do
       
       end
     end
-  end
 
   resources :categories,only: [:show, :index]
 

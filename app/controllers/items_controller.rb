@@ -1,17 +1,14 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-<<<<<<< HEAD
     @items = Item.all
-=======
 
     # @ladys_category = 
     # @mens_category = 
     # @elecs_category = 
     # @hobys_category = 
 
-    
->>>>>>> master
+
     @ladys = Item.where(category_id:1).order('id DESC').limit(10)
     @mens = Item.where(category_id:2).order('id DESC').limit(10)
     @elecs = Item.where(category_id:8).order('id DESC').limit(10)
@@ -72,7 +69,6 @@ class ItemsController < ApplicationController
     @item.destroy 
     redirect_to controller: 'users',action: 'seller_selling'
   end
-<<<<<<< HEAD
 
   def update
     # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
@@ -133,6 +129,4 @@ class ItemsController < ApplicationController
     params.require(:new_images).permit({images: []})
   end
 
-=======
->>>>>>> master
 end
