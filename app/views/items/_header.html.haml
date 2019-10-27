@@ -50,79 +50,21 @@
             %span.listfont カテゴリーから探す
           .categorys.popup
             %ul.categorys__lists
-              %li.categorys__lists__list
-                =link_to "レディース","",class:"categorys__lists__list__link" 
-                %ul.categorys__lists2
-                  %li.categorys__lists2__list
-                    =link_to "","",class:"categorys__lists2__list__link" 
-                    %ul.categorys__lists3
-                      %li.categorys__lists3__list
-                        =link_to "Tシャツ/カットソー(半袖/袖なし)","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "Tシャツ/カットソー(七分/長袖)","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "シャツ/ブラウス(半袖/袖なし)","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "シャツ/ブラウス(七分/長袖)","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "ポロシャツ","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "キャミソール","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "タンクトップ","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "ホルターネック","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "ニット/セーター","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "チュニック","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "カーディガン/ボレロ","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "アンサンブル","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "ベスト/ジレ","",class:"categorys__lists3__list__link"
-                      %li.categorys__lists3__list
-                        =link_to "パーカー","",class:"categorys__lists3__list__link"
-
-              %li.categorys__lists__list
-                =link_to "メンズ","",class:"categorys__lists__list__link"
+              - @parents.each do |parent|
+                %li.categorys__lists__list
+                  =link_to "#{parent.name}",category_path(parent),class:"categorys__lists__list__link" 
+                  %ul.categorys__lists2
+                    - parent.children.each do |child|  
+                      %li.categorys__lists2__list
+                        =link_to "#{child.name}",category_path(child),class:"categorys__lists2__list__link" 
+                        %ul.categorys__lists3
+                          - child.children.each do |grandchild|
+                            %li.categorys__lists3__list
+                              =link_to "#{grandchild.name}",category_path(grandchild),class:"categorys__lists3__list__link"
+                      
                 
               %li.categorys__lists__list
-                =link_to "ベビー・キッズ","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "インテリア・住まい・小物","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "本・音楽・ゲーム","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "おもちゃ・ホビー・グッズ","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "コスメ・香水・美容","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "家電・スマホ・カメラ","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "スポーツ・レジャー","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "ハンドメイド","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "チケット","",class:"categorys__lists__list__link"
-                
-              %li.categorys__lists__list
-                =link_to "自転車・オートバイ","",class:"categorys__lists__list__link" 
-                
-              %li.categorys__lists__list
-                =link_to "その他","",class:"categorys__lists__list__link" 
-                
-              %li.categorys__lists__list
-                =link_to "カテゴリー一覧","",class:"categorys__lists__list__link" 
+                =link_to "カテゴリー一覧",categories_path,class:"categorys__lists__list__link" 
                                                 
             
         .header__row__bottom__left__list 
@@ -132,12 +74,12 @@
           .categorys.popup    
             %ul.categorys__lists
               %li.categorys__lists__list
-      .header__row__bottom__rigth
+      -# .header__row__bottom__rigth
         .header__row__bottom__rigth__entry
           =link_to "新規会員登録", "http://localhost:3000/signups/registration",class:"entry-button" 
         .header__row__bottom__rigth__login
           =link_to "ログイン", "http://localhost:3000/users/mypage",class:"login-button"
-      -# %ul.header-users
+      %ul.header-users
         %li.header-users__menu
           =link_to "",class:"header-users__menu__link" do
             =fa_icon "heart",class:"header-users__menu__link__icon"

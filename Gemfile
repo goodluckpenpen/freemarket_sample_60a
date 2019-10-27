@@ -87,3 +87,4 @@ gem "font-awesome-rails"
 gem 'devise'
 gem 'ancestry'
 gem 'pry-rails'
+gem "gretel"

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
   get "items/transaction"
   resources :items,only: [:show, :index]
 
+  resources :categories,only: [:show, :index]
+
   resources :users, only: [:show] do
     member do
       

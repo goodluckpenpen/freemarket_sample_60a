@@ -2,7 +2,14 @@ class ApplicationController < ActionController::Base
   before_action :basic_auth, if: :production?
   protect_from_forgery with: :exception
 
+  before_action :category_parent
+
+
   private
+
+  def category_parent
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def production?
     Rails.env.production?
