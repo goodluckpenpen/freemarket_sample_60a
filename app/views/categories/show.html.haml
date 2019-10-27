@@ -1,0 +1,66 @@
+=render 'items/header'
+- breadcrumb :category,@category
+=render 'bread'
+.signups-body
+  -# %nav.bread-clumbs
+  -#   %ul
+  -#     %li
+  -#       =link_to "メルカリ","/"
+  -#       =fa_icon "chevron-right"
+  -#     %li
+  -#       =link_to "カテゴリー一覧","/"
+  -#       =fa_icon "chevron-right"
+  -#     %li
+  -#       =link_to "メルカリ","/"
+  -#       =fa_icon "chevron-right"
+  -#     %li
+  -#       =link_to "メルカリ","/"
+  -#       =fa_icon "chevron-right"  
+  .l-container.clearfix
+    .l-content.full-width
+      %ul.parts-nav.clearfix
+        - @groups.each do |child|
+          %li
+            =link_to "#{child.name}",category_path(child)
+      %section.category-index.clearfix
+        %h1
+          #{@category.name}の商品一覧
+        .item
+          .mein__row__new__box__lists
+            .mein__row__new__box__lists__goods
+              .mein__row__new__box__lists__goods__good
+                - @category.items.each do |item|
+                  .visibility
+                    =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                      %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                        %figcaption
+                          %span
+                            = item.title
+                        .style_thumbnail__N_xAi
+                          %span{"aria-label":"Price"} 
+                            = "¥#{item.price.to_s(:delimited)}"
+                          =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                -# - item.children.items.each do |item|
+                -#   .visibility
+                -#     =link_to item_path(item),class:"style_link__3tLB3 style_fluidLink__WTcwb" do
+                -#       %figure.style_card__1SiAF.style_responsiveLv1__26FNN.common_fontFamily__3-3Si.style_fluid__19gwX
+                -#         %figcaption
+                -#           %span
+                -#             = item.title
+                -#         .style_thumbnail__N_xAi
+                -#           %span{"aria-label":"Price"} 
+                -#             = "¥#{item.price.to_s(:delimited)}"
+                -#           =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"      
+      
+      %ul.pager
+        %li.pager-num
+        %li.pager-next.visible-pc
+      .category-description
+        .category-description__title
+          %h3
+            =@category.name
+        .category-description__text
+          %p
+            #{@category.name}の着ない服、いらない洋服を売るならメルカリへ。#{@category.name}の商品は100万点以上あります。人気のあるカテゴリーは#{@groups.name}です。人気の商品は「#{@category.items.name}」や「#{@category.items.name}」があります。#{@category.name}の買い取りやリサイクル処分、服の整理を検討中の方にお勧めです。
+
+=render 'items/footer'
