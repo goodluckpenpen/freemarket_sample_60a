@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def profile

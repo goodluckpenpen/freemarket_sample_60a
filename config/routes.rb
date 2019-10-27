@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories,only: [:show, :index]
+
   resources :users, only: [:show] do
     member do
 

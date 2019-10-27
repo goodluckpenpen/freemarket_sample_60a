@@ -1,0 +1,34 @@
+=render 'items/header',object: @parents,as: :parents
+.signups-body
+  - breadcrumb :categories
+  =render 'bread'
+  .category.l-single-container
+    .visible-sp
+    .visible-pc
+      %h2 カテゴリー一覧
+      .category__list.clearfix.text-center#parentcategory
+        - @parents.each do |parent|
+          =link_to "#{parent.name}","#root-category#{parent.id}",class:"category__list__link"
+      .category__box
+        - @parents.each do |parent|
+          .category__box__item.clearfix
+            .category__box__item__title{id:"root-category#{parent.id}"}
+              %h3 
+                =link_to "#{parent.name}","#parentcategory"
+            .category__box__item__inner
+              %p
+                =link_to "すべて",category_path(parent)
+              - parent.children.each do |child|
+                .category__box__item__inner__title
+                  %h4 
+                    = child.name
+                .category__box__item__inner__list.clearfix
+                  .category__box__item__inner__list__name
+                    %p
+                      =link_to "すべて",category_path(child)
+                  - child.children.each do |grandchild|
+                    .category__box__item__inner__list__name
+                      %p
+                        =link_to "#{grandchild.name}",category_path(grandchild)
+
+=render 'items/footer'
