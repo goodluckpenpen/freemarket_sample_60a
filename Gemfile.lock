@@ -1114,11 +1114,8 @@ DEPENDENCIES
   erb2haml
   fog-aws
   font-awesome-rails
-<<<<<<< HEAD
   gon
-=======
   gretel
->>>>>>> master
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
