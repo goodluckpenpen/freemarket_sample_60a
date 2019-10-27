@@ -1,5 +1,7 @@
 =render 'items/header'
-
+.signups-body
+  - breadcrumb :mypage
+  =render 'categories/bread'
 %main.container
   .container__content
 
@@ -138,6 +140,7 @@
         -#   .container__content--mypage-group-notice-list-link  一覧を見る
         
 
+<<<<<<< HEAD
   .container__side
     .container__side--nav
       %ul.container__side--nav-listing
@@ -213,7 +216,11 @@
          
         %li.container__side--nav-listing-list
           =link_to "ログアウト", "http://localhost:3000/users/logout",class:"container__side--nav-listing-list-item"
+=======
+  =render 'slide_bar'
+>>>>>>> master
          
 =render 'items/footer'
         
+=render 'items/selling_btn'
 
