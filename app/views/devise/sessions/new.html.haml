@@ -2,38 +2,33 @@
   .single-container
     %header.single-header
       %h1
-        =link_to "http://localhost:3000" do
+        =link_to "/" do
           %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308" alt="mercari")
     %main.single-main
       .login-panel
         .login-no-account
           %p アカウントをお持ちでない方はこちら
-          
-
+          =link_to "新規会員登録", registration_signups_path
+        .login-form-inner
+          %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
+            %i.fab.fa-facebook.icon-facebook
+            Facebookで登録する
+          %button#google-login.btn-default.btn-sns.btn-sns-google
+            = image_tag '/246x0w.jpg', alt: 'google', height: '20', width: '25', class: 'google-icon'
+            Googleで登録する
+        = form_for(resource, as: resource_name, url: session_path(resource_name), action: '/login/', method: 'POST', novalidate: 'novalidate') do |f|
+          .login-form-inner
+            .form-group
+              = f.email_field :email, { class: "input-default", placeholder: 'メールアドレス', autofocus: 'true', autocomplete: 'email' }
+            .form-group
+              = f.password_field :password, { class: "input-default", placeholder: 'パスワード', autocomplete: 'current-password' }
+            .form-group
+              .g-recaptcha.signup-recaptcha{"data-sitekey": "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+                %div{style: "width: 304px; height: 78px;"}
+                  %div
+                    %iframe{frameborder: "0", height: "78", name: "a-nz28pqy6hu5s", role: "presentation", sandbox: "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", scrolling: "no", src: "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=Zy-zVXWdnDW6AUZkKlojAKGe&size=normal&cb=mvaapz42k0rb", width: "304"}
+                  %textarea#g-recaptcha-response.g-recaptcha-response{name: "g-recaptcha-response", style: "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+            = f.submit 'ログイン', class: "login-submit btn-default btn-red"
+            = link_to '#' do
+              パスワードをお忘れの方
     = render 'signups/registration_footer'
--# <h2>Log in</h2>
-
--# <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
--#   <div class="field">
--#     <%= f.label :email %><br />
--#     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
--#   </div>
-
--#   <div class="field">
--#     <%= f.label :password %><br />
--#     <%= f.password_field :password, autocomplete: "current-password" %>
--#   </div>
-
--#   <% if devise_mapping.rememberable? %>
--#     <div class="field">
--#       <%= f.check_box :remember_me %>
--#       <%= f.label :remember_me %>
--#     </div>
--#   <% end %>
-
--#   <div class="actions">
--#     <%= f.submit "Log in" %>
--#   </div>
--# <% end %>
-
--# <%= render "devise/shared/links" %>
