@@ -11,10 +11,10 @@
         .l-single-inner.registration-form
           .l-single-content
             =link_to "/signups/newmember", class: "btn-default btn-mail" do
-              = fa_icon 'envelope', class: "icon-mail"
+              %i.far.fa-envelope.icon-mail
               メールアドレスで登録する
             %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
-              = fa_icon 'facebook-square 2x', class: "icon-facebook"
+              %i.fab.fa-facebook.icon-facebook
               Facebookで登録する
             %button#google-login.btn-default.btn-sns.btn-sns-google
               = image_tag '/246x0w.jpg', alt: 'google', height: '20', width: '25', class: 'google-icon'

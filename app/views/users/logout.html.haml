@@ -5,9 +5,8 @@
     .container__content--box
       %form(action="" method="post" class="container__content--box-form")
         .container__content--box-form-content
-          %button(type="submit" class="container__content--box-form-content-btn")
+          = link_to destroy_user_session_path, method: 'DELETE', class: "container__content--box-form-content-btn" do
             ログアウト
-          %input(type="hidden" name="" value="")
 
   =render 'slide_bar'
 

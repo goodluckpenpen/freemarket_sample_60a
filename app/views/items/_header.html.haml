@@ -2,20 +2,21 @@
   .header-hyde__top
     =link_to "/",class:"header-hyde__top__link" do
       =image_tag src="https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",class:"header-hyde__top__link__image"
-    .header-hyde__top__button
-      =link_to "新規会員登録","",class:"hyde-entry"
-      =link_to "ログイン","",class:"hyde-login"
-    .header-hyde__top__mymenu
-      .header-hyde__top__mymenu__list
-        =link_to "",class:"header-hyde__top__mymenu__list__link" do
-          =fa_icon "bell",class:"header-hyde__top__mymenu__list__link__bell" 
-      .header-hyde__top__mymenu__list
-        =link_to "",class:"header-hyde__top__mymenu__list__link" do
-          =fa_icon "check",class:"header-hyde__top__mymenu__list__link__check"
-      .header-hyde__top__mymenu__list
-        =link_to "",class:"header-hyde__top__mymenu__list__link" do
-          =image_tag src="https://static.mercdn.net/images/member_photo_noimage_thumb.png",class:"header-hyde__top__mymenu__list__link__image"
-          
+    - if user_signed_in?
+      .header-hyde__top__mymenu
+        .header-hyde__top__mymenu__list
+          =link_to "",class:"header-hyde__top__mymenu__list__link" do
+            =fa_icon "bell",class:"header-hyde__top__mymenu__list__link__bell" 
+        .header-hyde__top__mymenu__list
+          =link_to "",class:"header-hyde__top__mymenu__list__link" do
+            =fa_icon "check",class:"header-hyde__top__mymenu__list__link__check"
+        .header-hyde__top__mymenu__list
+          =link_to "",class:"header-hyde__top__mymenu__list__link" do
+            =image_tag src="https://static.mercdn.net/images/member_photo_noimage_thumb.png",class:"header-hyde__top__mymenu__list__link__image"
+    - else
+      .header-hyde__top__button
+        =link_to "新規会員登録","",class:"hyde-entry"
+        =link_to "ログイン","",class:"hyde-login"
 
     
   .header-hyde__middle
@@ -50,6 +51,7 @@
             %span.listfont カテゴリーから探す
           .categorys.popup
             %ul.categorys__lists
+
               %li.categorys__lists__list
                 =link_to "レディース","",class:"categorys__lists__list__link" 
                 %ul.categorys__lists2
@@ -132,94 +134,96 @@
           .categorys.popup    
             %ul.categorys__lists
               %li.categorys__lists__list
-      .header__row__bottom__rigth
-        .header__row__bottom__rigth__entry
-          =link_to "新規会員登録", registration_signups_path,class:"entry-button" 
-        .header__row__bottom__rigth__login
-          =link_to "ログイン", mypage_users_path,class:"login-button"
-      -# %ul.header-users
-        %li.header-users__menu
-          =link_to "",class:"header-users__menu__link" do
-            =fa_icon "heart",class:"header-users__menu__link__icon"
-            いいね！一覧
-        %li.header-users__menu
-          =link_to "",class:"header-users__menu__link" do
-            =fa_icon "bell",class:"header-users__menu__link__icon"
-            お知らせ
-            %span.popcount
-          .header-users__popmenu.popup
-            %ul
-              %li
-                =link_to "",class:"header-users__popmenu__link" do
-                  %figure.header-users__popmenu__link__newstop
-                    =image_tag src="https://static.mercdn.net/images/mercari_profile.png",class:"header-users__popmenu__link__newstop__image"
-                  .header-users__popmenu__link__newsbox
-                    .header-users__popmenu__link__newsbox__text
-                      事務局から個別メッセージ「ログイン通知」
-                    %time.header-users__popmenu__link__newsbox__time
-                      =fa_icon "clock",class:"header-users__popmenu__link__newsbox__time__icon"
-                      %span.header-users__popmenu__link__newsbox__newstime__text
-                        23時前                      
-                  =fa_icon "chevron-right",class:"header-users__popmenu__link__icon"           
-        %li.header-users__menu
-          =link_to "",class:"header-users__menu__link" do
-            =fa_icon "check",class:"header-users__menu__link__icon"
-            やることリスト
-          .header-users__popmenu.popup
-            .header-users__popmenu__not<>
-              現在、やることリストはありません
-        %li.header-users__menu
-          =link_to "",class:"heder-users__menu__link" do
-            =image_tag src="https://static.mercdn.net/images/member_photo_noimage_thumb.png",class:"myimage"
-            マイページ
-          .header-users__popmenu.popup
-            .header-users__popmenu__mypage
-              %figure.header-users__popmenu__mypage__top
-                .header-users__popmenu__mypage__top__icon
-                  =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png",class:"header-users__popmenu__mypage__top__icon__image"
-                %figcaption.header-users__popmenu__mypage__top__name
-                  username
-              .header-users__popmenu__mypage__count
-                =link_to "評価:0","",class:"header-users__popmenu__mypage__count__link"
-                =link_to "出品数:0","",class:"header-users__popmenu__mypage__count__link"
-              %ul.header-users__popmenu__mypage__credit
-                %li.header-users__popmenu__mypage__credit__list
-                  =link_to "",class:"header-users__popmenu__mypage__credit__list__link" do
-                    .header-users__popmenu__mypage__credit__list__link__name
-                      売上金
-                    .header-users__popmenu__mypage__credit__list__link__price
-                      ¥0
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__credit__list__link__price__icon"                    
-                %li.header-users__popmenu__mypage__credit__list
-                  =link_to "",class:"header-users__popmenu__mypage__credit__list__link" do
-                    .header-users__popmenu__mypage__credit__list__link__name
-                      ポイント
-                    .header-users__popmenu__mypage__credit__list__link__price
-                      P0                 
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__credit__list__link__price__icon"
-              .header-users__popmenu__mypage__status
-                %ul.header-users__popmenu__mypage__status__list
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      いいね！一覧  
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      出品した商品 - 出品中  
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      出品した商品 - 取引中
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      出品した商品 - 売却済み 
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      購入した商品 - 取引中
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
-                  %li
-                    =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
-                      購入した商品 - 過去の取引
-                      =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+      - if user_signed_in?
+        %ul.header-users
+          %li.header-users__menu
+            =link_to "",class:"header-users__menu__link" do
+              =fa_icon "heart",class:"header-users__menu__link__icon"
+              いいね！一覧
+          %li.header-users__menu
+            =link_to "",class:"header-users__menu__link" do
+              =fa_icon "bell",class:"header-users__menu__link__icon"
+              お知らせ
+              %span.popcount
+            .header-users__popmenu.popup
+              %ul
+                %li
+                  =link_to "",class:"header-users__popmenu__link" do
+                    %figure.header-users__popmenu__link__newstop
+                      =image_tag src="https://static.mercdn.net/images/mercari_profile.png",class:"header-users__popmenu__link__newstop__image"
+                    .header-users__popmenu__link__newsbox
+                      .header-users__popmenu__link__newsbox__text
+                        事務局から個別メッセージ「ログイン通知」
+                      %time.header-users__popmenu__link__newsbox__time
+                        =fa_icon "clock",class:"header-users__popmenu__link__newsbox__time__icon"
+                        %span.header-users__popmenu__link__newsbox__newstime__text
+                          23時前                      
+                    =fa_icon "chevron-right",class:"header-users__popmenu__link__icon"           
+          %li.header-users__menu
+            =link_to "",class:"header-users__menu__link" do
+              =fa_icon "check",class:"header-users__menu__link__icon"
+              やることリスト
+            .header-users__popmenu.popup
+              .header-users__popmenu__not<>
+                現在、やることリストはありません
+          %li.header-users__menu
+            =link_to "/users/mypage",class:"heder-users__menu__link" do
+              =image_tag src="https://static.mercdn.net/images/member_photo_noimage_thumb.png",class:"myimage"
+              マイページ
+            .header-users__popmenu.popup
+              .header-users__popmenu__mypage
+                %figure.header-users__popmenu__mypage__top
+                  .header-users__popmenu__mypage__top__icon
+                    =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png",class:"header-users__popmenu__mypage__top__icon__image"
+                  %figcaption.header-users__popmenu__mypage__top__name
+                    = current_user.nickname
+                .header-users__popmenu__mypage__count
+                  =link_to "評価:0","",class:"header-users__popmenu__mypage__count__link"
+                  =link_to "出品数:0","",class:"header-users__popmenu__mypage__count__link"
+                %ul.header-users__popmenu__mypage__credit
+                  %li.header-users__popmenu__mypage__credit__list
+                    =link_to "",class:"header-users__popmenu__mypage__credit__list__link" do
+                      .header-users__popmenu__mypage__credit__list__link__name
+                        売上金
+                      .header-users__popmenu__mypage__credit__list__link__price
+                        ¥0
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__credit__list__link__price__icon"                    
+                  %li.header-users__popmenu__mypage__credit__list
+                    =link_to "",class:"header-users__popmenu__mypage__credit__list__link" do
+                      .header-users__popmenu__mypage__credit__list__link__name
+                        ポイント
+                      .header-users__popmenu__mypage__credit__list__link__price
+                        P0                 
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__credit__list__link__price__icon"
+                .header-users__popmenu__mypage__status
+                  %ul.header-users__popmenu__mypage__status__list
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        いいね！一覧  
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        出品した商品 - 出品中  
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        出品した商品 - 取引中
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        出品した商品 - 売却済み 
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        購入した商品 - 取引中
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+                    %li
+                      =link_to "",class:"header-users__popmenu__mypage__status__list__link" do
+                        購入した商品 - 過去の取引
+                        =fa_icon "chevron-right",class:"header-users__popmenu__mypage__status__list__link__icon"
+      - else
+        .header__row__bottom__rigth
+          .header__row__bottom__rigth__entry
+            =link_to "新規会員登録", registration_signups_path,class:"entry-button" 
+          .header__row__bottom__rigth__login
+            =link_to "ログイン", new_user_session_path,class:"login-button"
