@@ -1,11 +1,11 @@
 .signups-body
-  .single-container	
+  .single-container
     = render 'payment_bar'
     %main.single-main
       %section.l-single-container
         %h2.l-single-head.registration
           支払い方法
-        = form_for @user, local: true, url: '/signups', method: 'POST', html: {class: 'l-single-inner registration-form'}, novalidate: 'novalidate' do |f|
+        = form_with model: @user, local: true, url: '/signups', method: 'POST', class: 'l-single-inner registration-form', novalidate: 'novalidate' do |f|
           .l-single-content
             .form-group
               = f.label :card_number, "カード番号"
@@ -49,9 +49,9 @@
               .select-wrap.half
                 -# = f.date_select(:card_expiration_date_year, discard_month: true, discard_day: true, start_year: (Time.now.year), end_year: (Time.now.year+10), prompt: "--")
                 - if @user.errors.full_messages_for(:card_expiration_date_year).any?
-                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2018],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default--has-error"
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2015],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default--has-error"
                 - else
-                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2025],["26",2026],["27",2027],["28",2018],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default"
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2015],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default"
                 = render partial: 'error-messages', locals: { user: @user, column: "card_expiration_date_year"}
                 = fa_icon 'chevron-down'
                 %span 年
