@@ -62,11 +62,8 @@
                           - child.children.each do |grandchild|
                             %li.categorys__lists3__list
                               =link_to "#{grandchild.name}",category_path(grandchild),class:"categorys__lists3__list__link"
-                      
-                
               %li.categorys__lists__list
                 =link_to "カテゴリー一覧",categories_path,class:"categorys__lists__list__link" 
-                                                
             
         .header__row__bottom__left__list 
           =link_to "",class:"postlist" do
@@ -75,6 +72,17 @@
           .categorys.popup    
             %ul.categorys__lists
               %li.categorys__lists__list
+                =link_to "シャネル","",class:"categorys__lists__list__link" 
+              %li.categorys__lists__list
+                =link_to "ナイキ","",class:"categorys__lists__list__link" 
+              %li.categorys__lists__list
+                =link_to "ルイ ヴィトン","",class:"categorys__lists__list__link" 
+              %li.categorys__lists__list
+                =link_to "シュプリーム","",class:"categorys__lists__list__link" 
+              %li.categorys__lists__list
+                =link_to "アディダス","",class:"categorys__lists__list__link"  
+              %li.categorys__lists__list
+                =link_to "ブランド一覧",categories_path,class:"categorys__lists__list__link"
       - if user_signed_in?
         %ul.header-users
           %li.header-users__menu
