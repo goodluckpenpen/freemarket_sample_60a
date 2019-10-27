@@ -14,6 +14,7 @@
       @content;
     }
   }
+    
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
@@ -22,9 +23,9 @@
   box-sizing: inherit;
   border-style: solid;
   border-width: 0;
-  div {
-    display: block;
-  }
+  // div {
+  //   display: block;
+  // }
   h1 {
     display: block;
     font-size: 2em;
@@ -247,6 +248,68 @@
   main {
     display: block;
   }
+  //ログイン画面
+  .login-panel {
+    @include md {
+      max-width: none;
+      width: 456px;
+    }
+    max-width: 456px;
+    margin: 0 auto;
+    background: #fff;
+  }
+  .login-no-account {
+    @include md {
+      padding: 40px 64px;
+    }
+    padding: 24px 32px;
+    text-align: center;
+    p {
+      font-size: 14px;
+    }
+    a {
+      display: block;
+      margin: 8px 0 0;
+      border: 1px solid #0099e8;
+      background: #0099e8;
+      color: #fff;
+      line-height: 40px;
+    }
+  }
+  .login-form-inner {
+    @include md {
+      padding: 32px 64px;
+    }
+    padding: 24px 32px;
+    border-top: 1px solid #eee;
+    &:first-child {
+      @include md {
+        padding: 24px 64px 32px;
+      }
+      padding: 24px 32px;
+      border: 0;
+    }
+  }
+  .login-form-inner .form-group {
+    margin: 24px 0 0;
+    .recaptcha.signup-recaptcha {
+      margin: 0;
+    }
+  }
+  .btn-sns-facebook:first-child {
+    margin: 0;
+  }
+  .login-submit {
+    margin: 24px 0 0;
+  }
+  .login-panel a {
+    display: block;
+    margin: 40px 0 0;
+    &:hover {
+      text-decoration-line: underline;
+    }
+  }
+  //新規登録画面
   .l-single-container {
     @include md {
       width: 700px;
@@ -281,6 +344,9 @@
     font-size: 22px;
     line-height: 1.4;
   }
+  ul {
+    list-style:none;
+  }
   .l-single-inner.registration-form {
     @include lg {
       padding: 40px 40px 64px;
@@ -312,77 +378,74 @@
       text-decoration: underline;
     }
   }
-  .l-container{
-   margin: 24px auto 0;
-   padding: 0 0 40px;
-   @include md{
-    width: 700px;
-   }
-   @include lg{
-    margin: 40px auto 0;
-    width: 1020px;
-   }
+  .l-container {
+    margin: 24px auto 0;
+    padding: 0 0 40px;
+    @include md {
+      width: 700px;
+    }
+    @include lg {
+      margin: 40px auto 0;
+      width: 1020px;
+    }
   }
-  .l-content{
-   width:100%;
-   @include md{
-    float: none;
-    width: 700px;
-   }
-   @include lg{
-    float:right;
-   }
+  .l-content {
+    width: 100%;
+    @include md {
+      float: none;
+      width: 700px;
+    }
+    @include lg {
+      float: right;
+    }
   }
-  .l-chapter-container{
-   margin: 40px 0 0;
-   background: #fff;
-   &:first-child{
-    margin: 0;
-   }
-  }
-  .l-chapter-head{
-   padding: 12px 4%;
-   border-bottom: 1px solid #f5f5f5;
-   text-align: center;
-   font-size: 18px;
-   margin-block-end: 0;
-   margin-block-start: 0;
-   @include md{
-    font-size: 24px;
-    padding: 8px 24px;
-   }
-  }
-  .rakuraku{
-   text-align: center;
-   p{
-    margin: 16px 0 0;
-    line-height: 1.5;
-   }
-  }
-  .bold{
-   font-weight: 600;
+  .l-chapter-container {
+    margin: 40px 0 0;
+    background: #fff;
+    &:first-child {
+      margin: 0;
+    }
   }
 
-  .l-side{
-   margin: 40px auto 0;
-   @include md{
-    width: 700px;
-   }
-   @include lg {
-    float: left;
-    width: 280px;
-    margin: 0 40px 0 0;
-   }
-   &-container{
+  .l-chapter-head {
+    padding: 12px 4%;
+    border-bottom: 1px solid #f5f5f5;
+    text-align: center;
+    font-size: 18px;
+    margin-block-end: 0;
+    margin-block-start: 0;
+    @include md {
+      font-size: 24px;
+      padding: 8px 24px;
+    }
+  }
+
+  .full-width{
+    width:100%;
+  }
+
+  .visible-pc{
+    display: none;
     @include md{
-     margin: 40px 0 0;
+      display:block;
     }
-    &:first-of-type{
-     @include lg{
-      margin: 0;     
-     }
+  }
+  .visible-sp{
+    @include md{
+      display:none;
     }
-   }
+  }
+
+  .parts-nav{
+    padding-inline-start: 0px;
+    margin:0 4%;
+    @include md{
+      margin:0;
+    }
+    li{
+      float: left;
+      margin: 16px 16px 0 0;
+    }
   }
 
 //////transact/////
@@ -391,209 +454,241 @@
    padding: 24px 8px;
    background: #fff6de;
    text-align: center;
-  h3{
-   font-size: 16px;
-   color: #ea352d;
-  }
-  i{
-    margin: 0 8px 0 0;
-    font-size: 32px;
+    h3{
+    font-size: 16px;
     color: #ea352d;
-    vertical-align: middle;
-  }
-  span{
-   vertical-align: middle;
-  }
-  p{
-   margin: 8px 0 0;
-   font-size: 14px;
-   line-height: 1.5;
-  }
-   &-guide{
-    padding: 16px;
-    text-align: right;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    li{
-     margin: 8px 0 0;
-     list-style: none;
-     &:first-child{
-      margin: 0;
-     }
     }
     i{
-     margin: 0 0 0 8px;
-    }
-   }
-////取引商品情報/////
-   &-info{
-    &-head{
-     padding: 40px 4% 0;
-     font-size: 16px;
-     margin-block-start: 0;
-     margin-block-end: 0;
-     @include md{
-      padding: 0;
-     }
-    }
-    &-inner{
-     margin: 8px 0 0;
-     background: #fff;
-    }
-    &-table{
-     display: table;
-     width: 100%;
-     border-top: 1px solid #eee;
-     border-bottom: 1px solid #eee;
-     padding: 0;
-     margin:0;
-     @include md{
-      border: 1px solid #eee;
-     }
-     &-row{
-      display: table-row;
-      li{
-       line-height: 1.5;
-      }
-      &:nth-child(even){
-       background-color: #fafafa;
-      }
-     }
-     &-cell{
-      display: table-cell;
-      padding: 16px;
-      vertical-align: top;
-      word-wrap: break-word;
-      list-style-type: none;
-      a{
-       display: block;
-      }
-      p{
-       margin-block-start: 0;
-       margin-block-end: 0;
-      }
-      img{
-       width: auto;
-       max-height: 148px;
-      }
-      &:first-child{
-       width: 35%;
-      }
-      &:last-child{
-       width: 65%;
-      }
-     }
-    }
-    &-item{
-     margin: 8px 0 0;
-     color: #0099e8;
-     text-decoration: underline;
-     font-size: 16px;
-     word-break: break-all;
-    }
-/////transaction-user-iconからクラス名変更////
-/////出品者情報////
-    &-user{
-     position: relative;
-     display: block;
-     color: #333;
-     i{
-      position: absolute;
-      top: 50%;
-      right: 16px;
-      -webkit-transform: translate(0, -50%);
-      transform: translate(0, -50%);
-     }
-     figure{
-      padding: 16px;
-      font-size: 0;
-     }
-     figcaption{
-      overflow: hidden;
-      display: inline-block;
-      max-width: 75%;
-      margin: 0 0 0 16px;
+      margin: 0 8px 0 0;
+      font-size: 32px;
+      color: #ea352d;
       vertical-align: middle;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      @include md{
-       max-width: 592px;
-       height: auto;
-      }
-     }
-     &-image{
-      overflow: hidden;
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      vertical-align: middle;
-     }
-     &-name{
-      overflow: hidden;
-      font-size: 16px;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      @include md{
-       overflow: visible;
-       text-overflow: inherit;
-       white-space: normal;
-      }
-     }
     }
-   }
-  }
-   
-//////message-box/////
-  .change-address-link{
-   display: block;
-   margin: 24px 0 0;
-   line-height: 1.5;
+    .rakuraku {
+      text-align: center;
+      p {
+        margin: 16px 0 0;
+        line-height: 1.5;
+      }
+    }
+    .bold {
+      font-weight: 600;
+    }
+
+    .l-side {
+      margin: 40px auto 0;
+      @include md {
+        width: 700px;
+      }
+      @include lg {
+        float: left;
+        width: 280px;
+        margin: 0 40px 0 0;
+      }
+      &-container {
+        @include md {
+          margin: 40px 0 0;
+        }
+        &:first-of-type {
+          @include lg {
+            margin: 0;
+          }
+        }
+      }
+    }
+    span {
+      vertical-align: middle;
+    }
+    p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    &-guide {
+      padding: 16px;
+      text-align: right;
+      margin-block-start: 0;
+      margin-block-end: 0;
+      li {
+        margin: 8px 0 0;
+        list-style: none;
+        &:first-child {
+          margin: 0;
+        }
+      }
+      i {
+        margin: 0 0 0 8px;
+      }
+    }
+    ////取引商品情報/////
+    &-info {
+      &-head {
+        padding: 40px 4% 0;
+        font-size: 16px;
+        margin-block-start: 0;
+        margin-block-end: 0;
+        @include md {
+          padding: 0;
+        }
+      }
+      &-inner {
+        margin: 8px 0 0;
+        background: #fff;
+      }
+      &-table {
+        display: table;
+        width: 100%;
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee;
+        padding: 0;
+        margin: 0;
+        @include md {
+          border: 1px solid #eee;
+        }
+        &-row {
+          display: table-row;
+          li {
+            line-height: 1.5;
+          }
+          &:nth-child(even) {
+            background-color: #fafafa;
+          }
+        }
+        &-cell {
+          display: table-cell;
+          padding: 16px;
+          vertical-align: top;
+          word-wrap: break-word;
+          list-style-type: none;
+          a {
+            display: block;
+          }
+          p {
+            margin-block-start: 0;
+            margin-block-end: 0;
+          }
+          img {
+            width: auto;
+            max-height: 148px;
+          }
+          &:first-child {
+            width: 35%;
+          }
+          &:last-child {
+            width: 65%;
+          }
+        }
+      }
+      &-item {
+        margin: 8px 0 0;
+        color: #0099e8;
+        text-decoration: underline;
+        font-size: 16px;
+        word-break: break-all;
+      }
+      /////transaction-user-iconからクラス名変更////
+      /////出品者情報////
+      &-user {
+        position: relative;
+        display: block;
+        color: #333;
+        i {
+          position: absolute;
+          top: 50%;
+          right: 16px;
+          -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+        }
+        figure {
+          padding: 16px;
+          font-size: 0;
+        }
+        figcaption {
+          overflow: hidden;
+          display: inline-block;
+          max-width: 75%;
+          margin: 0 0 0 16px;
+          vertical-align: middle;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          @include md {
+            max-width: 592px;
+            height: auto;
+          }
+        }
+        &-image {
+          overflow: hidden;
+          display: inline-block;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          vertical-align: middle;
+        }
+        &-name {
+          overflow: hidden;
+          font-size: 16px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          @include md {
+            overflow: visible;
+            text-overflow: inherit;
+            white-space: normal;
+          }
+        }
+      }
+    }
   }
 
-  .message-content{
-   padding: 24px 7.5%;
-   background: #fff;
-   @include md{
-    padding: 24px;
-   }
-  }
-  
-  .messsage-form{
-   p{
-    padding: 8px;
-    font-size: 14px;
-    background: #fff6de;
-    margin-block-start: 0;
-    margin-block-end: 0;
-   }
-  }
-  .textarea-default{
-   display: block;
-   width: 100%;
-   max-width: 100%;
-   min-height: 104px;
-   padding: 10px;
-   border: 1px solid #ccc;
-   background: #fff;
-   font-size: 16px;
-   line-height: 1.5;
-   margin: 8px 0 0;
-  }
-  .message-submit{
-   width: 100%;
-   margin: 8px 0 0;
-   font-size: 0;
-   text-align: center;
+  //////message-box/////
+  .change-address-link {
+    display: block;
+    margin: 24px 0 0;
+    line-height: 1.5;
   }
 
-/////btn///////////
-  .btn-gray{
-   background: #aaa;
-   border: 1px solid #aaa;
-   color: #fff;
+  .message-content {
+    padding: 24px 7.5%;
+    background: #fff;
+    @include md {
+      padding: 24px;
+    }
   }
-  
+
+  .messsage-form {
+    p {
+      padding: 8px;
+      font-size: 14px;
+      background: #fff6de;
+      margin-block-start: 0;
+      margin-block-end: 0;
+    }
+  }
+  .textarea-default {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+  }
+  .message-submit {
+    width: 100%;
+    margin: 8px 0 0;
+    font-size: 0;
+    text-align: center;
+  }
+
+  /////btn///////////
+  .btn-gray {
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+  }
+
   .btn-default {
     display: block;
     width: 100%;
@@ -751,8 +846,8 @@
     .progress-status-first {
       background: #ea352d;
     }
-    .stop-cicle{
-     background-color: #ccc;
+    .stop-cicle {
+      background-color: #ccc;
     }
   }
   .progress-status {
@@ -815,10 +910,10 @@
       background: #ccc;
     }
   }
-  .no-cicle{
-   width: 0;
-   border-radius: 0;
-   background: #ccc;
+  .no-cicle {
+    width: 0;
+    border-radius: 0;
+    background: #ccc;
   }
   //main画面
   .form-group:first-child {
@@ -1453,87 +1548,84 @@
     }
   }
 
-//////buy///////
-  .buy{
-     .card-image{
-      width:26px;
-      height:20px;
-     }
-    .buy-item{
-     text-align: center;
+  //////buy///////
+  .buy {
+    .card-image {
+      width: 26px;
+      height: 20px;
     }
-    .buy-item-image{
-     img{
-      width: auto;
-      max-height: 148px;
-     }
-
-    }
-    .buy-item-name{
-     margin: 8px 0 0;
-     font-size: 16px;
-     line-height: 1.5;
-     font-weight: 600;
-    }
-    .buy-user{
-     -webkit-transition: all ease-out .3s;
-     transition: all ease-out .3s;
-     address{
-      display: block;
-      font-style: normal;
-     }
-     h3{
-      margin: 40px 0 0;
-      font-size: 14px;
-      &:first-child{
-       margin:0;
-      }
-     }
-     &__text{
-      margin: 8px 0 0;
-      font-size: 14px;
-      line-height: 1.4;
-     }
-    }
-    .buy-flow{
-     text-align: center;
-     h3{
-      font-size: 14px;
-     }
-     p{
-      margin: 16px 0 0;
-      font-size: 14px;
-      line-height: 1.5;
-     }
-     a{
-      display: block;
-      margin: 16px 0 0;
-      font-weight: 600;
-     }
-     .review-icon{
-      margin: 16px 0 0;
-      background: url(https://www.mercari.com/jp/assets/img/transaction/bg-buy-done-flow.png?35731317);
-      background-position: center;
-      background-repeat: no-repeat;
-      font-size: 0;
+    .buy-item {
       text-align: center;
-      i{
-       margin: 0 0 0 8px;
-       font-size: 20px;
-       &:first-child{
-        color:#ef5185;
-       }
-       &:nth-child(n+2){
-        color:#fba933;
-       }
-       &:last-child{
-        color:#6ab5d8;
-       }
-      }
-     }
-
     }
-    
+    .buy-item-image {
+      img {
+        width: auto;
+        max-height: 148px;
+      }
+    }
+    .buy-item-name {
+      margin: 8px 0 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .buy-user {
+      -webkit-transition: all ease-out 0.3s;
+      transition: all ease-out 0.3s;
+      address {
+        display: block;
+        font-style: normal;
+      }
+      h3 {
+        margin: 40px 0 0;
+        font-size: 14px;
+        &:first-child {
+          margin: 0;
+        }
+      }
+      &__text {
+        margin: 8px 0 0;
+        font-size: 14px;
+        line-height: 1.4;
+      }
+    }
+    .buy-flow {
+      text-align: center;
+      h3 {
+        font-size: 14px;
+      }
+      p {
+        margin: 16px 0 0;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      a {
+        display: block;
+        margin: 16px 0 0;
+        font-weight: 600;
+      }
+      .review-icon {
+        margin: 16px 0 0;
+        background-image: url(https://www.mercari.com/jp/assets/img/transaction/bg-buy-done-flow.png?35731317);
+        background-position: center;
+        background-repeat: no-repeat;
+        font-size: 0;
+        text-align: center;
+        i {
+          margin: 0 0 0 8px;
+          font-size: 20px;
+          &:first-child {
+            color: #ef5185;
+          }
+          &:nth-child(n + 2) {
+            color: #fba933;
+          }
+          &:last-child {
+            color: #6ab5d8;
+          }
+        }
+      }
+    }
     &__content{
      margin: 40px 0 0;
      padding: 24px 12.5% 0;
@@ -1554,18 +1646,211 @@
        .buy-span-fee{
         display: inline-block;
         margin: 0 0 0 8px;
-        font-size: 14px;
-        font-weight: 400;
        }
       }
      }
     }
-    
+   }
+  
+///category///
+  .category{
+    background-color: transparent;
+    margin:40px auto;
 
+    h3,h4{
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+    }
+    h4{
+      display: block;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+
+
+    &-index{
+      h1{
+        font-size: 18px;
+        margin: 24px 4% 8px;
+        line-height: 1.4;
+        @include md{
+          font-size: 22px;
+          margin: 24px 0 8px;
+        }
+      }
+    }
+    &-description{
+      margin-top: 30px;
+      @include md{
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      &__title{
+        text-align: center;
+        background-color: #ea352d;
+        h3{
+          margin-block-start: 0;
+          margin-block-end: 0;
+          padding: 16px 8px;
+          color:#fff;
+        }
+      }
+      &__text{
+        padding: 30px;
+        background-color:#fff;
+        p{
+          line-height: 1.6em;
+        }
+      }
+    }
+    &__list{
+      
+      &__link{
+        border-radius: 4px;
+        min-width: 80px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        color: #333;
+        font-size: 16px;
+        line-height: 40px;
+        float:left;
+        background-color: #fff;
+        &:hover{
+          opacity: 1;
+          text-decoration: none !important;
+          color: #fff;
+          background-color: #ea352d;
+        }
+      }
+
+    }
+    &__box{
+      margin: 30px auto;    
+      &__item{
+        border-radius: 4px;
+        margin-bottom: 40px;
+        background-color: #fff;
+        &__title{
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          padding: 7px 30px 0 30px;
+          height: 40px;
+          background-color:#ea352d;
+          
+          a{
+            color:#fff;
+          }
+        }
+        &__inner{
+          padding: 24px 30px 10px 30px;
+          p{
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+          }
+          &__title{
+            padding-top: 15px;
+            padding-bottom: 5px;
+          }
+          &__list{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            &__name{
+              float: left;
+              width: 50%;
+              padding: 0 20px 0 0;
+
+            }
+          }
+        }
+      }
+
+    }
   }
 
+////パンくず/////
+  .bread-crumbs{
+    position: relative;
+    border-top: 1px solid #eee;
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background: #fff;
+
+    ul{
+      padding: 16px;
+      font-size: 0;
+      white-space: nowrap;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      @include md{
+        overflow: visible;
+        width: 700px;
+        margin: 0 auto;
+        padding: 16px 0;
+        white-space: normal;
+      }
+      @include lg{
+        width: 1020px;
+      }
+    }
+    li{
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      @include md{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    a{
+      color: #333;
+    }
+    i{
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+
+    .breadcrumbs-list{
+      padding: 16px;
+      font-size: 0;
+      white-space: nowrap;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      @include md{
+        overflow: visible;
+        width: 700px;
+        margin: 0 auto;
+        padding: 16px 0;
+        white-space: normal;
+      }
+      @include lg{
+        width: 1020px;
+      }
+    }
+    a,span{
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      @include md{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    a{
+      color: #333;
+    }
+    i{
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+    
+  }  
   
-
-
-
 }
