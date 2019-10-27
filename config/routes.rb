@@ -16,14 +16,8 @@ Rails.application.routes.draw do
 
   resources :items,only: [:show, :index, :new, :destroy] do
   # get "items/item"
-<<<<<<< HEAD
   get "items/bought"
   get "items/purchase"
-=======
-  # get "items/bought"
-  # get "items/purchase"
->>>>>>> master
-
 
   get "items/buy"
   get "items/transaction"
@@ -36,13 +30,9 @@ Rails.application.routes.draw do
       end
     end
   end
-<<<<<<< HEAD
-  
-=======
 
   resources :categories,only: [:show, :index]
 
->>>>>>> master
   resources :users, only: [:show] do
     member do
 
