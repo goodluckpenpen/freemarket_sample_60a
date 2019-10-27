@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  
+  before_action :authenticate_user!, except: [:index, :show]
   def index
 
     # @ladys_category = 
@@ -16,8 +16,6 @@ class ItemsController < ApplicationController
     @vuittons = Item.where(brand_id:3).order('id DESC').limit(10)
     @supremes = Item.where(brand_id:4).order('id DESC').limit(10)
     @nikes = Item.where(brand_id:2).order('id DESC').limit(10)
-
-    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def show
@@ -27,10 +25,20 @@ class ItemsController < ApplicationController
     @brands = @item.brand.items.order("created_at DESC").limit(6)
   end
 
+
+  def purchase
+  end
+
   def select
+    @item = Item.find(params[:id])
   end
 
-  def buy
-  end
+  def bought
+  end 
 
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy 
+    redirect_to controller: 'users',action: 'seller_selling'
+  end
 end

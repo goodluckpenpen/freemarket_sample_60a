@@ -1,5 +1,5 @@
 .signups-body
-  .single-container	
+  .single-container
     %header.single-header
       %h1
         =link_to "http://localhost:3000" do
@@ -10,11 +10,11 @@
           新規会員登録
         .l-single-inner.registration-form
           .l-single-content
-            =link_to "http://localhost:3000/signups/newmember", class: "btn-default btn-mail" do
-              = fa_icon 'envelope', class: "icon-mail"
+            =link_to "/signups/newmember", class: "btn-default btn-mail" do
+              %i.far.fa-envelope.icon-mail
               メールアドレスで登録する
             %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
-              = fa_icon 'facebook-square 2x', class: "icon-facebook"
+              %i.fab.fa-facebook.icon-facebook
               Facebookで登録する
             %button#google-login.btn-default.btn-sns.btn-sns-google
               = image_tag '/246x0w.jpg', alt: 'google', height: '20', width: '25', class: 'google-icon'
@@ -33,17 +33,4 @@
         %input{name: "google_user_id", type: "hidden", value: ""}
         %input{name: "google_access_token", type: "hidden", value: ""}
         %input{name: "login_type", type: "hidden", value: "google"}
-    %footer.single-footer
-      %nav
-        %ul.clearfix
-          %li
-            =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
-          %li
-            =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
-          %li
-            =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
-      %a.single-footer-logo{href: "http://localhost:3000"}
-        %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", width: "80"}
-      %p
-        %small
-          &copy 2019 Mercari
+    = render 'registration_footer'

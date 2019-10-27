@@ -1,38 +1,21 @@
 .signups-body
-  .single-container	
-    %header.single-header
-      %h1
-        =link_to "https://www.mercari.com/jp/" do
-          %img(src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308" alt="mercari")
-      %nav.progress-bar.signup-bar
-        %ol.clearfix
-          %li
-            会員情報
-            .progress-status-first-red-line
-          %li
-            電話番号認証
-            .progress-status-second-red-line
-          %li
-            お届け先住所入力
-            .progress-status-third-red-line
-          %li.active
-            支払い方法
-            .progress-status-force
-          %li
-            完了
-            .progress-status-last
+  .single-container
+    = render 'payment_bar'
     %main.single-main
       %section.l-single-container
         %h2.l-single-head.registration
           支払い方法
-        = form_for @user, url: signups_index_path, method: :get, novalidate: "novalidate", html: {class: '.l-single-inner','.registration-form'} do |f|
-          = f.hidden_field :__csrf_value, value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"
+        = form_with model: @user, local: true, url: '/signups', method: 'POST', class: 'l-single-inner registration-form', novalidate: 'novalidate' do |f|
           .l-single-content
             .form-group
               = f.label :card_number, "カード番号"
               %sapn.form-require
                 必須
-              = f.number_field :card_number, placeholder: "半角数字のみ", class: 'input-default'
+              - if @user.errors.full_messages_for(:card_number).any?
+                = f.number_field :card_number, placeholder: "半角数字のみ", class: 'input-default--has-error'
+              - else
+                = f.number_field :card_number, placeholder: "半角数字のみ", class: 'input-default'
+              = render partial: 'error-messages', locals: { user: @user, column: "card_number"}
               %ul#card-no-error-wrapper.has-error-text
               %ul.signup-card-list
                 %li
@@ -55,11 +38,21 @@
                 必須
               %br/
               .select-wrap.half
-                = f.select :card_expiration_date_month,["01","02","03","04","05","06","07","08","09","10","11","12"], prompt: "--", id: "payment_card_expire_mm", class: "select-default"
+                -# = f.date_select(:card_expiration_date_month, discard_year: true, discard_day: true, use_month_numbers: true, use_two_digit_numbers: true, prompt: "--")
+                - if @user.errors.full_messages_for(:card_expiration_date_month).any?
+                  = f.select :card_expiration_date_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, id: "payment_card_expire_mm", class: "select-default--has-error"
+                - else
+                  = f.select :card_expiration_date_month, [["01",1],["02",2],["03",3],["04",4],["05",5],["06",6],["07",7],["08",8],["09",9],["10",10],["11",11],["12",12]],{}, id: "payment_card_expire_mm", class: "select-default"
+                = render partial: 'error-messages', locals: { user: @user, column: "card_expiration_date_month"}
                 = fa_icon 'chevron-down'
                 %span 月
               .select-wrap.half
-                = f.select :card_expiration_date_year,["19","20","21","22","23","24","25","26","27","28","29"], prompt: "--", id: "payment_card_expire_yy", class: "select-default"
+                -# = f.date_select(:card_expiration_date_year, discard_month: true, discard_day: true, start_year: (Time.now.year), end_year: (Time.now.year+10), prompt: "--")
+                - if @user.errors.full_messages_for(:card_expiration_date_year).any?
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2015],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default--has-error"
+                - else
+                  = f.select :card_expiration_date_year,[["19",2019],["20",2020],["21",2021],["22",2022],["23",2023],["24",2024],["25",2015],["26",2026],["27",2027],["28",2028],["29",2029]],{}, id: "payment_card_expire_yy", class: "select-default"
+                = render partial: 'error-messages', locals: { user: @user, column: "card_expiration_date_year"}
                 = fa_icon 'chevron-down'
                 %span 年
               %ul#card-mm-error-wrapper.has-error-text
@@ -68,28 +61,18 @@
               = f.label :card_security_code, "セキュリティコード"
               %sapn.form-require
                 必須
-              = f.number_field :card_security_code, placeholder: "カードの背面4桁もしくは3桁の番号", class: 'input-default'
+              - if @user.errors.full_messages_for(:card_security_code).any?
+                = f.number_field :card_security_code, placeholder: "カードの背面4桁もしくは3桁の番号", class: 'input-default--has-error'
+              - else
+                = f.number_field :card_security_code, placeholder: "カードの背面4桁もしくは3桁の番号", class: 'input-default'
+              = render partial: 'error-messages', locals: { user: @user, column: "card_security_code"}
               %ul#security-code-error-wrapper.has-error-text
               .signup-seqcode
                 %span.form-question?
-                = f.label :label1, "カード裏面の番号とは？"
-                = f.check_box, id: "label1"
+                %label(for="label1")カード裏面の番号とは？
+                %input#label1(type="checkbox" name="")
                 .seqcode-show
                   カードの裏面をご参照ください。
                   %img{src: "//www-mercari-jp.akamaized.net/assets/img/signup/seq-card.png?3466462615", width: "240", alt: ""}
             = f.submit '次へ進む', class: "btn-default btn-red"
-    %footer.single-footer
-      %nav
-        %ul.clearfix
-          %li
-            =link_to "プライバシーポリシー", "https://www.mercari.com/jp/privacy/"
-          %li
-            =link_to "メルカリ利用規約", "https://www.mercari.com/jp/tos/"
-          %li
-            =link_to "特定商取引に関する表記", "https://www.mercari.com/jp/tokutei/"
-      %a.single-footer-logo{href: "https://www.mercari.com/jp/"}
-        %img{alt: "mercari", height: "65", src: "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", width: "80"}
-      %p
-        %small
-          &copy 2019 Mercari
-  %script{src: "/app/assets/javascripts/signups.js"}
+    = render 'registration_footer'

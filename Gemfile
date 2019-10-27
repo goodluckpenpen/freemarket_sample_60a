@@ -86,5 +86,7 @@ gem 'erb2haml'
 gem "font-awesome-rails"
 gem 'devise'
 gem 'ancestry'
+# バリデーションのエラーメッセージを日本語化する
+gem 'rails-i18n'
 gem 'pry-rails'
 gem "gretel"

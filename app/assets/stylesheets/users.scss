@@ -403,37 +403,38 @@ label {
       display: block;
       &-listing {
         display: block;
-        &-list {
-          border-top: 1px solid #eee;
-          &-choice {
-            background: #eee;
-            position: relative;
-            display: block;
-            min-height: 48px;
-            padding: 16px;
-            font-size: 14px;
-            color: #333;
-            font-weight: bold;
-          }
-          &-choice::after {
-            position: absolute;
-            top: 40%;
-            right: 17px;
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-top: 2px solid #333;
-            border-right: 2px solid #333;
-            -webkit-transform: rotate(48deg);
-            transform: rotate(48deg);
-            transition: all .2s;
-            color: #333;
-          }
-          &-choice:hover::after {
-            right: 13px;// デフォルト位置より4px分右に動く
-            border-color: black;
-          }
-        }
+        //-- ????action???? --//
+        // &-list {
+        //   border-top: 1px solid #eee;
+        //   &-item {
+        //     background: #eee;
+        //     position: relative;
+        //     display: block;
+        //     min-height: 48px;
+        //     padding: 16px;
+        //     font-size: 14px;
+        //     color: #333;
+        //     font-weight: bold;
+        //   }
+        //   &-item::after {
+        //     position: absolute;
+        //     top: 40%;
+        //     right: 17px;
+        //     content: '';
+        //     width: 8px;
+        //     height: 8px;
+        //     border-top: 2px solid #333;
+        //     border-right: 2px solid #333;
+        //     -webkit-transform: rotate(48deg);
+        //     transform: rotate(48deg);
+        //     transition: all .2s;
+        //     color: #333;
+        //   }
+        //   &-item:hover::after {
+        //     right: 13px;// デフォルト位置より4px分右に動く
+        //     border-color: black;
+        //   }
+        // }
         &-list {
           border-top: 1px solid #eee;
           &-item {

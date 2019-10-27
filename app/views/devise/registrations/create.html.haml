@@ -1,0 +1,11 @@
+.item-images
+  %img#image_img_prev.hidden{src: "#"}/
+  - if current_user.persisted? && current_user.image?
+    = image_tag current_user.image.to_s, class: 'image_present_img'
+    %label
+      = f.check_box :remove_image, class: 'image_present_img'
+      画像を削除
+  - else
+    = image_tag 'no_image.png'
+    = f.hidden_field :image_cache
+  = f.file_field :image, id: 'post_img'
