@@ -14,6 +14,7 @@
       @content;
     }
   }
+    
   background-repeat: no-repeat;
   margin: 0;
   padding: 0;
@@ -22,9 +23,9 @@
   box-sizing: inherit;
   border-style: solid;
   border-width: 0;
-  div {
-    display: block;
-  }
+  // div {
+  //   display: block;
+  // }
   h1 {
     display: block;
     font-size: 2em;
@@ -343,6 +344,9 @@
     font-size: 22px;
     line-height: 1.4;
   }
+  ul {
+    list-style:none;
+  }
   .l-single-inner.registration-form {
     @include lg {
       padding: 40px 40px 64px;
@@ -402,6 +406,7 @@
       margin: 0;
     }
   }
+
   .l-chapter-head {
     padding: 12px 4%;
     border-bottom: 1px solid #f5f5f5;
@@ -414,54 +419,82 @@
       padding: 8px 24px;
     }
   }
-  .rakuraku {
-    text-align: center;
-    p {
-      margin: 16px 0 0;
-      line-height: 1.5;
-    }
-  }
-  .bold {
-    font-weight: 600;
+
+  .full-width{
+    width:100%;
   }
 
-  .l-side {
-    margin: 40px auto 0;
-    @include md {
-      width: 700px;
+  .visible-pc{
+    display: none;
+    @include md{
+      display:block;
     }
-    @include lg {
+  }
+  .visible-sp{
+    @include md{
+      display:none;
+    }
+  }
+
+  .parts-nav{
+    padding-inline-start: 0px;
+    margin:0 4%;
+    @include md{
+      margin:0;
+    }
+    li{
       float: left;
-      width: 280px;
-      margin: 0 40px 0 0;
-    }
-    &-container {
-      @include md {
-        margin: 40px 0 0;
-      }
-      &:first-of-type {
-        @include lg {
-          margin: 0;
-        }
-      }
+      margin: 16px 16px 0 0;
     }
   }
 
-  //////transact/////
-  .transact {
-    position: relative;
-    padding: 24px 8px;
-    background: #fff6de;
-    text-align: center;
-    h3 {
-      font-size: 16px;
-      color: #ea352d;
+//////transact/////
+  .transact{
+   position: relative;
+   padding: 24px 8px;
+   background: #fff6de;
+   text-align: center;
+    h3{
+    font-size: 16px;
+    color: #ea352d;
     }
-    i {
+    i{
       margin: 0 8px 0 0;
       font-size: 32px;
       color: #ea352d;
       vertical-align: middle;
+    }
+    .rakuraku {
+      text-align: center;
+      p {
+        margin: 16px 0 0;
+        line-height: 1.5;
+      }
+    }
+    .bold {
+      font-weight: 600;
+    }
+
+    .l-side {
+      margin: 40px auto 0;
+      @include md {
+        width: 700px;
+      }
+      @include lg {
+        float: left;
+        width: 280px;
+        margin: 0 40px 0 0;
+      }
+      &-container {
+        @include md {
+          margin: 40px 0 0;
+        }
+        &:first-of-type {
+          @include lg {
+            margin: 0;
+          }
+        }
+      }
     }
     span {
       vertical-align: middle;
@@ -1573,7 +1606,7 @@
       }
       .review-icon {
         margin: 16px 0 0;
-        background: url(https://www.mercari.com/jp/assets/img/transaction/bg-buy-done-flow.png?35731317);
+        background-image: url(https://www.mercari.com/jp/assets/img/transaction/bg-buy-done-flow.png?35731317);
         background-position: center;
         background-repeat: no-repeat;
         font-size: 0;
@@ -1593,32 +1626,235 @@
         }
       }
     }
+    &__content{
+     margin: 40px 0 0;
+     padding: 24px 12.5% 0;
+     border-top: 1px solid #f5f5f5;
+     &:first-of-type{
+      margin:0;
+     }
+     &:last-of-type{
+      padding: 40px 12.5%;
+     }
+     &__inner{
+      max-width: 320px;
+      margin: 0 auto;
+      .buy-price{
+       margin: 16px 0 0;
+       font-size: 28px;
+       font-weight: 600;
+       .buy-span-fee{
+        display: inline-block;
+        margin: 0 0 0 8px;
+       }
+      }
+     }
+    }
+   }
+  
+///category///
+  .category{
+    background-color: transparent;
+    margin:40px auto;
 
-    &__content {
-      margin: 40px 0 0;
-      padding: 24px 12.5% 0;
-      border-top: 1px solid #f5f5f5;
-      &:first-of-type {
-        margin: 0;
-      }
-      &:last-of-type {
-        padding: 40px 12.5%;
-      }
-      &__inner {
-        max-width: 320px;
-        margin: 0 auto;
-        .buy-price {
-          margin: 16px 0 0;
-          font-size: 28px;
-          font-weight: 600;
-          .buy-span-fee {
-            display: inline-block;
-            margin: 0 0 0 8px;
-            font-size: 14px;
-            font-weight: 400;
-          }
+    h3,h4{
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+    }
+    h4{
+      display: block;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+    }
+
+
+    &-index{
+      h1{
+        font-size: 18px;
+        margin: 24px 4% 8px;
+        line-height: 1.4;
+        @include md{
+          font-size: 22px;
+          margin: 24px 0 8px;
         }
       }
     }
+    &-description{
+      margin-top: 30px;
+      @include md{
+        overflow: hidden;
+        border-radius: 4px;
+      }
+      &__title{
+        text-align: center;
+        background-color: #ea352d;
+        h3{
+          margin-block-start: 0;
+          margin-block-end: 0;
+          padding: 16px 8px;
+          color:#fff;
+        }
+      }
+      &__text{
+        padding: 30px;
+        background-color:#fff;
+        p{
+          line-height: 1.6em;
+        }
+      }
+    }
+    &__list{
+      
+      &__link{
+        border-radius: 4px;
+        min-width: 80px;
+        height: 40px;
+        box-shadow: 1px 1px 1px 1px rgba(14,14,14,0.0580392);
+        padding: 0 30px;
+        margin: 5px;
+        color: #333;
+        font-size: 16px;
+        line-height: 40px;
+        float:left;
+        background-color: #fff;
+        &:hover{
+          opacity: 1;
+          text-decoration: none !important;
+          color: #fff;
+          background-color: #ea352d;
+        }
+      }
+
+    }
+    &__box{
+      margin: 30px auto;    
+      &__item{
+        border-radius: 4px;
+        margin-bottom: 40px;
+        background-color: #fff;
+        &__title{
+          border-top-left-radius: 4px;
+          border-top-right-radius: 4px;
+          padding: 7px 30px 0 30px;
+          height: 40px;
+          background-color:#ea352d;
+          
+          a{
+            color:#fff;
+          }
+        }
+        &__inner{
+          padding: 24px 30px 10px 30px;
+          p{
+            font-size: 16px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+          }
+          &__title{
+            padding-top: 15px;
+            padding-bottom: 5px;
+          }
+          &__list{
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-bottom: 10px;
+            &__name{
+              float: left;
+              width: 50%;
+              padding: 0 20px 0 0;
+
+            }
+          }
+        }
+      }
+
+    }
   }
+
+////パンくず/////
+  .bread-crumbs{
+    position: relative;
+    border-top: 1px solid #eee;
+    background: #f5f5f5;
+    -webkit-box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    background: #fff;
+
+    span{
+      font-weight: bold;
+    }
+
+    ul{
+      padding: 16px;
+      font-size: 0;
+      white-space: nowrap;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      @include md{
+        overflow: visible;
+        width: 700px;
+        margin: 0 auto;
+        padding: 16px 0;
+        white-space: normal;
+      }
+      @include lg{
+        width: 1020px;
+      }
+    }
+    li{
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      @include md{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    a{
+      color: #333;
+    }
+    i{
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+
+    .breadcrumbs-list{
+      padding: 16px;
+      font-size: 0;
+      white-space: nowrap;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      @include md{
+        overflow: visible;
+        width: 700px;
+        margin: 0 auto;
+        padding: 16px 0;
+        white-space: normal;
+      }
+      @include lg{
+        width: 1020px;
+      }
+    }
+    a,span{
+      display: inline-block;
+      font-size: 14px;
+      line-height: 1.2;
+      @include md{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    a{
+      color: #333;
+    }
+    i{
+      margin: 0 8px;
+      font-size: 9px;
+      color: #888;
+    }
+    
+  }  
+  
 }

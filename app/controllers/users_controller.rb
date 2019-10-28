@@ -3,10 +3,6 @@ class UsersController < ApplicationController
   def show
   end
 
-  def create
-    @user = User.new
-  end
-
   def card_add_btn
   end
 
@@ -23,6 +19,7 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def profile
@@ -39,9 +36,4 @@ class UsersController < ApplicationController
   def seller_sold
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :image)
-  end
 end

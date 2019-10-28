@@ -10,7 +10,7 @@ $(document).on('turbolinks:load',function() {
     }
     
   });
-  $( '.slider-for' ).on( 'mouseenter', '.slick-dots > li', function() {
+  $( '.slider-for' ).on( 'mouseover', '.slick-dots > li', function() {
     $( this ).click();
  });
 });
