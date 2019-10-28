@@ -13,7 +13,7 @@
 
       = f.fields_for :images, @item.images.first do |image|
         .items-sell__imgs__dropzone
-          #preview1
+          #preview
             -# １〜５枚目プレビュー表示
             .items-sell__imgs__dropzone__input
               = image.label :image, for: "upload-image" do
@@ -29,25 +29,25 @@
                     %br
                     またはクリックしてファイルをアップロード
 
-        .items-sell__imgs__dropzone2
-          #preview2
-            -# ６〜１０枚目プレビュー表示
-            .items-sell__imgs__dropzone2__input2
-              = image.label :image, for: "upload-image" do
-                .input_area
-                  = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
-                  .btn_edit
-                    編集
-                  .btn_delete
-                    削除
-                .items-sell__imgs__dropzone2__input2__description
-                  .items-sell__imgs__dropzone2__input2__description__text
-                    ドラッグアンドドロップ
-                    %br
-                    またはクリックしてファイルをアップロード
+        -# .items-sell__imgs__dropzone2
+        -#   #preview2
+        -#     -# ６〜１０枚目プレビュー表示
+        -#     .items-sell__imgs__dropzone2__input2
+        -#       = image.label :image, for: "upload-image" do
+        -#         .input_area
+        -#           = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+        -#           .btn_edit
+        -#             編集
+        -#           .btn_delete
+        -#             削除
+        -#         .items-sell__imgs__dropzone2__input2__description
+        -#           .items-sell__imgs__dropzone2__input2__description__text
+        -#             ドラッグアンドドロップ
+        -#             %br
+        -#             またはクリックしてファイルをアップロード
   
-    %p.items-sell__imgs__no-imgs
-      画像がありません
+    -# %p.items-sell__imgs__no-imgs
+    -#   画像がありません
 
   .items-sell__message
     .items-sell__message__name
