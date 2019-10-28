@@ -5,37 +5,28 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable,
         :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
         
-  # def self.find_oauth(auth)
-  #   uid = auth.uid
-  #   provider = auth.provider
-  #   snscredential = SnsCredential.where(uid: uid, provider: provider).first
-  #   if snscredential.present?
-  #     user = User.where(id: snscredential.user_id).first
-  #   else
-  #     user = User.where(email: auth.info.email).first
-  #     if user.present?
-  #       SnsCredential.create(
-  #         uid: uid,
-  #         provider: provider,
-  #         user_id: user.id
-  #         )
-  #     else
-  #       user = User.create(
-  #         nickname: auth.info.name,
-  #         email:    auth.info.email,
-  #         password: Devise.friendly_token[0, 20],
-  #         phone_number: "08000000000"
-  #         )
-  #       SnsCredential.create(
-  #         uid: uid,
-  #         provider: provider,
-  #         user_id: user.id
-  #         )
-  #     end
-  #   end
-  #   return user
-  # end
-  # mount_uploader :image, ImageUploader
+  def facebook
+    callback_for(:facebook)
+  end
+
+  def google_oauth2
+    callback_for(:google)
+  end
+
+  def callback_for(provider)
+    @user = User.find_oauth(request.env["omniauth.auth"])
+    if @user.persisted?
+      sign_in_and_redirect @user, event: :authentication #after_sign_in_path_forと同じパス
+      set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
+    else
+      session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
+      redirect_to signup_registration_path
+    end
+  end
+
+  def failure
+    redirect_to root_path and return
+  end
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_PHONE_REGEX = /\A\d{10,11}\z/
