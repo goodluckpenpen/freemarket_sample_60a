@@ -99,3 +99,7 @@ gem 'gon'
 gem 'aws-sdk'
 
 gem "gretel"
+gem 'omniauth-rails_csrf_protection'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
