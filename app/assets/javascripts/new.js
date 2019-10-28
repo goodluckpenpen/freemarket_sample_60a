@@ -1,34 +1,34 @@
-// $(function(){
-//   //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
-//   $('form').on('change', 'input[type="file"]', function(e) {
-//     var file = e.target.files[0],
-//         reader = new FileReader(),
-//         $preview = $("#preview");
-//         t = this;
+$(function(){
+  //画像ファイルプレビュー表示のイベント追加 fileを選択時に発火するイベントを登録
+  $('form').on('change', 'input[type="file"]', function(e) {
+    var file = e.target.files[0],
+        reader = new FileReader(),
+        $preview1 = $("#preview1");
+        t = this;
 
-//     // 画像ファイル以外の場合は何もしない
-//     if(file.type.indexOf("image") < 0){
-//       return false;
-//     }
+    // 画像ファイル以外の場合は何もしない
+    if(file.type.indexOf("image") < 0){
+      return false;
+    }
 
-//     // ファイル読み込みが完了した際のイベント登録
-//     reader.onload = (function(file) {
-//       return function(e) {
-//         //既存のプレビューを削除
-//         $preview.empty();
-//         // .prevewの領域の中にロードした画像を表示するimageタグを追加
-//         $preview.append($('<img>').attr({
-//                   src: e.target.result,
-//                   width: "150px",
-//                   class: "preview",
-//                   title: file.name
-//               }));
-//       };
-//     })(file);
+    // ファイル読み込みが完了した際のイベント登録
+    reader.onload = (function(file) {
+      return function(e) {
+        //既存のプレビューを削除
+        $preview1.empty();
+        // .prevewの領域の中にロードした画像を表示するimageタグを追加
+        $preview1.append($('<img>').attr({
+                  src: e.target.result,
+                  width: "150px",
+                  class: "preview1",
+                  title: file.name
+              }));
+      };
+    })(file);
 
-//     reader.readAsDataURL(file);
-//   });
-// });
+    reader.readAsDataURL(file);
+  });
+});
 
   // 出品一式の機能
 $(window).on("turbolinks:load", function() {
@@ -36,7 +36,7 @@ $(window).on("turbolinks:load", function() {
   var dropzone2 = $(".items-sell__imgs__dropzone2__input2");
   var appendzone = $(".items-sell__imgs__dropzone2")
   var input_area = $(".input-area");
-  var preview = $("#preview");
+  var preview1 = $("#preview1");
   var preview2 = $("#preview2");
   
   // 登録済画像と新規追加画像を全て格納する配列（ビュー用）
@@ -49,17 +49,17 @@ $(window).on("turbolinks:load", function() {
 
   // 登録済画像のプレビュー表示
   gon.images.forEach(function(image, index){
-    var img = $(`<div class= "add_img"><div class="img_area"><img class="image"></div></div>`);
+    var img = $('.items-sell__imgs__dropzone__input,.items-sell__imgs__dropzone2__input2');
     console.log('aaa')
     // カスタムデータ属性を付与
     img.data("image", index)
     
-    var btn_wrapper = $('<div class="btn_wrapper"><a class="btn_edit">編集</a><a class="btn_delete">削除</a></div>');
+    var btn_wrapper = $('.input_area,.btn_edit,編集,.btn_delete,削除');
 
     // 画像に編集・削除ボタンをつける
     img.append(btn_wrapper);
 
-    binary_data = gon.item_images_binary_datas[index]
+    binary_data = gon.images_binary_datas[index]
     
     // 表示するビューにバイナリーデータを付与
     img.find("img").attr({
@@ -76,7 +76,7 @@ $(window).on("turbolinks:load", function() {
     $('#preview').empty();
     $.each(images, function(index, image) {
       image.data('image', index);
-      preview.append(image);
+      preview1.append(image);
     })
     dropzone.css({
       'width': `calc(100% - (20% * ${images.length}))`
@@ -84,10 +84,10 @@ $(window).on("turbolinks:load", function() {
 
     // 画像が５枚のとき１段目の枠を消し、２段目の枠を出す
   } else if (images.length == 5) {
-    $("#preview").empty();
+    $("#preview1").empty();
     $.each(images, function(index, image) {
       image.data("image", index);
-      preview.append(image);
+      preview1.append(image);
     });
     appendzone.css({
       display: "block"
@@ -103,10 +103,10 @@ $(window).on("turbolinks:load", function() {
     var pickup_images1 = images.slice(0, 5);
 
     // １〜５枚目を１段目に表示
-    $('#preview').empty();
+    $('#preview1').empty();
     $.each(pickup_images1, function(index, image) {
       image.data('image', index);
-      preview.append(image);
+      preview1.append(image);
     })
 
     // ６枚目以降の画像を抽出
