@@ -15,10 +15,11 @@
               メールアドレスで登録する
             %button#facebook-login.btn-default.btn-sns.btn-sns-facebook
               %i.fab.fa-facebook.icon-facebook
-              Facebookで登録する
+              = link_to 'Facebookで登録する', user_facebook_omniauth_authorize_path, method: 'GET|POST'
             %button#google-login.btn-default.btn-sns.btn-sns-google
               = image_tag '/246x0w.jpg', alt: 'google', height: '20', width: '25', class: 'google-icon'
-              Googleで登録する
+              = link_to 'Googleで登録する', user_google_oauth2_omniauth_authorize_path, method: 'GET|POST'
+              
       %form#login_form_facebook{action: "/jp/signup/facebook/", method: "POST", novalidate: "novalidate"}
         %input{name: "__csrf_value", type: "hidden", value: "b2e5b4f0cff37017373d1ec91597f831808273eae11a4d39c38b6344b1d5ca243d45889a41cc3f0a721d25d7df429477f14296b17b26d2b2f105a7a00725f6400"}
         %input{name:"nickname", type: "hidden", value: ""}
