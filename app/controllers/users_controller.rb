@@ -7,15 +7,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def card_add_btn
-  end
-
-  def card_delete_btn
-  end
-
-  def card_input_info
-  end
-
   def information
   end
 
