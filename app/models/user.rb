@@ -2,7 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-        :recoverable, :rememberable, :validatable
+        :recoverable, :rememberable, :validatable,
+        
 
         has_many :items
   
@@ -55,10 +56,6 @@ class User < ApplicationRecord
   validates :card_number, presence: true
   validates :card_expiration_date_year, presence: true
   validates :card_expiration_date_month, presence: true
-
-  validates :card_security_code, presence: true, length: {minimum: 3, maximum: 4}, format: { with: VALID_SECURITY_CODE, message: 'の入力が正しくありません'}, allow_blank: true
-  
-
   validates :card_security_code, length: {minimum: 3, maximum: 4}, format: { with: VALID_SECURITY_CODE, message: 'の入力が正しくありません'}, allow_blank: true
   validates :card_security_code, presence: true
 
