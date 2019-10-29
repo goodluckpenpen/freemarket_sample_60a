@@ -8,7 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'cf5b7230ab81204e4e2afdeef10f2e7c99aa8a7296ba300b8e1024f00a8e9729886a7497d5283c092b10ad9ef57527d02400c81a0362b90917cd53d2bef95777'
+  # config.secret_key = 'e87c3a485569e399d05d6851c9d0cdf4a0acd908d6abc88dc245a0637ae1bce17e0f7900f1af05f10a9b9e96a4732ceb7b14abe4e0cdf932c96ec2339360189f'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '18919acc39b289d5539413d710ad71e0cd09ea6042c6a813fead1e4578a0da218bf29d1f4f6cfd760fd2110d2f338674d181369045fd7d07a7fedf3e8167bbda'
+  # config.pepper = '85cc22ea375b0f4a73d441214afc0977bb080fccaf8db01c6ce7f645f34a121571d41a0b52bf3a76e6a36d36c65aebab989744075fc1181c39f788b5beb28f59'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -260,7 +260,8 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  config.omniauth :facebook, ENV['FACEBOOK_ID'], ENV['FACEBOOK_SECRET_KEY']
+  config.omniauth :google_oauth2, ENV['GOOGLE_ID'], ENV['GOOGLE_SECRET_KEY']
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -296,10 +297,4 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  config.omniauth :google_oauth2,
-                  Rails.application.secrets.google_client_id,
-                  Rails.application.secrets.google_client_secret
-  config.omniauth :facebook,
-                  Rails.application.secrets.facebook_client_id,
-                  Rails.application.secrets.facebook_client_secret
 end
