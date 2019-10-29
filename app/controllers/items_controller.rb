@@ -53,6 +53,15 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to @user
+    else 
+      render :new
+    end
+  end
 
   def purchase
   end
@@ -118,7 +127,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price)
+    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, :seller_id, :user_id)
   end
 
   def registered_image_params
