@@ -53,6 +53,15 @@ class ItemsController < ApplicationController
       end
     end
   end
+  
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to @user
+    else 
+      render :new
+    end
+  end
 
   def purchase
   end
