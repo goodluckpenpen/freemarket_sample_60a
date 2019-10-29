@@ -43,11 +43,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else
       session["devise.#{provider}_data"] = request.env["omniauth.auth"].except("extra")
-      redirect_to signups_registration_path
+      redirect_to newmember_signups_path
     end
   end
 
   def failure
-    redirect_to root_path and return
+    redirect_to root_path
   end
 end
