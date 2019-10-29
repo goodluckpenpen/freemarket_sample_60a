@@ -3,20 +3,31 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
 
-    # @ladys_category = 
-    # @mens_category = 
-    # @elecs_category = 
-    # @hobys_category = 
+    @ladys_category = Category.find(1)
+    @mens_category = Category.find(2)
+    @elecs_category = Category.find(8)
+    @hobys_category = Category.find(6)
 
+    # @category = Category.find(params[:id])
+    # Post.where(category_id: @category.subtree_ids)
 
-    @ladys = Item.where(category_id:1).order('id DESC').limit(10)
-    @mens = Item.where(category_id:2).order('id DESC').limit(10)
-    @elecs = Item.where(category_id:8).order('id DESC').limit(10)
-    @hobys = Item.where(category_id:6).order('id DESC').limit(10)
+    @ladys = Item.where(category_id:@ladys_category.subtree_ids).limit(10)
+    @mens = Item.where(category_id:@mens_category.subtree_ids).limit(10)
+    @elecs = Item.where(category_id:@elecs_category.subtree_ids).limit(10)
+    @hobys = Item.where(category_id:@hobys_category.subtree_ids).limit(10)
     @chanels = Item.where(brand_id:1).order('id DESC').limit(10)
     @vuittons = Item.where(brand_id:3).order('id DESC').limit(10)
     @supremes = Item.where(brand_id:4).order('id DESC').limit(10)
     @nikes = Item.where(brand_id:2).order('id DESC').limit(10)
+  end
+
+  def search
+    respond_to do |format|
+      format.html
+      format.json do
+       @children = Category.find(params[:parent_id]).children
+      end
+    end
   end
 
   def show
@@ -53,6 +64,7 @@ class ItemsController < ApplicationController
       end
     end
   end
+
 
   def purchase
   end

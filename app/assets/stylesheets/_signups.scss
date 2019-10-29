@@ -1772,6 +1772,55 @@
     }
   }
 
+///pagenate///
+  .pagination{
+    position: relative;
+    font-size: 0;
+    text-align: center;
+    @include md{
+      margin: 40px 0 0;
+    }
+    a{
+      display: block;
+      color: #333;
+    }
+    &-cell{
+      display: inline-block;
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      background: #fff;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      line-height: 42px;
+    }
+    &-prev{
+      position: absolute;
+      top: 0;
+      left: 0;
+      i{
+        position: relative;
+        top: 0.15em;
+        font-size:20px;
+      }
+    }
+    &-next{
+      position: absolute;
+      top: 0;
+      right: 0;
+      i{
+        position: relative;
+        top: 0.15em;
+        font-size:20px;
+      }      
+    }
+    &-current{
+      color: #fff;
+      background: #ea352d;
+    }
+
+  }  
+
 ////パンくず/////
   .bread-crumbs{
     position: relative;

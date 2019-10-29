@@ -99,3 +99,4 @@ gem 'gon'
 gem 'aws-sdk'
 
 gem "gretel"
+gem 'kaminari'
