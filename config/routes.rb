@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get "items/bought"
   get "items/purchase"
 
+  get "items/search"
   get "items/buy"
   get "items/transaction"
   
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
       get 'select'
       end
     collection do
-      
+      get 'search'
       end
     end
 

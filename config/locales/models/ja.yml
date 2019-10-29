@@ -1,4 +1,10 @@
 ja:
+  views:
+    pagination:
+      first: <i class="fas fa-angle-double-left"></i>
+      last: <i class="fas fa-angle-double-right"></i>
+      previous: <i class="fas fa-angle-left"></i>
+      next: <i class="fas fa-angle-right"></i>
   activerecord:
     models:
       user:
@@ -30,3 +36,5 @@ ja:
         card_expiration_date_month: 有効期限(月)
         card_expiration_date_year: 有効期限(年)
         card_security_code: セキュリティコード
+    
+    
