@@ -1,4 +1,5 @@
 = render "new-header"
+
 .items-sell
   .items-sell__infomations
     %h2.items-sell__infomations__item
@@ -319,21 +320,30 @@
           ー
   .items-sell__exhibit        
     %p.items-sell__exhibit__1
-      = link_to "禁止されている出品", class: "items-sell__exhibit__1__ban"  
+      = link_to "禁止されている出品","", class: "items-sell__exhibit__1__ban"  
       、
-      = link_to "行為", class: "items-sell__exhibit__1__action"
+      = link_to "行為","", class: "items-sell__exhibit__1__action"
       を必ずご確認ください。
     %p.items-sell__exhibit__2
       またブランド品でシリアルナンバー等がある場合はご記載ください。
-      = link_to " 偽ブランドの販売", class: "items-sell__exhibit__2__fake"      
+      = link_to " 偽ブランドの販売","", class: "items-sell__exhibit__2__fake"      
       は犯罪であり処罰される可能性があります。
     %p.items-sell__exhibit__3
       また、出品をもちまして
-      = link_to "加盟店規約", class: "items-sell__exhibit__3__terms"
+      = link_to "加盟店規約","", class: "items-sell__exhibit__3__terms"
       に同意したことになります。
     %button.items-sell__exhibit__decide
-      = link_to "出品する", item_items_purchase_path(:item_id)
+      = link_to "出品する", class: "items-sell__exhibit__decide__window"
     %button.items-sell__exhibit__return 
       = link_to "もどる",  mypage_users_path
+// 出品をおした時のモーダル発火
+.modalOverlay.is-hite
+  .modalOverlay__modal
+    %h5.modalOverlay__modal__head
+      出品が完了しました
+    .modalOverlay__modal__text
+      %p
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。   
+      = link_to "続けて出品する","", class: "modalOverlay__modal__text__continue"
+      = link_to "商品ページへ行ってシェアする","", class: "modalOverlay__modal__text__items-page"
 = render "new-footer"
-
