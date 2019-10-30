@@ -14,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    # @parents = Category.all.order("id ASC").limit(13)
   end
 
   def profile
@@ -31,9 +32,4 @@ class UsersController < ApplicationController
     # @item_trading = User.find_by(id:current_user.id).sold_items
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :image)
-  end
 end

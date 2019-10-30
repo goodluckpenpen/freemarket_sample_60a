@@ -46,6 +46,13 @@ img {
  vertical-align: middle;
 }
 
+.bordershadow{
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+}
+
+
 
 ////mixin//////////////
 @mixin mq($breakpoint: md) {
@@ -61,9 +68,9 @@ img {
 }
 
 .hyde{
- @include mq(){
-  display: none;
- }
+  @include mq(){
+   display: none;
+  }
 }
 ////soldout定義/////
 .item-sold-badge{
@@ -97,6 +104,7 @@ img {
    }
   }
 }
+
 //////index/////////
 
 .wrapper{
@@ -108,7 +116,7 @@ img {
 
 .header-hyde{
  background-color: rgb(255, 255, 255);
- box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+ 
  padding-top: 6px;
   &__top{
    min-height: 36px;
@@ -286,9 +294,8 @@ img {
 }
 .header{
   background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  position: relative;
-  z-index: 3;
+  
+  
   @include mq-d(){
    display: none;
   }
@@ -1030,7 +1037,7 @@ img {
      }
      .slick-dots{
       margin-bottom: 35px;
-      z-index: 100;
+      z-index: 1;
      }
     }
 ////menu///////

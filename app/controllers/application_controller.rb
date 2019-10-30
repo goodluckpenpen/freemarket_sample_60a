@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :exception
   protect_from_forgery with: :null_session
 
+  before_action :category_parent
+
     protected
   def configure_permitted_parameters
     added_attrs = [ :nickname,
@@ -33,6 +35,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def category_parent
+    @parents = Category.all.order("id ASC").limit(13)
+  end
 
   def production?
     Rails.env.production?

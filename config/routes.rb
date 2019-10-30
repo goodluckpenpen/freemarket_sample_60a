@@ -22,22 +22,24 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:show, :index, :destroy]
+  resources :items,only: [:index, :new, :show, :create, :destroy] do
   # get "items/item"
-  # get "items/bought"
-  # get "items/purchase"
+  get "items/bought"
+  get "items/purchase"
 
-
+  get "items/search"
   get "items/buy"
   get "items/transaction"
-  resources :items,only: [:show, :index] do
+  
     member do
       get 'select'
-    end
+      end
     collection do
-      
+      get 'search'
+      end
     end
-  end
+
+  resources :categories,only: [:show, :index]
 
   resources :users, only: [:show] do
     member do
