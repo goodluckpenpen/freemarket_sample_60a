@@ -403,38 +403,6 @@ label {
       display: block;
       &-listing {
         display: block;
-        //-- ????action???? --//
-        // &-list {
-        //   border-top: 1px solid #eee;
-        //   &-item {
-        //     background: #eee;
-        //     position: relative;
-        //     display: block;
-        //     min-height: 48px;
-        //     padding: 16px;
-        //     font-size: 14px;
-        //     color: #333;
-        //     font-weight: bold;
-        //   }
-        //   &-item::after {
-        //     position: absolute;
-        //     top: 40%;
-        //     right: 17px;
-        //     content: '';
-        //     width: 8px;
-        //     height: 8px;
-        //     border-top: 2px solid #333;
-        //     border-right: 2px solid #333;
-        //     -webkit-transform: rotate(48deg);
-        //     transform: rotate(48deg);
-        //     transition: all .2s;
-        //     color: #333;
-        //   }
-        //   &-item:hover::after {
-        //     right: 13px;// デフォルト位置より4px分右に動く
-        //     border-color: black;
-        //   }
-        // }
         &-list {
           border-top: 1px solid #eee;
           &-item {
@@ -716,13 +684,7 @@ input[name="tab_item2"] {
             content: '\f09d';
             font-family: FontAwesome;
             margin-right: 16px;
-            font-weight: bold;
-            // font-weight: bold;
-            // font-size: inherit;
-            // text-rendering: auto;
-            // -webkit-font-smoothing: antialiased;
-            // -moz-osx-font-smoothing: grayscale;
-            // font-size: 25px;
+            font-weight: bold;            
           }
         }
       }
@@ -1338,6 +1300,20 @@ input[name="tab_item2"] {
         font-weight: bold;
       }
     }
+  }
+}
+.container__content--group-wrap-listing-lists {
+  display: block;
+  list-style: none;
+  &-list {
+    padding: 160px 0 60px;
+    background: url(https://web-jp-assets.mercdn.net/_next/static/images/logo-gray-light-bf49bd7f43703356d83e9097214a2d23.svg);
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 78px 85px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
   }
 }
 
