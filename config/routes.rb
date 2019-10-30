@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   #クレジットカード登録
-  resources :cards, only: [:new, :show] do
+  resources :cards, only: [:new, :show, :destroy] do
     collection do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
-      post 'delete', to: 'cards#delete'
     end
   end
 
@@ -59,11 +58,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchase, only: [:index, :show] do
+  resources :purchases, only: [:index, :show] do
+    member do
+    end
     collection do
-      # get 'show', to: 'purchase#show'
-      post 'pay', to: 'purchase#pay'
-      get 'done', to: 'purchase#done'
+      # get 'show', to: 'purchases#show'
+      post 'pay', to: 'purchases#pay'
+      get 'buy', to: 'purchases#buy'
     end
   end
 

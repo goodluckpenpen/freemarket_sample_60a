@@ -2,8 +2,10 @@
 .item
   %section.item__box
     =render 'item'
-    =link_to "購入画面に進む","",class:"item-buy-btn"
-    -# .item-buy-btn.disabled 売り切れました
+    - if @item.buyer_id != nil
+      .item-buy-btn.disabled 売り切れました
+    - else
+      =link_to "購入画面に進む", purchase_path(@item.id),class:"item-buy-btn"
     =link_to "アプリで購入","",class:"item__box__appbutton","data-toggle":"open-app"
     .item__box__memo
       %p.item__box__memo__text
@@ -64,7 +66,10 @@
             =link_to item_path(item) do
               %figure.item-box__photo
                 -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-                =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                =image_tag "#{item.images.first.image}"
+                - if item.buyer_id != nil
+                  .item-sold-badge
+                    .item-sold-badge-text SOLD 
               .item-box__body
                 %h3.item-box__body__name
                   = item.title
@@ -84,7 +89,10 @@
             =link_to item_path(item) do
               %figure.item-box__photo
                 -# =image_tag src="https://static.mercdn.net/thumb/photos/m25827808003_1.jpg?1568860192"
-                =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                =image_tag "#{item.images.first.image}"
+                - if item.buyer_id != nil
+                  .item-sold-badge
+                    .item-sold-badge-text SOLD 
               .item-box__body
                 %h3.item-box__body__name
                   = item.title

@@ -23,21 +23,21 @@ class CardsController < ApplicationController
         redirect_to action: "show"
       else
         redirect_to action: "pay"
+        flash[:alert] = 'クレジットカード登録に失敗しました'
       end
     end
   end
 
   # 後ほど削除機能を実装します。
-  def delete #PayjpとCardデータベースを削除します
+  def destroy #PayjpとCardデータベースを削除します
     card = Card.where(user_id: current_user.id).first
     if card.blank?
     else
-      # Payjp.api_key = 'sk_test_9629ac740599209dbad72f1b'
+      Payjp.api_key = 'sk_test_9629ac740599209dbad72f1b'
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       card.delete
     end
-      redirect_to action: "new"
   end
 
  # 後ほど登録したクレジットの表示画面を作成します。

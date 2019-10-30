@@ -4,12 +4,12 @@
     購入内容の確認
   .buy-main__price
     %p.buy-main__price__title
-      = image_tag "https://static.mercdn.net/thumb/photos/m97388630237_1.jpg?1564296386", size:"64x64"
+      = image_tag "#{@item.images.first.image}", size:"64x64"
       %span.buy-main__price__name
-        デニムジーンズ
+        = @item.title
     .buy-main__price__tax
       %p.buy-main__price__tax__number
-        ¥4,500
+        = "¥#{@item.price.to_s(:delimited)}"
       %span.buy-main__price__tax__send
         送料込み
     .buy-main__price__point
@@ -19,29 +19,37 @@
         支払い金額
       .buy-main__price__pay__number
         %span.buy-main__price__pay__number__position
-          ¥4,500
-    %button.buy-main__price__decide
-      購入する
+          = "¥#{@item.price.to_s(:delimited)}"
+    = form_with url: pay_purchases_path, action: :pay, method: :post, local: true do |f|
+      %input{name: "item_id", type: "hidden", value: @item.id}
+      = f.submit "購入する", class: "buy-main__price__decide" 
   .buy-main__delivery
     %h1.buy-main__delivery__to
       配送先
     .buy-main__delivery__adress
-      
+      = "〒#{current_user.postal_code}"
+      %br
+      = "#{current_user.prefecture}" + "#{current_user.city}" + "#{current_user.block_number}" + "#{current_user.building_name}" 
+      %br
+        = "#{current_user.last_name}" + "#{current_user.first_name}"
+      %br
     .buy-main__delivery__change
       = link_to "", class: ".buy-main__delivery__change__form"
-      変更する
+      変更する＞
     %i
   .buy-main__method
     %h4.buy-main__method__pay
       支払い方法
     %p
-      ************
+      = "**** **** **** " + @default_card_information.last4
     %p
-      08 / 22
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
     %figure
       = image_tag "//www-mercari-jp.akamaized.net/assets/img/card/master-card.svg?1248199994", size: "34x20"
     .buy-main__method__change
       = link_to "", class: ".buy-main__method__change__form"
-      変更する
+      変更する＞
     %i
 = render "users/create-footer"

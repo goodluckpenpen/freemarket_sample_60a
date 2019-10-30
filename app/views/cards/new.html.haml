@@ -4,7 +4,7 @@
   .container__content
     %section.container__content--card
       %h2.container__content--card-title クレジットカード情報入力
-      = form_tag url: cards_path, method: :post,class: "container__content--card-form",id: "card__form", html: {name: "inputForm"} do |f|
+      = form_with url: pay_cards_path, method: :post,class: "container__content--card-form",id: "card__form", html: {name: "inputForm"} do |f|
         .container__content--card-form-group
           .container__content--card-form-group-number
             %label(for ="payment_card_no") カード番号

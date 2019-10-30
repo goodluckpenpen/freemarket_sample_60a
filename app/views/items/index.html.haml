@@ -298,7 +298,10 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"} 
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD   
               
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -319,8 +322,11 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-              
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
+
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
           %h3.mein__row__new__box__title__head.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv2__3K0hn
@@ -340,7 +346,10 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
             
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -361,8 +370,11 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
-            
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
+
     .mein__row__menu
       %h2.mein-menu-title.style_heading__3qSF6.common_fontFamily__3-3Si.style_responsiveLv1__3ygH4
         人気のブランド
@@ -400,7 +412,10 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
           
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -421,7 +436,10 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
     
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -442,7 +460,10 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
       
       .mein__row__new__box
         .mein__row__new__box__title.bottomSpace
@@ -463,9 +484,11 @@
                       .style_thumbnail__N_xAi
                         %span{"aria-label":"Price"}
                           = "¥#{item.price.to_s(:delimited)}"
-                        =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"
+                        =image_tag "#{item.images.first.image}"
+                  - if item.buyer_id != nil
+                    .item-sold-badge
+                      .item-sold-badge-text SOLD  
         
-
 =render 'selling_btn'
 
 -# %aside.ad

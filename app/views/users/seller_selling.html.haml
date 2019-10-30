@@ -7,33 +7,38 @@
       %ul.container__content--group-tabs
         %li.container__content--group-tabs-list-active
           %h3
-            =link_to "出品中","",class:"container__content--group-tabs-list-active-name"
+            =link_to "出品中",seller_selling_users_path,class:"container__content--group-tabs-list-active-name"
         %li.container__content--group-tabs-list
           %h3
-            =link_to "取引中","",class:"container__content--group-tabs-list-name"
+            =link_to "取引中",seller_trading_users_path,class:"container__content--group-tabs-list-name"
         %li.container__content--group-tabs-list
           %h3
-            =link_to "売却済","",class:"container__content--group-tabs-list-name"
+            =link_to "売却済",seller_sold_users_path,class:"container__content--group-tabs-list-name"
       .container__content--group-wrap
         %ul.container__content--group-wrap-listing
-          - @item_selling.each do |item|
-            %li 
-              =link_to select_item_path(item),class:"container__content--group-wrap-listing-item" do
-                %figure
-                  = image_tag "#{item.images.first.image}", class:'container__content--group-wrap-listing-item-image'
-                .container__content--group-wrap-listing-item-info
-                  .container__content--group-wrap-listing-item-info-text
-                    = "「#{item.title}」"
-                  .container__content--group-wrap-listing-item-info-box
-                    %span.container__content--group-wrap-listing-item-info-box-count
-                      %i.icon-like
-                      %span 0
-                    %span.container__content--group-wrap-listing-item-info-box-count
-                      %i.icon-message
-                      %span 0
-                    .container__content--group-wrap-listing-item-info-box-text-status
-                      出品中
-                %i.icon-arrow-right
+          -if @item_trading.blank?
+            .container__content--group-wrap-listing-lists
+              .container__content--group-wrap-listing-lists-list
+                取引中の商品がありません
+          -else
+            - @item_selling.each do |item|
+              %li 
+                =link_to select_item_path(item),class:"container__content--group-wrap-listing-item" do
+                  %figure
+                    = image_tag "#{item.images.first.image}", class:'container__content--group-wrap-listing-item-image'
+                  .container__content--group-wrap-listing-item-info
+                    .container__content--group-wrap-listing-item-info-text
+                      = "「#{item.title}」"
+                    .container__content--group-wrap-listing-item-info-box
+                      %span.container__content--group-wrap-listing-item-info-box-count
+                        %i.icon-like
+                        %span 0
+                      %span.container__content--group-wrap-listing-item-info-box-count
+                        %i.icon-message
+                        %span 0
+                      .container__content--group-wrap-listing-item-info-box-text-status
+                        出品中
+                  %i.icon-arrow-right
 
     %ul.container__content--pager
       %li.container__content--pager-prev 
