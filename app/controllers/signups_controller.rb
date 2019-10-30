@@ -24,10 +24,6 @@ class SignupsController < ApplicationController
     @user = User.new
   end
 
-  def payment
-    @user = User.new
-  end
-
   def create
     @user = User.new(
     # sessionに保存された値をインスタンスに渡す
@@ -54,19 +50,43 @@ class SignupsController < ApplicationController
       block_number: session[:block_number],
       building_name: session[:building_name],
       home_phone_number: session[:home_phone_number],
-      card_number: session[:card_number],
-      card_expiration_date_month: session[:card_expiration_date_month],
-      card_expiration_date_year: session[:card_expiration_date_year],
-      card_security_code: session[:card_security_code],
+      # card_number: session[:card_number],
+      # card_expiration_date_month: session[:card_expiration_date_month],
+      # card_expiration_date_year: session[:card_expiration_date_year],
+      # card_security_code: session[:card_security_code],
     )
 
     
     if @user.save
       # ログイン状態維持のためuser_idをsessionに保存
       session[:user_id] = @user.id
-      redirect_to '/signups/completion'
+      redirect_to '/signups/payment'
     else
-      render '/signups/payment'
+      render '/signups/address'
+    end
+  end
+
+  def payment
+    @user = User.new
+  end
+
+  # 登録画面で入力した情報をDBに保存
+  def pay
+    Payjp.api_key = "sk_test_9629ac740599209dbad72f1b"
+    if params['payjp-token'].blank?
+      redirect_to action: "new"
+    else
+      customer = Payjp::Customer.create( # ここで先ほど生成したトークンを顧客情報と紐付け、PAY.JP管理サイトに送信
+        card: params['payjp-token'],
+        metadata: {user_id: current_user.id} # 記述しなくても大丈夫です
+      )
+      @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      if @card.save
+        redirect_to action: "completion"
+      else
+        redirect_to action: "payment"
+        flash[:alert] = 'クレジットカード登録に失敗しました'
+      end
     end
   end
 
