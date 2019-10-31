@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #クレジットカード登録
+  resources :cards, only: [:new, :show, :destroy] do
+    collection do
+      post 'show', to: 'cards#show'
+      post 'pay', to: 'cards#pay'
+    end
+  end
+
   devise_for :users
   root "items#index"
   get "items/item"
@@ -51,5 +59,16 @@ Rails.application.routes.draw do
       get 'seller_sold'
     end
   end
+
+  resources :purchases, only: [:index, :show] do
+    member do
+    end
+    collection do
+      # get 'show', to: 'purchases#show'
+      post 'pay', to: 'purchases#pay'
+      get 'buy', to: 'purchases#buy'
+    end
+  end
+
 end
 

@@ -3,13 +3,8 @@ class UsersController < ApplicationController
   def show
   end
 
-  def card_add_btn
-  end
-
-  def card_delete_btn
-  end
-
-  def card_input_info
+  def create
+    @user = User.new
   end
 
   def information
@@ -26,14 +21,15 @@ class UsersController < ApplicationController
   end
 
   def seller_selling
-    @item_selling = User.find(1).selling_items
+    @item_selling = User.find_by(id:current_user.id).selling_items
   end
 
   def seller_trading
-    @item_trading = User.find(1).sold_items
+    @item_trading = User.find_by(id:current_user.id).trading_items
   end
 
   def seller_sold
+    # @item_trading = User.find_by(id:current_user.id).sold_items
   end
 
 end

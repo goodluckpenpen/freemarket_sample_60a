@@ -59,7 +59,7 @@ class ItemsController < ApplicationController
                              secret_access_key: Rails.application.credentials.aws[:secret_access_key],
                              )
       @item.images.each do |image|
-        binary_data = client.get_object(bucket: 'freemarket-sample-51a', key: image.image_url.file.path).body.read
+        binary_data = client.get_object(bucket: 'freemarket-sample-60a', key: image.image_url.file.path).body.read
         gon.images_binary_datas << Base64.strict_encode64(binary_data)
       end
     else
@@ -71,7 +71,8 @@ class ItemsController < ApplicationController
   end
   
   def create
-    @item = Item.new(item_params)
+    binding.pry
+    @item = Item.new(title: item_params[:title],text: item_params[:text],category_id: item_params[:category_id],size_id: item_params[:size_id],brand_id: item_params[:brand_id],condition: item_params[:condition],delivery_fee_payer: item_params[:delivery_fee_payer],delivery_type: item_params[:delivery_type],delibery_from_area: item_params[:delibery_from_area],delivery_days: item_params[:delivery_days],price: item_params[:price],seller_id: item_params[:seller_id],user_id: current_user.id)
     if @item.save
       redirect_to @user
     else 
@@ -144,7 +145,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delibery_from_area, :delivery_days, :price, :seller_id, :user_id)
+    params.require(:item).permit(:title, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delivery_area, :delivery_days, :price, :seller_id).merge(user_id: current_user.id)
   end
 
   def registered_image_params
