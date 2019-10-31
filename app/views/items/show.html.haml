@@ -5,8 +5,11 @@
     =render 'item'
     - if @item.buyer_id != nil
       .item-buy-btn.disabled 売り切れました
-    - else
-      =link_to "購入画面に進む", purchase_path(@item.id),class:"item-buy-btn"
+    - elsif user_signed_in?
+      - unless current_user.id == @item.user_id then
+        =link_to "購入画面に進む", item_purchase_path(@item.id),class:"item-buy-btn"
+    - else 
+      =link_to "購入画面に進む", new_user_session_path,class:"item-buy-btn"
     =link_to "アプリで購入","",class:"item__box__appbutton","data-toggle":"open-app"
     .item__box__memo
       %p.item__box__memo__text

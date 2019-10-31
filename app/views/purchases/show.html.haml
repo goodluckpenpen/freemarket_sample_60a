@@ -20,7 +20,7 @@
       .buy-main__price__pay__number
         %span.buy-main__price__pay__number__position
           = "¥#{@item.price.to_s(:delimited)}"
-    = form_with url: pay_purchases_path, action: :pay, method: :post, local: true do |f|
+    = form_with url: pay_item_purchases_path(@item.id), action: :pay, method: :post, local: true do |f|
       %input{name: "item_id", type: "hidden", value: @item.id}
       = f.submit "購入する", class: "buy-main__price__decide" 
   .buy-main__delivery
