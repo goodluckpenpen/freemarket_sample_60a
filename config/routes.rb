@@ -32,13 +32,21 @@ Rails.application.routes.draw do
     get "items/buy"
     get "items/transaction"
     
+    member do
+      get 'select'
+    end
+    collection do
+      get 'search'
+    end
+    resources :purchases, only: [:index, :show] do
       member do
-        get 'select'
-        end
-      collection do
-        get 'search'
-        end
       end
+      collection do
+        post 'pay', to: 'purchases#pay'
+        get 'buy', to: 'purchases#buy'
+      end
+    end
+  end
       
   resources :categories, only: [:show, :index]
 
@@ -61,14 +69,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :purchases, only: [:index, :show] do
-    member do
-    end
-    collection do
-      post 'pay', to: 'purchases#pay'
-      get 'buy', to: 'purchases#buy'
-    end
-  end
+  
 
 end
 

@@ -1,5 +1,6 @@
 class PurchasesController < ApplicationController
   require 'payjp'
+  # before_action :set_item
 
   def show
     @item = Item.find(params[:id])
@@ -32,8 +33,17 @@ class PurchasesController < ApplicationController
   end
 
   def buy
-    
+    @item = Item.find(params[:item_id])
+    card = Card.where(user_id: current_user.id).first
+    Payjp.api_key = "sk_test_9629ac740599209dbad72f1b"
+    customer = Payjp::Customer.retrieve(card.customer_id)
+    @default_card_information = customer.cards.retrieve(card.card_id)
   end
 
+  
+  # private 
+  #   def set_item
+  #     @item = Item.find(params[:id])
+  #   end
 
 end
