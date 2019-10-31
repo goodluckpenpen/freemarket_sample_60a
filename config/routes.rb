@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     collection do
       post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
-      # post 'delete', to: 'cards#delete'
     end
   end
 
@@ -24,22 +23,24 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:show, :index, :destroy]
-  # get "items/item"
-  # get "items/bought"
-  # get "items/purchase"
-
-
-  get "items/buy"
-  get "items/transaction"
-  resources :items,only: [:show, :index] do
-    member do
-      get 'select'
-    end
-    collection do
+  resources :items,only: [:index, :new, :show, :create, :destroy] do
+    # get "items/item"
+    get "items/bought"
+    get "items/purchase"
+  
+    get "items/search"
+    get "items/buy"
+    get "items/transaction"
+    
+      member do
+        get 'select'
+        end
+      collection do
+        get 'search'
+        end
+      end
       
-    end
-  end
+  resources :categories, only: [:show, :index]
 
   resources :users, only: [:show] do
     member do
@@ -64,7 +65,6 @@ Rails.application.routes.draw do
     member do
     end
     collection do
-      # get 'show', to: 'purchases#show'
       post 'pay', to: 'purchases#pay'
       get 'buy', to: 'purchases#buy'
     end
