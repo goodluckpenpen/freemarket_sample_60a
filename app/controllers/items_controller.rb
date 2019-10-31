@@ -26,8 +26,10 @@ class ItemsController < ApplicationController
       @m_cat = Category.find(params[:l_cat]).children
     elsif params[:m_cat]
       @s_cat = Category.find(params[:m_cat]).children
-    else
+    elsif params[:size]
       @size = Size.where(params[:size])
+    else 
+      @deliver = DeliveryMethod.where(params[:deliver])
     end
     respond_to do |format|
       format.html

@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load',function(){
   
   var add_box = $(".items-sell__details__right__category");
-  var add_size = $(".items-sell__details__right__category");
+  var add_del = $(".items-sell__delivery__right__burden");
   
   function appendSelect(childNum){
     if(childNum == 1){
@@ -53,7 +53,53 @@ $(document).on('turbolinks:load',function(){
           <input class="items-sell__details__right__brand__frame__main" placeholder="例）シャネル">
         </div>
       </div>`
-    add_size.after(html)
+    add_box.after(html)
+  }
+
+  function afterDeliver(childNum){
+    var html = 
+     `<div class="items-sell__delivery__right__method">
+        <label class="items-sell__delivery__right__method__head">
+          配送の方法
+          <span class="items-sell__delivery__right__method__head__required">
+            必須
+          </span>
+        </label>
+        <div class="items-sell__delivery__right__method__frame">
+            <i>
+              <i class="fa fa-angle-down fa-2x"></i>
+            </i>
+            <select class="items-sell__delivery__right__method__frame__main">
+              <option value="">---</option>
+            </select>
+        </div>
+     </div>`
+    add_del.after(html)
+  }
+
+  function afterMethod(childNum){
+    var html = 
+     `<div class="items-sell__delivery__right__method">
+        <label class="items-sell__delivery__right__method__head">
+          配送の方法
+          <span class="items-sell__delivery__right__method__head__required">
+            必須
+          </span>
+        </label>
+        <div class="items-sell__delivery__right__method__frame">
+            <i>
+              <i class="fa fa-angle-down fa-2x"></i>
+            </i>
+            <select class="items-sell__delivery__right__method__frame__main">
+              <option value="">---</option>
+              <option value="1">未定</option>
+              <option value="2">クロネコヤマト</option>
+              <option value="9">ゆうパック</option>
+              <option value="4">ゆうメール</option>
+            </select>
+        </div>
+     </div>`
+    add_del.after(html)
   }
 
 
@@ -64,12 +110,15 @@ $(document).on('turbolinks:load',function(){
       var appendId = $("#granchild-form")
     } else if (catNum == 3){
       var appendId = $("#size-form")
+    } else if (catNum == 4){
+      var appendId = $(".items-sell__delivery__right__method__frame__main")
     }
     appendId.append(
       $("<option>")
         .val($(catOption).attr('id'))
         .text($(catOption).attr('name'))
         .text($(catOption).attr('size'))
+        .text($(catOption).attr('method'))
     )
   }
 
@@ -139,6 +188,47 @@ $(document).on('turbolinks:load',function(){
       } 
     })
   
+
+    $("#deliver-form").on("change",function(){
+      deliver = $(this).val()
+      if(deliver == 1) {
+        $(".items-sell__delivery__right__method").remove()
+    
+        $.ajax({
+          url: '/items/search',
+          type: "GET",
+          data: {deliver: deliver},
+          dataType: 'json'
+        })
+    
+        .done(function(del){
+          var childNum = 4
+          console.log(del)
+          afterDeliver(childNum)
+          del.forEach(function(del){
+            appendCat(del,childNum)
+          })
+        })
+      } else if(deliver == 2) {
+        $(".items-sell__delivery__right__method").remove()
+    
+        $.ajax({
+          url: '/items/search',
+          type: "GET",
+          data: {deliver: deliver},
+          dataType: 'json'
+        })
+    
+        .done(function(del){
+          var childNum = 4
+          console.log(del)
+          afterMethod(childNum)
+         
+        })
+      } else {
+        $(".items-sell__delivery__right__method").remove()
+      }
+    })
 
 
 
