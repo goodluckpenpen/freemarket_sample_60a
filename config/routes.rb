@@ -19,27 +19,28 @@ Rails.application.routes.draw do
       get "address"
       get "payment"
       get "completion"
+      post 'pay'
     end
   end
 
   resources :items,only: [:index, :new, :show, :create, :destroy] do
-  # get "items/item"
-  get "items/bought"
-  get "items/purchase"
-
-  get "items/search"
-  get "items/buy"
-  get "items/transaction"
+    # get "items/item"
+    get "items/bought"
+    get "items/purchase"
   
-    member do
-      get 'select'
+    get "items/search"
+    get "items/buy"
+    get "items/transaction"
+    
+      member do
+        get 'select'
+        end
+      collection do
+        get 'search'
+        end
       end
-    collection do
-      get 'search'
-      end
-    end
-
-  resources :categories,only: [:show, :index]
+      
+  resources :categories, only: [:show, :index]
 
   resources :users, only: [:show] do
     member do
@@ -64,7 +65,6 @@ Rails.application.routes.draw do
     member do
     end
     collection do
-      # get 'show', to: 'purchases#show'
       post 'pay', to: 'purchases#pay'
       get 'buy', to: 'purchases#buy'
     end

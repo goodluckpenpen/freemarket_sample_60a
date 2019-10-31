@@ -1,7 +1,5 @@
 class PurchasesController < ApplicationController
-  # before_action :authenticate ,only: :show
   require 'payjp'
-  # before_action :set_item
 
   def show
     @item = Item.find(params[:id])
@@ -37,14 +35,5 @@ class PurchasesController < ApplicationController
     
   end
 
-  # private
-  # def set_item
-  #   @item = Item.find(params[:item_id])
-  # end
 
-  
-
-  # def authenticate
-  #   redirect_to user_session_path unless user_signed_in?
-  # end
 end
