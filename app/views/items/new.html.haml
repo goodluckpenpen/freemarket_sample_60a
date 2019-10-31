@@ -4,7 +4,7 @@
   .items-sell__infomations
     %h2.items-sell__infomations__item
       商品の情報を入力
-  = form_for @item do |f|
+  = form_for (@item) do |f|
     .items-sell__imgs
       %h3.items-sell__imgs__head 
         出品画像
@@ -56,7 +56,7 @@
           商品名
           %span.items-sell__message__name__head__required
             必須
-        %input.items-sell__message__name__main2{placeholder:"商品名（必須40文字まで）"}
+        = f.text_field :title, placeholder: "商品名（必須 40文字まで)", class: "items-sell__message__name__main2"
         %p.items-sell__message__name__no-name
           -# 入力してください
       .items-sell__message__content
@@ -64,7 +64,7 @@
           商品の説明
           %span.items-sell__message__content__head__required
             必須
-        %textarea.items-sell__message__content__main3{rows: 5, placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"}
+        = f.text_area :text, rows: 5, placeholder:"商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", class: "items-sell__message__content__main3"
         %p.items-sell__message__content__no-content
           -# 入力してください
           -#下記は後ほど = form_for @name do |form| を挿入
@@ -171,7 +171,7 @@
           .items-sell__details__right__status__frame
             %i
               = fa_icon 'angle-down', class: "fa-2x"
-            %select.items-sell__details__right__status__frame__main
+            = f.collection_select :condition ,class: "items-sell__details__right__status__frame__main"
               %option{value: "状態0"} ---
               %option{value: "状態1"} 新品、未使用
               %option{value: "状態2"} 未使用に近い
@@ -183,8 +183,7 @@
       .items-sell__delivery__left
         %label.items-sell__delivery__left__head
           配送について
-          = link_to "", class: "items-sell__delivery__left__inquiry" do
-            ？
+          = link_to "？","", class: "items-sell__delivery__left__inquiry"
       .items-sell__delivery__right
         .items-sell__delivery__right__burden
           %label.items-sell__delivery__right__burden__head
@@ -194,38 +193,38 @@
           .items-sell__delivery__right__burden__frame 
             %i
               = fa_icon 'angle-down', class: "fa-2x" 
-            %select.items-sell__delivery__right__burden__frame__main
+            = f.collection_select :delivery_fee_payer, class: "items-sell__delivery__right__burden__frame__main"
               %option{value: "負担者0"} ---
               %option{value: "負担者1"} 送料込み（出品者負担）
               %option{value: "負担者2"} 着払い（購入者負担）
-        -# .items-sell__delivery__right__method
-        -#   %label.items-sell__delivery__right__method__head
-        -#     配送の方法
-        -#     %span.items-sell__delivery__right__method__head__required
-        -#       必須
-        -#   .items-sell__delivery__right__method__frame
-        -#     %i
-        -#       = fa_icon 'angle-down', class: "fa-2x"
-        -#     %select.items-sell__delivery__right__method__frame__main
-        -#       %option{value: "方法0"} ---
-        -#       %option{value: "方法1"} 未定
-        -#       %option{value: "方法2"} らくらくメルカリ便
-        -#       %option{value: "方法3"} ゆうメール
-        -#       %option{value: "方法4"} レターパック
-        -#       %option{value: "方法5"} 普通郵便（定型、定形外）
-        -#       %option{value: "方法6"} クロネコヤマト 
-        -#       %option{value: "方法7"} ゆうパック
-        -#       %option{value: "方法8"} クリップポスト
-        -#       %option{value: "方法8"} ゆうポケット
-        -#   .items-sell__delivery__right__method__frame
-        -#     %i
-        -#       = fa_icon 'angle-down', class: "fa-2x"
-        -#     %select.items-sell__delivery__right__method__frame__main
-        -#       %option{value: "方法0"} ---
-        -#       %option{value: "方法1"} 未定
-        -#       %option{value: "方法2"} クロネコヤマト 
-        -#       %option{value: "方法3"} ゆうパック
-        -#       %option{value: "方法4"} ゆうメール
+        .items-sell__delivery__right__method
+          %label.items-sell__delivery__right__method__head
+            配送の方法
+            %span.items-sell__delivery__right__method__head__required
+              必須
+          .items-sell__delivery__right__method__frame
+            %i
+              = fa_icon 'angle-down', class: "fa-2x"
+            = f.collection_select :delivery_type, class:"items-sell__delivery__right__method__frame__main"          
+              %option{value: "方法0"} ---
+              %option{value: "方法1"} 未定
+              %option{value: "方法2"} らくらくメルカリ便
+              %option{value: "方法3"} ゆうメール
+              %option{value: "方法4"} レターパック
+              %option{value: "方法5"} 普通郵便（定型、定形外）
+              %option{value: "方法6"} クロネコヤマト 
+              %option{value: "方法7"} ゆうパック
+              %option{value: "方法8"} クリップポスト
+              %option{value: "方法8"} ゆうポケット
+          -# .items-sell__delivery__right__method__frame
+          -#   %i
+          -#     = fa_icon 'angle-down', class: "fa-2x"
+          -#   = f.collection_select :delivery_type, class: "items-sell__delivery__right__method__frame__main"
+          -#     %option{value: "方法0"} ---
+          -#     %option{value: "方法1"} 未定
+          -#     %option{value: "方法2"} クロネコヤマト 
+          -#     %option{value: "方法3"} ゆうパック
+          -#     %option{value: "方法4"} ゆうメール
         .items-sell__delivery__right__area
           %label.items-sell__delivery__right__area__head
             発送元の地域
@@ -235,7 +234,7 @@
           .items-sell__delivery__right__area__frame__icon
             %i
               = fa_icon 'angle-down', class: "fa-2x"
-            %select.items-sell__delivery__right__area__frame__main
+            = f.collection_select :delivery_area, class: "items-sell__delivery__right__area__frame__main" do
               %option{value: ""} ---
               %option{value: "北海道"} 北海道
               %option{value: "青森県"} 青森県
@@ -292,184 +291,16 @@
         .items-sell__delivery__right__date__frame
           %i
             = fa_icon 'angle-down', class: "fa-2x"
-    -#       %select.items-sell__delivery__right__date__frame__main
-    -#         %option{value: "日数0"} ---
-    -#         %option{value: "日数1"} 1~2日で発送
-    -#         %option{value: "日数2"} 2~3日で発送
-    -#         %option{value: "日数3"} 3~7日で発送
-    -# .items-sell__price.clearfix
-    -#   %label
-    -#     販売価格(300~9,999,999)
-    -#     = link_to "？", class: "items-sell__price__inquiry"
-    -#   %ul.items-sell__price__right
-    -#     %li.items-sell__price__right__list1
-    -#       %label.items-sell__price__right__list1__top
-    -#         価格
-    -#         %span.items-sell__price__right__list1__top__required
-    -#           必須
-    -#       .items-sell__price__right__list1__plices
-    -#         %p.items-sell__price__right__list1__plices__yen
-    -#         ¥
-    -#         %input.items-sell__price__right__list1__plices__example{placeholder: "例）300"}
-            
-    -#     %li.items-sell__price__right__list2
-    -#       .items-sell__price__right__list2__center
-    -#         販売手数料(10%)
-    -#       .items-sell__price__right__list2__last
-    -#         ー
-    -#     %li.items-sell__price__right__list3
-    -#       .items-sell__price__right__list3__bottom
-    -#         販売利益
-    -#       .items-sell__price__right__list3__last
-    -#         ー
-    -# .items-sell__exhibit        
-      %p.items-sell__exhibit__1
-        = link_to "禁止されている出品", class: "items-sell__exhibit__1__ban"  
-        、
-        = link_to "行為", class: "items-sell__exhibit__1__action"
-        を必ずご確認ください。
-      %p.items-sell__exhibit__2
-        またブランド品でシリアルナンバー等がある場合はご記載ください。
-        = link_to " 偽ブランドの販売", class: "items-sell__exhibit__2__fake"      
-        は犯罪であり処罰される可能性があります。
-      %p.items-sell__exhibit__3
-        また、出品をもちまして
-        = link_to "加盟店規約", class: "items-sell__exhibit__3__terms"
-        に同意したことになります。
-      %button.items-sell__exhibit__decide
-        = link_to "出品する", item_items_purchase_path(:item_id)
-      %button.items-sell__exhibit__return 
-        = link_to "もどる",  mypage_users_path
-          %select.items-sell__details__right__status__frame__main
-            %option{value: "状態0"} ---
-            %option{value: "状態1"} 新品、未使用
-            %option{value: "状態2"} 未使用に近い
-            %option{value: "状態3"} 目立った傷や汚れなし
-            %option{value: "状態4"} やや傷や汚れあり
-            %option{value: "状態5"} 傷や汚れあり
-            %option{value: "状態6"} 全体的に状態が悪い
-  .items-sell__delivery
-    .items-sell__delivery__left
-      %label.items-sell__delivery__left__head
-        配送について
-        = link_to "", class: "items-sell__delivery__left__inquiry" do
-          ？
-    .items-sell__delivery__right
-      .items-sell__delivery__right__burden
-        %label.items-sell__delivery__right__burden__head
-          配送料の負担
-          %span.items-sell__delivery__right__burden__head__required
-            必須
-        .items-sell__delivery__right__burden__frame 
-          %i
-            = fa_icon 'angle-down', class: "fa-2x" 
-          %select.items-sell__delivery__right__burden__frame__main
-            %option{value: "負担者0"} ---
-            %option{value: "負担者1"} 送料込み（出品者負担）
-            %option{value: "負担者2"} 着払い（購入者負担）
-      -# .items-sell__delivery__right__method
-      -#   %label.items-sell__delivery__right__method__head
-      -#     配送の方法
-      -#     %span.items-sell__delivery__right__method__head__required
-      -#       必須
-      -#   .items-sell__delivery__right__method__frame
-      -#     %i
-      -#       = fa_icon 'angle-down', class: "fa-2x"
-      -#     %select.items-sell__delivery__right__method__frame__main
-      -#       %option{value: "方法0"} ---
-      -#       %option{value: "方法1"} 未定
-      -#       %option{value: "方法2"} らくらくメルカリ便
-      -#       %option{value: "方法3"} ゆうメール
-      -#       %option{value: "方法4"} レターパック
-      -#       %option{value: "方法5"} 普通郵便（定型、定形外）
-      -#       %option{value: "方法6"} クロネコヤマト 
-      -#       %option{value: "方法7"} ゆうパック
-      -#       %option{value: "方法8"} クリップポスト
-      -#       %option{value: "方法8"} ゆうポケット
-      -#   .items-sell__delivery__right__method__frame
-      -#     %i
-      -#       = fa_icon 'angle-down', class: "fa-2x"
-      -#     %select.items-sell__delivery__right__method__frame__main
-      -#       %option{value: "方法0"} ---
-      -#       %option{value: "方法1"} 未定
-      -#       %option{value: "方法2"} クロネコヤマト 
-      -#       %option{value: "方法3"} ゆうパック
-      -#       %option{value: "方法4"} ゆうメール
-      .items-sell__delivery__right__area
-        %label.items-sell__delivery__right__area__head
-          発送元の地域
-          %span.items-sell__delivery__right__area__head__required
-            必須
-      .items-sell__delivery__right__area__frame
-        .items-sell__delivery__right__area__frame__icon
-          %i
-            = fa_icon 'angle-down', class: "fa-2x"
-          %select.items-sell__delivery__right__area__frame__main
-            %option{value: ""} ---
-            %option{value: "北海道"} 北海道
-            %option{value: "青森県"} 青森県
-            %option{value: "岩手県"} 岩手県
-            %option{value: "宮城県"} 宮城県
-            %option{value: "秋田県"} 秋田県
-            %option{value: "山形県"} 山形県
-            %option{value: "福島県"} 福島県
-            %option{value: "茨城県"} 茨城県
-            %option{value: "栃木県"} 栃木県
-            %option{value: "群馬県"} 群馬県
-            %option{value: "埼玉県"} 埼玉県
-            %option{value: "千葉県"} 千葉県
-            %option{value: "東京都"} 東京都
-            %option{value: "神奈川県"} 神奈川県
-            %option{value: "新潟県"} 新潟県
-            %option{value: "富山県"} 富山県
-            %option{value: "石川県"} 石川県
-            %option{value: "福井県"} 福井県
-            %option{value: "山梨県"} 山梨県
-            %option{value: "長野県"} 長野県
-            %option{value: "岐阜県"} 岐阜県
-            %option{value: "静岡県"} 静岡県
-            %option{value: "愛知県"} 愛知県
-            %option{value: "三重県"} 三重県
-            %option{value: "滋賀県"} 滋賀県
-            %option{value: "京都府"} 京都府
-            %option{value: "大阪府"} 大阪府
-            %option{value: "兵庫県"} 兵庫県
-            %option{value: "奈良県"} 奈良県
-            %option{value: "和歌山県"} 和歌山県
-            %option{value: "鳥取県"} 鳥取県
-            %option{value: "島根県"} 島根県
-            %option{value: "岡山県"} 岡山県
-            %option{value: "広島県"} 広島県
-            %option{value: "山口県"} 山口県
-            %option{value: "徳島県"} 徳島県
-            %option{value: "香川県"} 香川県
-            %option{value: "愛媛県"} 愛媛県
-            %option{value: "高知県"} 高知県
-            %option{value: "福岡県"} 福岡県
-            %option{value: "佐賀県"} 佐賀県
-            %option{value: "長崎県"} 長崎県
-            %option{value: "熊本県"} 熊本県
-            %option{value: "大分県"} 大分県
-            %option{value: "宮崎県"} 宮崎県
-            %option{value: "鹿児島県"} 鹿児島県
-            %option{value: "沖縄県"} 沖縄県
-      .items-sell__delivery__right__date
-        %label.items-sell__delivery__right__date__head
-          発送までの日数
-          %span.items-sell__delivery__right__date__head__required
-            必須
-      .items-sell__delivery__right__date__frame
-        %i
-          = fa_icon 'angle-down', class: "fa-2x"
-        %select.items-sell__delivery__right__date__frame__main
-          %option{value: "日数0"} ---
-          %option{value: "日数1"} 1~2日で発送
-          %option{value: "日数2"} 2~3日で発送
-          %option{value: "日数3"} 3~7日で発送
+          = f.collection_select :delivery_day, class: "items-sell__delivery__right__date__frame__main" do
+            %option{value: "日数0"} ---
+            %option{value: "日数1"} 1~2日で発送
+            %option{value: "日数2"} 2~3日で発送
+            %option{value: "日数3"} 3~7日で発送
+   
   .items-sell__price
     %label
       販売価格(300~9,999,999)
-      = link_to "？", class: "items-sell__price__inquiry"
+      = link_to "？", "", class: "items-sell__price__inquiry"
     %ul.items-sell__price__right
       %li.items-sell__price__right__list1
         %label.items-sell__price__right__list1__top
@@ -506,11 +337,12 @@
       = link_to "加盟店規約","", class: "items-sell__exhibit__3__terms"
       に同意したことになります。
     %button.items-sell__exhibit__decide
-      = link_to "出品する", class: "items-sell__exhibit__decide__window"
+      = link_to "出品する",""
     %button.items-sell__exhibit__return 
-      = link_to "もどる",  mypage_users_path
+      = link_to "もどる", mypage_users_path
 // 出品をおした時のモーダル発火
-.modalOverlay.is-hite
+.is-hite
+.modalOverlay
   .modalOverlay__modal
     %h5.modalOverlay__modal__head
       出品が完了しました
