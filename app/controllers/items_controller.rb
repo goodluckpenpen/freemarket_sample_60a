@@ -22,11 +22,16 @@ class ItemsController < ApplicationController
   end
 
   def search
+    if params[:l_cat]
+      @m_cat = Category.find(params[:l_cat]).children
+    elsif params[:m_cat]
+      @s_cat = Category.find(params[:m_cat]).children
+    else
+      @size = Size.where(params[:size])
+    end
     respond_to do |format|
       format.html
-      format.json do
-       @children = Category.find(params[:parent_id]).children
-      end
+      format.json 
     end
   end
 
