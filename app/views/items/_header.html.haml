@@ -59,7 +59,7 @@
                       %li.categorys__lists2__list
                         =link_to "#{child.name}",category_path(child),class:"categorys__lists2__list__link" 
                         %ul.categorys__lists3
-                          - child.children.each do |grandchild|
+                          - child.children.first(10).each do |grandchild|
                             %li.categorys__lists3__list
                               =link_to "#{grandchild.name}",category_path(grandchild),class:"categorys__lists3__list__link"
               %li.categorys__lists__list
