@@ -12,3 +12,9 @@ json.array! @size do |size|
   json.id   size.id
   json.size size.size
 end
+
+json.array! @deliver do |deliver|
+  json.id   deliver.id
+  json.method deliver.method
+end
+

@@ -113,38 +113,10 @@
         .items-sell__delivery__right__burden__frame 
           %i
             = fa_icon 'angle-down', class: "fa-2x" 
-          %select.items-sell__delivery__right__burden__frame__main
-            %option{value: "負担者0"} ---
-            %option{value: "負担者1"} 送料込み（出品者負担）
-            %option{value: "負担者2"} 着払い（購入者負担）
-      -# .items-sell__delivery__right__method
-      -#   %label.items-sell__delivery__right__method__head
-      -#     配送の方法
-      -#     %span.items-sell__delivery__right__method__head__required
-      -#       必須
-      -#   .items-sell__delivery__right__method__frame
-      -#     %i
-      -#       = fa_icon 'angle-down', class: "fa-2x"
-      -#     %select.items-sell__delivery__right__method__frame__main
-      -#       %option{value: "方法0"} ---
-      -#       %option{value: "方法1"} 未定
-      -#       %option{value: "方法2"} らくらくメルカリ便
-      -#       %option{value: "方法3"} ゆうメール
-      -#       %option{value: "方法4"} レターパック
-      -#       %option{value: "方法5"} 普通郵便（定型、定形外）
-      -#       %option{value: "方法6"} クロネコヤマト 
-      -#       %option{value: "方法7"} ゆうパック
-      -#       %option{value: "方法8"} クリップポスト
-      -#       %option{value: "方法8"} ゆうポケット
-      -#   .items-sell__delivery__right__method__frame
-      -#     %i
-      -#       = fa_icon 'angle-down', class: "fa-2x"
-      -#     %select.items-sell__delivery__right__method__frame__main
-      -#       %option{value: "方法0"} ---
-      -#       %option{value: "方法1"} 未定
-      -#       %option{value: "方法2"} クロネコヤマト 
-      -#       %option{value: "方法3"} ゆうパック
-      -#       %option{value: "方法4"} ゆうメール
+          %select.items-sell__delivery__right__burden__frame__main#deliver-form
+            %option{value: ""} ---
+            %option{value: "1"} 送料込み（出品者負担）
+            %option{value: "2"} 着払い（購入者負担）
       .items-sell__delivery__right__area
         %label.items-sell__delivery__right__area__head
           発送元の地域
