@@ -71,13 +71,16 @@ class ItemsController < ApplicationController
   end
   
   def create
+    
+    @item = Item.new(item_params)
     binding.pry
-    @item = Item.new(title: item_params[:title],text: item_params[:text],category_id: item_params[:category_id],size_id: item_params[:size_id],brand_id: item_params[:brand_id],condition: item_params[:condition],delivery_fee_payer: item_params[:delivery_fee_payer],delivery_type: item_params[:delivery_type],delibery_from_area: item_params[:delibery_from_area],delivery_days: item_params[:delivery_days],price: item_params[:price],seller_id: item_params[:seller_id],user_id: current_user.id)
-    if @item.save
-      redirect_to @user
-    else 
-      render :new
-    end
+    # @parents = Category.all.order("id ASC").limit(13)
+    # if @item.save
+    #   redirect_to @user
+    # else 
+    #   render :new
+    # end
+    # binding.pry
   end
 
 
@@ -145,7 +148,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:title, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delivery_area, :delivery_days, :price, :seller_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :text, :category, :size, :brand, :condition, :delivery_fee, :delivery_method, :delivery_area, :delivery_day, :price, images_attributes: [ :image]).merge(seller_id: current_user.id, user_id: current_user.id)
   end
 
   def registered_image_params
