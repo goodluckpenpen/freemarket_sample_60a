@@ -13,6 +13,8 @@ class Item < ApplicationRecord
   belongs_to :size
   has_many :images, dependent: :destroy
 
+  # accepts_nested_attributes_for :images
+
   def previous
     user.items.order('created_at desc, id desc').where('created_at <= ? and id < ?', created_at, id).first
   end
