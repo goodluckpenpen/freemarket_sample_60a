@@ -25,7 +25,7 @@
                         .style_thumbnail__N_xAi
                           %span{"aria-label":"Price"} 
                             = "¥#{item.price.to_s(:delimited)}"
-                          =image_tag src="https://i.gyazo.com/e04f5279e2f6e215d8e5d59f1601d528.png"    
+                          =image_tag "#{item.images.first.image}"    
 
         = paginate @items
         -# - if params[:page]  5
