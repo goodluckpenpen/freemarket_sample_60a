@@ -36,7 +36,7 @@ $(document).on('turbolinks:load',function(){
           <i>
             <i class="fa fa-angle-down fa-2x"></i>
           </i>
-          <select class="items-sell__details__right__size__frame__main" id="size-form">
+          <select class="items-sell__details__right__size__frame__main" id="size-form" name="item[size_id]">
             <option value="">---</option>
           </select>
         </div>
@@ -49,7 +49,7 @@ $(document).on('turbolinks:load',function(){
             任意
           </span>
         </label>
-        <div class="items-sell__details__right__brand__frame">
+        <div class="items-sell__details__right__brand__frame" >
           <input class="items-sell__details__right__brand__frame__main" placeholder="例）シャネル">
         </div>
       </div>`

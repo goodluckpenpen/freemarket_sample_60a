@@ -46,30 +46,31 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    gon.item = @item
-    gon.images = @item.images
+    10.times{@item.images.build}
+    # gon.item = @item
+    # gon.images = @item.images
 
-    # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
-    require 'base64'
-    require 'aws-sdk'
+    # # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
+    # require 'base64'
+    # require 'aws-sdk'
 
-    gon.images_binary_datas = []
-    if Rails.env.production?
-      client = Aws::S3::Client.new(
-                             region: 'ap-northeast-1',
-                             access_key_id: Rails.application.credentials.aws[:access_key_id],
-                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-                             )
-      @item.images.each do |image|
-        binary_data = client.get_object(bucket: 'freemarket-sample-60a', key: image.image_url.file.path).body.read
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    else
-      @item.images.each do |image|
-        binary_data = File.read(image.image_url.file.file)
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    end
+    # gon.images_binary_datas = []
+    # if Rails.env.production?
+    #   client = Aws::S3::Client.new(
+    #                          region: 'ap-northeast-1',
+    #                          access_key_id: Rails.application.credentials.aws[:access_key_id],
+    #                          secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+    #                          )
+    #   @item.images.each do |image|
+    #     binary_data = client.get_object(bucket: 'freemarket-sample-60a', key: image.image_url.file.path).body.read
+    #     gon.images_binary_datas << Base64.strict_encode64(binary_data)
+    #   end
+    # else
+    #   @item.images.each do |image|
+    #     binary_data = File.read(image.image_url.file.file)
+    #     gon.images_binary_datas << Base64.strict_encode64(binary_data)
+    #   end
+    # end
   end
   
   def create

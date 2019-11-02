@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# 親カテゴリ
+# # 親カテゴリ
 # lady = Category.create(:name=>"レディース")
 # men = Category.create(:name=>"メンズ")
 # baby = Category.create(:name=>"ベビー・キッズ")
@@ -358,9 +358,9 @@
 #   Item.create(title:"ladysItem #{no}",user_id:"1",size_id:"1",condition_id:"1",delivery_fee_id:"1",delivery_method_id:"1",delivery_area_id:"1",delivery_day_id:"1",brand_id:"1",category_id:"1",price:"99999",text:"1",buyer_id:"1",seller_id:"1")
 # end
 
-# # 200.times do |no|
-# #   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"1",seller_id:"1")
-# # end
+# 200.times do |no|
+#   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"1",seller_id:"1")
+# end
 
 # 10.times do |no|
 #   User.create(email:"aaa@aaa #{no}", encrypted_password:"111111", nickname:"太郎", last_name:"坂", first_name:"た", last_name_kana:"さか", first_name_kana:"た", birthdate_year:"1993", birthdate_month:"1", birthdate_day:"1", phone_number:"0901111111", postal_code:"811-1111", prefecture:"神奈川", city:"横浜", block_number:"4-1-1", building_name:"ぽぽぽ", introduce:"1", reset_password_token:"Rasasas", reset_password_sent_at:"Rasasas", address_last_name:"坂", address_first_name:"た", address_last_name_kana:"さか", address_first_name_kana:"た", card_number:"111111111111", card_security_code:"111", card_expiration_date_month:"1", card_expiration_date_year:"22", home_phone_number:"0921111111", authentication_code:"1111")
@@ -370,12 +370,12 @@
 #   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..2062)}",price:"#{rand(1..1000000)}")
 # end
 
-# array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png"]
-# 5000.times do |no|
-#   Image.create(image:"#{array[rand(3)]}",item_id:"#{no}")
-# end
-
-array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png","https://i.gyazo.com/b9bc1f92c9a5f72352ab6d35d44f918a.png","https://i.gyazo.com/948e1f30c174e3b7054e28de46c761fd.png","https://i.gyazo.com/c2610f78fdc5472baf534501215a9530.png","https://i.gyazo.com/27c4ad02df683817a594130845bdd72b.png"]
-5000.times do |no|
-  Image.create(image:"#{array[rand(rand(1..9))]}",item_id:"#{rand(1..5000)}")
+array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
+500.times do |no|
+  Image.create(image:"#{array[rand(3)]}",item_id:"#{no}")
 end
+
+# array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
+# 5000.times do |no|
+#   Image.create(image:"#{array[rand(rand(1..9))]}",item_id:"#{rand(1..5000)}")
+# end
