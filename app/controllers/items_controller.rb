@@ -76,7 +76,6 @@ class ItemsController < ApplicationController
   def create
     
     @item = Item.new(item_params)
-    binding.pry
     # @parents = Category.all.order("id ASC").limit(13)
     # if @item.save
     #   redirect_to @user
