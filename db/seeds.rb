@@ -359,7 +359,7 @@
 # end
 
 20.times do |no|
-  Item.create!(title:"randomItem #{no + 1}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"2",seller_id:"1")
+  Item.create!(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"2",seller_id:"1")
 end
 
 # 10.times do |no|
