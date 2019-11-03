@@ -9,7 +9,6 @@
 
 # # # 親カテゴリ
 # lady = Category.create(:name=>"レディース")
-
 # men = Category.create(:name=>"メンズ")
 # baby = Category.create(:name=>"ベビー・キッズ")
 # interior = Category.create(:name=>"インテリア・住まい・小物")
