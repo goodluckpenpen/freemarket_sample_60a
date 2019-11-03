@@ -372,7 +372,7 @@
 
 array = ["https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713","https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713","https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713"]
 1220.times do |no|
-  Image.create!(image:"#{array[rand(3)]}",item_id:"#{no}")
+  Image.create!(image:"#{array[rand(3)]}",item_id:"#{no + 1}")
 end
 
 # array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
