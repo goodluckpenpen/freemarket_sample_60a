@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# 親カテゴリ
+親カテゴリ
 lady = Category.create!(:name=>"レディース")
 men = Category.create(:name=>"メンズ")
 baby = Category.create(:name=>"ベビー・キッズ")
@@ -354,13 +354,13 @@ Brand.create!([{name:"シャネル"},{name:"ナイキ"},{name:"ルイ ヴィト�
 
 Size.create!([{size:"XXS以下"},{size:"XS(SS)"},{size:"S"},{size:"M"},{size:"L"},{size:"XL(LL)"},{size:"2XL(3L)"},{size:"3XL(4L)"},{size:"4XL(5L)以上"},{size:"FREE SIZE"},{size:"60cm"},{size:"70cm"},{size:"80cm"},{size:"90cm"},{size:"95cm"},{size:"100cm"},{size:"110cm"},{size:"120cm"},{size:"130cm"},{size:"140cm"},{size:"150cm"},{size:"160cm"}])
 
-# 10.times do |no|
-#   Item.create(title:"ladysItem #{no}",user_id:"1",size_id:"1",condition_id:"1",delivery_fee_id:"1",delivery_method_id:"1",delivery_area_id:"1",delivery_day_id:"1",brand_id:"1",category_id:"1",price:"99999",text:"1",buyer_id:"1",seller_id:"1")
-# end
+10.times do |no|
+  Item.create!(title:"ladysItem #{no}",user_id:"1",size_id:"1",condition_id:"1",delivery_fee_id:"1",delivery_method_id:"1",delivery_area_id:"1",delivery_day_id:"1",brand_id:"1",category_id:"1",price:"99999",text:"1",buyer_id:"2", seller_id:"1")
+end
 
-# 200.times do |no|
-#   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"1",seller_id:"1")
-# end
+200.times do |no|
+  Item.create!(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"1",seller_id:"1")
+end
 
 # 10.times do |no|
 #   User.create(email:"aaa@aaa #{no}", encrypted_password:"111111", nickname:"太郎", last_name:"坂", first_name:"た", last_name_kana:"さか", first_name_kana:"た", birthdate_year:"1993", birthdate_month:"1", birthdate_day:"1", phone_number:"0901111111", postal_code:"811-1111", prefecture:"神奈川", city:"横浜", block_number:"4-1-1", building_name:"ぽぽぽ", introduce:"1", reset_password_token:"Rasasas", reset_password_sent_at:"Rasasas", address_last_name:"坂", address_first_name:"た", address_last_name_kana:"さか", address_first_name_kana:"た", card_number:"111111111111", card_security_code:"111", card_expiration_date_month:"1", card_expiration_date_year:"22", home_phone_number:"0921111111", authentication_code:"1111")
@@ -370,10 +370,10 @@ Size.create!([{size:"XXS以下"},{size:"XS(SS)"},{size:"S"},{size:"M"},{size:"L"
 #   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..2062)}",price:"#{rand(1..1000000)}")
 # end
 
-# array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
-# 500.times do |no|
-#   Image.create(image:"#{array[rand(3)]}",item_id:"#{no}")
-# end
+array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
+500.times do |no|
+  Image.create!(image:"#{array[rand(3)]}",item_id:"#{no}")
+end
 
 # array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
 # 5000.times do |no|
