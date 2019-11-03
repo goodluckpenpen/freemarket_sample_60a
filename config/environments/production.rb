@@ -19,7 +19,7 @@ Rails.application.configure do
   config.assets.initialize_on_precompile = true
 
   config.assets.css_compressor = :yui
-  config.assets.js_compressor = Uglifier.new(harmony: true)
+  config.assets.js_compressor = :uglifier
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
