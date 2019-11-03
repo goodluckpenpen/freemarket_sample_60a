@@ -102,3 +102,4 @@ gem 'aws-sdk'
 gem "gretel"
 gem 'kaminari'
 
+gem 'dotenv-rails'
