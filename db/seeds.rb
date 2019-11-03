@@ -358,9 +358,9 @@
 #   Item.create(title:"ladysItem #{no}",user_id:"1",size_id:"1",condition_id:"1",delivery_fee_id:"1",delivery_method_id:"1",delivery_area_id:"1",delivery_day_id:"1",brand_id:"1",category_id:"1",price:"99999",text:"1",buyer_id:"1",seller_id:"1")
 # end
 
-20.times do |no|
-  Item.create!(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"2",seller_id:"1")
-end
+# 20.times do |no|
+#   Item.create!(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..14)}",price:"#{rand(1..1000000)}",text:"あ",buyer_id:"2",seller_id:"1")
+# end
 
 # 10.times do |no|
 #   User.create!(email:"neipia_number@icloud.com #{no}", encrypted_password:"Karimen1", nickname:"太郎", last_name:"坂", first_name:"た", last_name_kana:"サカ", first_name_kana:"タ", birthdate_year:"1993", birthdate_month:"1", birthdate_day:"1", phone_number:"0901111111", postal_code:"811-1111", prefecture:"神奈川", city:"横浜", block_number:"4-1-1", building_name:"ぽぽぽ", introduce:"1", reset_password_token:"Rasasas", reset_password_sent_at:"Rasasas", address_last_name:"坂", address_first_name:"た", address_last_name_kana:"サカ", address_first_name_kana:"タ", home_phone_number:"0921111111", authentication_code:"1111")
@@ -371,7 +371,7 @@ end
 # end
 
 array = ["https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713","https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713","https://gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713"]
-500.times do |no|
+1220.times do |no|
   Image.create!(image:"#{array[rand(3)]}",item_id:"#{no}")
 end
 
