@@ -378,8 +378,8 @@ array = ["https://i.gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713.png",
   "https://d1uzk9o9cg136f.cloudfront.net/f/16782548/rc/2019/08/02/35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
   "https://images-na.ssl-images-amazon.com/images/I/41qJb2tJMIL._AC_.jpg",
   "https://images-na.ssl-images-amazon.com/images/I/31kwsNfHchL.jpg"]
-500.times do |no|
-  Image.create!(image:"#{array[rand(3)]}",item_id:"#{no + 1}")
+1000.times do |no|
+  Image.create!(image:"#{array[rand(rand(1..9))]}",item_id:"#{1..500}")
 end
 
 # array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
