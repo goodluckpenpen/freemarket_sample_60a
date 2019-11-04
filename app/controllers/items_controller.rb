@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    10.times{@item.images.build}
+    @item.images.build
     # gon.item = @item
     # gon.images = @item.images
 
