@@ -1,6 +1,14 @@
 =render 'items/header'
-- breadcrumb :category,@category
-=render 'bread'
+- if @category.ancestors?
+  -if @child.children?
+    - breadcrumb :child,@child
+    =render 'bread'
+  -else
+    - breadcrumb :granchild,@granchild
+    =render 'bread'
+- else
+  - breadcrumb :category,@category
+  =render 'bread'
 .signups-body
   .l-container.clearfix
     .l-content.full-width

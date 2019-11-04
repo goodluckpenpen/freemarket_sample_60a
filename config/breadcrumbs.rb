@@ -233,14 +233,20 @@ crumb :category do |category|
   parent :categories
 end
 
-crumb :category1 do |category|
-  @category1 = Category.find(params[:id])
-  link @category1.name, category_path(category)
-  parent :category
+crumb :child do |child|
+  @child = Category.find(params[:id])
+  @category = @child.parent
+  link @category.name, category_path(@category)
+  link @child.name, category_path(child)
+  parent :categories
 end
    
-crumb :category2 do |category2|
-  @category2 = Category.find(params[:id])
-  link @category2.name
-  parent :category1
+crumb :granchild do |granchild|
+  @granchild = Category.find(params[:id])
+  @child = @granchild.parent
+  @category = @child.parent
+  link @category.name, category_path(@category)
+  link @child.name, category_path(@child)
+  link @granchild.name, category_path(granchild)
+  parent :categories
 end
