@@ -367,15 +367,15 @@
 # end
 
 # 5000.times do |no|
-#   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..2062)}",price:"#{rand(1..1000000)}")
+#   Item.create!(title:"randomItem #{no}",user_id:"#{rand(1..2)}",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(159..1330)}",price:"#{rand(1..1000000)}",seller_id:"#{rand(1..2)}")
 # end
 
-# array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png"]
-# 5000.times do |no|
-#   Image.create(image:"#{array[rand(3)]}",item_id:"#{no}")
-# end
-
-array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png","https://i.gyazo.com/b9bc1f92c9a5f72352ab6d35d44f918a.png","https://i.gyazo.com/948e1f30c174e3b7054e28de46c761fd.png","https://i.gyazo.com/c2610f78fdc5472baf534501215a9530.png","https://i.gyazo.com/27c4ad02df683817a594130845bdd72b.png"]
+array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png"]
 5000.times do |no|
-  Image.create(image:"#{array[rand(rand(1..9))]}",item_id:"#{rand(1..5000)}")
+  Image.create(image:"#{array[rand(3)]}",item_id:"#{no+1}")
 end
+
+# array = ["https://i.gyazo.com/18056ee59479964b4404762cb1c407e1.jpg","https://i.gyazo.com/6a3f88d7feb72d333400807f42ca84b7.jpg","https://i.gyazo.com/d64434993d32e5521bdaeecdd51374ae.png","https://i.gyazo.com/b9bc1f92c9a5f72352ab6d35d44f918a.png","https://i.gyazo.com/948e1f30c174e3b7054e28de46c761fd.png","https://i.gyazo.com/c2610f78fdc5472baf534501215a9530.png","https://i.gyazo.com/27c4ad02df683817a594130845bdd72b.png"]
+# 5000.times do |no|
+#   Image.create(image:"#{array[rand(rand(1..9))]}",item_id:"#{rand(1..5000)}")
+# end
