@@ -46,40 +46,43 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    gon.item = @item
-    gon.images = @item.images
+    10.times{@item.images.build}
+    # gon.item = @item
+    # gon.images = @item.images
 
-    # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
-    require 'base64'
-    require 'aws-sdk'
+    # # @item.item_imagse.image_urlをバイナリーデータにしてビューで表示できるようにする
+    # require 'base64'
+    # require 'aws-sdk'
 
-    gon.images_binary_datas = []
-    if Rails.env.production?
-      client = Aws::S3::Client.new(
-                             region: 'ap-northeast-1',
-                             access_key_id: Rails.application.credentials.aws[:access_key_id],
-                             secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-                             )
-      @item.images.each do |image|
-        binary_data = client.get_object(bucket: 'freemarket-sample-60a', key: image.image_url.file.path).body.read
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    else
-      @item.images.each do |image|
-        binary_data = File.read(image.image_url.file.file)
-        gon.images_binary_datas << Base64.strict_encode64(binary_data)
-      end
-    end
+    # gon.images_binary_datas = []
+    # if Rails.env.production?
+    #   client = Aws::S3::Client.new(
+    #                          region: 'ap-northeast-1',
+    #                          access_key_id: Rails.application.credentials.aws[:access_key_id],
+    #                          secret_access_key: Rails.application.credentials.aws[:secret_access_key],
+    #                          )
+    #   @item.images.each do |image|
+    #     binary_data = client.get_object(bucket: 'freemarket-sample-60a', key: image.image_url.file.path).body.read
+    #     gon.images_binary_datas << Base64.strict_encode64(binary_data)
+    #   end
+    # else
+    #   @item.images.each do |image|
+    #     binary_data = File.read(image.image_url.file.file)
+    #     gon.images_binary_datas << Base64.strict_encode64(binary_data)
+    #   end
+    # end
   end
   
   def create
-    binding.pry
-    @item = Item.new(title: item_params[:title],text: item_params[:text],category_id: item_params[:category_id],size_id: item_params[:size_id],brand_id: item_params[:brand_id],condition: item_params[:condition],delivery_fee_payer: item_params[:delivery_fee_payer],delivery_type: item_params[:delivery_type],delibery_from_area: item_params[:delibery_from_area],delivery_days: item_params[:delivery_days],price: item_params[:price],seller_id: item_params[:seller_id],user_id: current_user.id)
-    if @item.save
-      redirect_to @user
-    else 
-      render :new
-    end
+    @item = Item.new(item_params)
+    # binding.pry
+    # @parents = Category.all.order("id ASC").limit(13)
+    # if @item.save
+    #   redirect_to @user
+    # else 
+    #   render :new
+    # end
+    # binding.pry
   end
 
 
@@ -99,55 +102,55 @@ class ItemsController < ApplicationController
     redirect_to controller: 'users',action: 'seller_selling'
   end
 
-  def update
-    # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
-    if  brand = Brand.find_by(name: params[:item][:brand_id])
-      params[:item][:brand_id] = brand.id
-    else
-      params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
-    end
+  # def update
+  #   # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
+  #   if  brand = Brand.find_by(name: params[:item][:brand_id])
+  #     params[:item][:brand_id] = brand.id
+  #   else
+  #     params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
+  #   end
 
-    @item = Item.find(params[:id])
+  #   @item = Item.find(params[:id])
 
-    # 登録済画像のidの配列を生成
-    ids = @item.images.map{|image| image.id }
-    # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
-    exist_ids = registered_image_params[:ids].map(&:to_i)
-    # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
-    exist_ids.clear if exist_ids[0] == 0
+  #   # 登録済画像のidの配列を生成
+  #   ids = @item.images.map{|image| image.id }
+  #   # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
+  #   exist_ids = registered_image_params[:ids].map(&:to_i)
+  #   # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
+  #   exist_ids.clear if exist_ids[0] == 0
 
-    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
+  #   if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
 
-      # 登録済画像のうち削除ボタンをおした画像を削除
-      unless ids.length == exist_ids.length
-        # 削除する画像のidの配列を生成
-        delete_ids = ids - exist_ids
-        delete_ids.each do |id|
-          @item.item_images.find(id).destroy
-        end
-      end
+  #     # 登録済画像のうち削除ボタンをおした画像を削除
+  #     unless ids.length == exist_ids.length
+  #       # 削除する画像のidの配列を生成
+  #       delete_ids = ids - exist_ids
+  #       delete_ids.each do |id|
+  #         @item.item_images.find(id).destroy
+  #       end
+  #     end
 
-      # 新規登録画像があればcreate
-      unless new_image_params[:images][0] == " "
-        new_image_params[:images].each do |image|
-          @item.images.create(image_url: image, item_id: @item.id)
-        end
-      end
+  #     # 新規登録画像があればcreate
+  #     unless new_image_params[:images][0] == " "
+  #       new_image_params[:images].each do |image|
+  #         @item.images.create(image_url: image, item_id: @item.id)
+  #       end
+  #     end
 
-      flash[:notice] = '編集が完了しました'
-      redirect_to item_path(@item), data: {turbolinks: false}
+  #     flash[:notice] = '編集が完了しました'
+  #     redirect_to item_path(@item), data: {turbolinks: false}
 
-    else
-      flash[:alert] = '未入力項目があります'
-      redirect_back(fallback_location: root_path)
-    end
+  #   else
+  #     flash[:alert] = '未入力項目があります'
+  #     redirect_back(fallback_location: root_path)
+  #   end
 
-  end
+  # end
 
 
   private
   def item_params
-    params.require(:item).permit(:title, :text, :category_id, :size_id, :brand_id, :condition, :delivery_fee_payer, :delivery_type, :delivery_area, :delivery_days, :price, :seller_id).merge(user_id: current_user.id)
+    params.require(:item).permit(:title, :text, :category, :size, :brand, :condition, :delivery_fee, :delivery_method, :delivery_area, :delivery_day, :price, images_attributes: [ :image]).merge(seller_id: current_user.id, user_id: current_user.id)
   end
 
   def registered_image_params

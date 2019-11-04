@@ -875,8 +875,21 @@
       background: #ea352d;
       border: 1px solid #ea352d;
       color: #fff;
+
+      &__window {
+        display: block;
+        width: 100%;
+        line-height: 48px;
+        font-size: 14px;
+        height: 50px;
+        background: #ea352d;
+        border: 1px solid #ea352d;
+        color: #fff;
+        z-index: 1;
       }
-    &__return {display: block;
+    }
+    &__return {
+      display: block;
       line-height: 48px;
       width: 45%;
       margin: 24px auto 0;

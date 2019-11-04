@@ -28,3 +28,4 @@
 
 # Ignore Byebug command history file.
 config/secrets.yml
+/.env
