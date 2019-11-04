@@ -370,17 +370,17 @@ end
 #   Item.create(title:"randomItem #{no}",user_id:"1",size_id:"#{rand(1..22)}",condition_id:"#{rand(1..6)}",delivery_fee_id:"#{rand(1..2)}",delivery_method_id:"#{rand(1..11)}",delivery_area_id:"#{rand(1..48)}",delivery_day_id:"#{rand(1..3)}",brand_id:"#{rand(1..5)}",category_id:"#{rand(1..2062)}",price:"#{rand(1..1000000)}")
 # end
 
-array = ["https://i.gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713.png",
-  "https://picture1.goo-net.com/7009571151/30191030/J/70095711513019103000100.jpg",
-  "https://img1.kakaku.k-img.com/images/productimage/fullscale/J0000028276.jpg",
-  "https://item-shopping.c.yimg.jp/i/n/kagukouboukuraya_top-0002",
-  "http://www.aya-koya.com/images/s/201906/CLOW03231-1.jpg",
-  "https://d1uzk9o9cg136f.cloudfront.net/f/16782548/rc/2019/08/02/35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
-  "https://images-na.ssl-images-amazon.com/images/I/41qJb2tJMIL._AC_.jpg",
-  "https://images-na.ssl-images-amazon.com/images/I/31kwsNfHchL.jpg"]
-500.times do |no|
-  Image.create!(image:"#{array[rand(3)]}",item_id:"#{no + 1261}")
-end
+# array = ["https://i.gyazo.com/d70b9be2225c7c7d1a70edd2d62dc713.png",
+#   "https://picture1.goo-net.com/7009571151/30191030/J/70095711513019103000100.jpg",
+#   "https://img1.kakaku.k-img.com/images/productimage/fullscale/J0000028276.jpg",
+#   "https://item-shopping.c.yimg.jp/i/n/kagukouboukuraya_top-0002",
+#   "http://www.aya-koya.com/images/s/201906/CLOW03231-1.jpg",
+#   "https://d1uzk9o9cg136f.cloudfront.net/f/16782548/rc/2019/08/02/35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
+#   "https://images-na.ssl-images-amazon.com/images/I/41qJb2tJMIL._AC_.jpg",
+#   "https://images-na.ssl-images-amazon.com/images/I/31kwsNfHchL.jpg"]
+# 500.times do |no|
+#   Image.create!(image:"#{array[rand(3)]}",item_id:"#{no + 1261}")
+# end
 
 # array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
 # 5000.times do |no|
