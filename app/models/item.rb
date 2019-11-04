@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-  mount_uploader :image, ImageUploader
+  mount_uploader :images, ImageUploader
 
   belongs_to :user, foreign_key: 'user_id'
   belongs_to :category
