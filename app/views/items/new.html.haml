@@ -92,7 +92,7 @@
             %i
               = fa_icon 'angle-down', class: "fa-2x"
             %select{name: "condition", class: "items-sell__details__right__status__frame__main"}
-              %option{prompt: "--"}
+              %option{prompt: "---"} ---
               %option{value: "1"} 新品、未使用
               %option{value: "2"} 未使用に近い
               %option{value: "3"} 目立った傷や汚れなし
@@ -114,7 +114,7 @@
             %i
               = fa_icon 'angle-down', class: "fa-2x" 
             %select{name: "delivery_fee", class: "items-sell__delivery__right__burden__frame__main", id: "deliver-form"}
-              %option{value: ""} ---
+              %option{prompt: "---"} ---
               %option{value: "1"} 送料込み（出品者負担）
               %option{value: "2"} 着払い（購入者負担）
         .items-sell__delivery__right__area
@@ -127,7 +127,7 @@
             %i
               = fa_icon 'angle-down', class: "fa-2x"
             %select{name: "delarea", class: "items-sell__delivery__right__area__frame__main"}
-              %option{prompt: "--"}
+              %option{prompt: "---"} ---
               %option{value: "1"} 北海道
               %option{value: "2"} 青森県
               %option{value: "3"} 岩手県
@@ -184,7 +184,7 @@
           %i
             = fa_icon 'angle-down', class: "fa-2x"
           %select{name: "delivery_day", class: "items-sell__delivery__right__date__frame__main"}
-            %option{prompt: "--"}
+            %option{prompt: "---"} ---
             %option{value: "1"} 1~2日で発送
             %option{value: "2"} 2~3日で発送
             %option{value: "3"} 3~7日で発送

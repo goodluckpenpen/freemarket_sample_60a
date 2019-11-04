@@ -74,8 +74,8 @@ class ItemsController < ApplicationController
   end
   
   def create
-    
     @item = Item.new(item_params)
+    # binding.pry
     # @parents = Category.all.order("id ASC").limit(13)
     # if @item.save
     #   redirect_to @user
@@ -102,50 +102,50 @@ class ItemsController < ApplicationController
     redirect_to controller: 'users',action: 'seller_selling'
   end
 
-  def update
-    # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
-    if  brand = Brand.find_by(name: params[:item][:brand_id])
-      params[:item][:brand_id] = brand.id
-    else
-      params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
-    end
+  # def update
+  #   # ブランド名がstringでparamsに入ってくるので、id番号に書き換え
+  #   if  brand = Brand.find_by(name: params[:item][:brand_id])
+  #     params[:item][:brand_id] = brand.id
+  #   else
+  #     params[:item][:brand_id] = Brand.create(name: params[:item][:brand_id]).id
+  #   end
 
-    @item = Item.find(params[:id])
+  #   @item = Item.find(params[:id])
 
-    # 登録済画像のidの配列を生成
-    ids = @item.images.map{|image| image.id }
-    # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
-    exist_ids = registered_image_params[:ids].map(&:to_i)
-    # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
-    exist_ids.clear if exist_ids[0] == 0
+  #   # 登録済画像のidの配列を生成
+  #   ids = @item.images.map{|image| image.id }
+  #   # 登録済画像のうち、編集後もまだ残っている画像のidの配列を生成(文字列から数値に変換)
+  #   exist_ids = registered_image_params[:ids].map(&:to_i)
+  #   # 登録済画像が残っていない場合(配列に０が格納されている)、配列を空にする
+  #   exist_ids.clear if exist_ids[0] == 0
 
-    if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
+  #   if (exist_ids.length != 0 || new_image_params[:images][0] != " ") && @item.update(item_params)
 
-      # 登録済画像のうち削除ボタンをおした画像を削除
-      unless ids.length == exist_ids.length
-        # 削除する画像のidの配列を生成
-        delete_ids = ids - exist_ids
-        delete_ids.each do |id|
-          @item.item_images.find(id).destroy
-        end
-      end
+  #     # 登録済画像のうち削除ボタンをおした画像を削除
+  #     unless ids.length == exist_ids.length
+  #       # 削除する画像のidの配列を生成
+  #       delete_ids = ids - exist_ids
+  #       delete_ids.each do |id|
+  #         @item.item_images.find(id).destroy
+  #       end
+  #     end
 
-      # 新規登録画像があればcreate
-      unless new_image_params[:images][0] == " "
-        new_image_params[:images].each do |image|
-          @item.images.create(image_url: image, item_id: @item.id)
-        end
-      end
+  #     # 新規登録画像があればcreate
+  #     unless new_image_params[:images][0] == " "
+  #       new_image_params[:images].each do |image|
+  #         @item.images.create(image_url: image, item_id: @item.id)
+  #       end
+  #     end
 
-      flash[:notice] = '編集が完了しました'
-      redirect_to item_path(@item), data: {turbolinks: false}
+  #     flash[:notice] = '編集が完了しました'
+  #     redirect_to item_path(@item), data: {turbolinks: false}
 
-    else
-      flash[:alert] = '未入力項目があります'
-      redirect_back(fallback_location: root_path)
-    end
+  #   else
+  #     flash[:alert] = '未入力項目があります'
+  #     redirect_back(fallback_location: root_path)
+  #   end
 
-  end
+  # end
 
 
   private
