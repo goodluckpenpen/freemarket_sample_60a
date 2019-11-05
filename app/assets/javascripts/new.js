@@ -51,11 +51,11 @@ $(function(){
 
 $(document).on('turbolinks:load',function() {
   //モーダルを開く
-  $('.items-sell__exhibit__decide').click(function() {
+  $('.items-sell__exhibit__decide__window').click(function() {
     $('.modalOverlay__modal').fadeIn('.modalOverlay');
   })
   //モーダルの外側か閉じるをクリックでモーダルを閉じる
   $('.modalOverlay').click(function() {
     $('.modalOverlay').fadeOut('.modalOverlay');
-  })
+  })          
 });
