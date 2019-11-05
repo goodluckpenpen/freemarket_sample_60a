@@ -20,7 +20,8 @@
             .items-sell__imgs__dropzone__input
               %label
                 .input_area
-                  = f.file_field :image, id: "image", class: "upload-image", 'data-image': 0
+
+                  = image.file_field :image, id: "image", class: "upload-image", 'data-image': 0
                   -# .btn_edit
                   -#   編集
                   -# .btn_delete
