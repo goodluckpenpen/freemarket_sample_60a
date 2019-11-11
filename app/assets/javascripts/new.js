@@ -4,8 +4,7 @@ $(function(){
     var file = e.target.files[0],
         reader = new FileReader(),
         $preview = $("#preview");
-        t = this;
-
+        
     // 画像ファイル以外の場合は何もしない
     if(file.type.indexOf("image") < 0){
       return false;
@@ -30,8 +29,6 @@ $(function(){
   });
 });
 
-
-
 $(function(){
   $('.items-sell__price__right').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
     var data = $('.items-sell__price__right__list1__plices__example').val(); // val()でフォームのvalueを取得(数値)
@@ -52,10 +49,10 @@ $(function(){
 $(document).on('turbolinks:load',function() {
   //モーダルを開く
   $('.items-sell__exhibit__decide__window').click(function() {
-    $('.modalOverlay__modal').fadeIn('.modalOverlay');
+    $('.modalOverlay__modal').fadeIn();
   })
   //モーダルの外側か閉じるをクリックでモーダルを閉じる
   $('.modalOverlay').click(function() {
-    $('.modalOverlay').fadeOut('.modalOverlay');
+    $('.modalOverlay').fadeOut();
   })          
 });
