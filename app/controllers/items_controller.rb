@@ -76,13 +76,11 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     # binding.pry
-    # @parents = Category.all.order("id ASC").limit(13)
     # if @item.save
-    #   redirect_to @user
+    #   redirect_to new_item_path
     # else 
     #   render :new
     # end
-    # binding.pry
   end
 
 
@@ -150,7 +148,7 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:title, :text, :category_id, :size_id, :brand_id, :condition_id, :delivery_fee_id, :delivery_method_id, :delivery_area_id, :delivery_day_id, :price, images_attributes: [ :image, :id, :item_id]).merge(seller_id: current_user.id, user_id: current_user.id)
+    params.require(:item).permit(:title, :text, :category_id, :size_id, :brand_id, :condition_id, :delivery_fee_id, :delivery_method_id, :delivery_area_id, :delivery_day_id, :price, images_attributes: [:image]).merge(seller_id: current_user.id, user_id: current_user.id)
   end
 
   def registered_image_params

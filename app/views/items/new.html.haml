@@ -18,7 +18,7 @@
           #preview
             -# １〜５枚目プレビュー表示
             .items-sell__imgs__dropzone__input
-              %label
+              = image.label :image, class: "hidden" do
                 .input_area
                   = image.file_field :image, id: "image", class: "upload-image"
                   -# .btn_edit
@@ -239,6 +239,6 @@
     .modalOverlay__modal__text
       %p
         あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。   
-      = link_to "続けて出品する","", class: "modalOverlay__modal__text__continue"
+      = link_to "続けて出品する", new_item_path, class: "modalOverlay__modal__text__continue"
       = link_to "商品ページへ行ってシェアする","", class: "modalOverlay__modal__text__items-page"
 = render "new-footer"
