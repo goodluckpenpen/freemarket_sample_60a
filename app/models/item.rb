@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :delivery_method
   belongs_to :size
   has_many :images, dependent: :destroy
-  
+  mount_uploader :image, ImageUploader
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def previous
