@@ -75,12 +75,14 @@ class ItemsController < ApplicationController
   
   def create
     @item = Item.new(item_params)
-    # binding.pry
-    # if @item.save
-    #   redirect_to new_item_path
-    # else 
-    #   render :new
-    # end
+    binding.pry
+    # インスタンスの保存に成功した場合の処理
+     if @item.save!
+      redirect_to new_item_url
+    # インスタンスの保存に失敗した場合の処理
+    else
+      render :new
+    end
   end
 
 

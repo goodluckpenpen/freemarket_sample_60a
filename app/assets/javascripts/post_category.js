@@ -49,8 +49,18 @@ $(document).on('turbolinks:load',function(){
             任意
           </span>
         </label>
-        <div class="items-sell__details__right__brand__frame" >
-          <input class="items-sell__details__right__brand__frame__main" placeholder="例）シャネル">
+        <div class="items-sell__details__right__brand__frame brand-frame">
+          <i>
+            <i class="fa fa-angle-down fa-2x"></i>
+          </i>
+          <select class="items-sell__details__right__brand__frame__main" id="brand-form" name="item[brand_id]">
+            <option value="">---</option>
+            <option value="1">シャネル</option>
+            <option value="2">ナイキ</option>
+            <option value="3">ルイ　ヴィトン</option>
+            <option value="4">シュプリーム</option>
+            <option value="5">アディダス</option>
+          </select>
         </div>
       </div>`
     add_box.after(html)
@@ -69,7 +79,7 @@ $(document).on('turbolinks:load',function(){
             <i>
               <i class="fa fa-angle-down fa-2x"></i>
             </i>
-            <select class="items-sell__delivery__right__method__frame__main">
+            <select class="items-sell__delivery__right__method__frame__main" id="delivery_method-form" name="item[delivery_method_id]">
               <option value="">---</option>
             </select>
         </div>
@@ -90,7 +100,7 @@ $(document).on('turbolinks:load',function(){
             <i>
               <i class="fa fa-angle-down fa-2x"></i>
             </i>
-            <select class="items-sell__delivery__right__method__frame__main">
+            <select class="items-sell__delivery__right__method__frame__main" id="delivery_method-form" name="item[delivery_method_id]">
               <option value="">---</option>
               <option value="1">未定</option>
               <option value="2">クロネコヤマト</option>
