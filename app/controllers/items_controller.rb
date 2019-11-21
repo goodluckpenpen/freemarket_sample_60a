@@ -78,7 +78,7 @@ class ItemsController < ApplicationController
     # binding.pry
     # インスタンスの保存に成功した場合の処理
      if @item.save!
-      redirect_to new_item_path
+      redirect_to root_path
     # インスタンスの保存に失敗した場合の処理
     else
       render :new
