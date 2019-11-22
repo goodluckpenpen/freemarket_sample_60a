@@ -127,29 +127,29 @@ describe User do
       expect(user.errors[:block_number]).to include("を入力してください")
     end
 
-    it "is invalid without a card_number" do
-      user = build(:user, card_number: "")
-      user.valid?
-      expect(user.errors[:card_number]).to include("を入力してください")
-    end
+    # it "is invalid without a card_number" do
+    #   user = build(:user, card_number: "")
+    #   user.valid?
+    #   expect(user.errors[:card_number]).to include("を入力してください")
+    # end
 
-    it "is invalid without a card_expiration_date_month" do
-      user = build(:user, card_expiration_date_month: "")
-      user.valid?
-      expect(user.errors[:card_expiration_date_month]).to include("を入力してください")
-    end
+    # it "is invalid without a card_expiration_date_month" do
+    #   user = build(:user, card_expiration_date_month: "")
+    #   user.valid?
+    #   expect(user.errors[:card_expiration_date_month]).to include("を入力してください")
+    # end
 
-    it "is invalid without a card_expiration_date_year" do
-      user = build(:user, card_expiration_date_year: "")
-      user.valid?
-      expect(user.errors[:card_expiration_date_year]).to include("を入力してください")
-    end
+    # it "is invalid without a card_expiration_date_year" do
+    #   user = build(:user, card_expiration_date_year: "")
+    #   user.valid?
+    #   expect(user.errors[:card_expiration_date_year]).to include("を入力してください")
+    # end
 
-    it "is invalid without a card_security_code" do
-      user = build(:user, card_security_code: "")
-      user.valid?
-      expect(user.errors[:card_security_code]).to include("を入力してください")
-    end
+    # it "is invalid without a card_security_code" do
+    #   user = build(:user, card_security_code: "")
+    #   user.valid?
+    #   expect(user.errors[:card_security_code]).to include("を入力してください")
+    # end
 
     # emailのフォーマットが不適切でないか
 
@@ -349,63 +349,63 @@ describe User do
 
 # クレジットカード番号が14桁もしくは16桁で数字のみであるか
 
-    it "is valid with a card_number that has less than 16 digit " do
-      user = build(:user, card_number: "12345678901234") # 14桁
-      expect(user).to be_valid
-    end
+    # it "is valid with a card_number that has less than 16 digit " do
+    #   user = build(:user, card_number: "12345678901234") # 14桁
+    #   expect(user).to be_valid
+    # end
     
-    it "is valid with a card_number that has less than 16 digit " do
-      user = build(:user, card_number: "1234567890123456") # 16桁
-      expect(user).to be_valid
-    end
+    # it "is valid with a card_number that has less than 16 digit " do
+    #   user = build(:user, card_number: "1234567890123456") # 16桁
+    #   expect(user).to be_valid
+    # end
 
-    it "is invalid with a card_number that has more than 17 digit" do
-      user = build(:user, card_number: "12345678901234567") # 17桁
-      user.valid?
-      expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
-    end
+    # it "is invalid with a card_number that has more than 17 digit" do
+    #   user = build(:user, card_number: "12345678901234567") # 17桁
+    #   user.valid?
+    #   expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
+    # end
     
-    it "is invalid with a card_number that has more than 13 digit" do
-      user = build(:user, card_number: "1234567890123") # 13桁
-      user.valid?
-      expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
-    end
+    # it "is invalid with a card_number that has more than 13 digit" do
+    #   user = build(:user, card_number: "1234567890123") # 13桁
+    #   user.valid?
+    #   expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
+    # end
     
-    it "is invalid with a card_number except for numbers" do
-      user = build(:user, card_number: "a234567890123456")
-      user.valid?
-      expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
-    end
+    # it "is invalid with a card_number except for numbers" do
+    #   user = build(:user, card_number: "a234567890123456")
+    #   user.valid?
+    #   expect(user.errors[:card_number]).to include("のフォーマットが不適切です")
+    # end
 
 # クレジットカードのセキュリティコードが3桁もしくは４桁で数字のみであるか
 
-    it "is valid with a payment_card_security_code that has less than 3 digit " do
-      user = build(:user, card_security_code: "123")
-      expect(user).to be_valid
-    end
+    # it "is valid with a payment_card_security_code that has less than 3 digit " do
+    #   user = build(:user, card_security_code: "123")
+    #   expect(user).to be_valid
+    # end
     
-    it "is valid with a payment_card_security_code that has less than 4 digit " do
-      user = build(:user, card_security_code: "1234")
-      expect(user).to be_valid
-    end
+    # it "is valid with a payment_card_security_code that has less than 4 digit " do
+    #   user = build(:user, card_security_code: "1234")
+    #   expect(user).to be_valid
+    # end
 
-    it "is invalid with a card_security_code that has more than 5 digit" do
-      user = build(:user, card_security_code: "12345")
-      user.valid?
-      expect(user.errors[:card_security_code]).to include("は4文字以内で入力してください")
-    end
+    # it "is invalid with a card_security_code that has more than 5 digit" do
+    #   user = build(:user, card_security_code: "12345")
+    #   user.valid?
+    #   expect(user.errors[:card_security_code]).to include("は4文字以内で入力してください")
+    # end
     
-    it "is invalid with a card_security_code that has less than 2 digit" do
-      user = build(:user, card_security_code: "12")
-      user.valid?
-      expect(user.errors[:card_security_code]).to include("は3文字以上で入力してください")
-    end
+    # it "is invalid with a card_security_code that has less than 2 digit" do
+    #   user = build(:user, card_security_code: "12")
+    #   user.valid?
+    #   expect(user.errors[:card_security_code]).to include("は3文字以上で入力してください")
+    # end
 
-    it "is invalid with a card_security_code except for numbers" do
-      user = build(:user, card_security_code: "a234")
-      user.valid?
-      expect(user.errors[:card_security_code]).to include("の入力が正しくありません")
-    end
+    # it "is invalid with a card_security_code except for numbers" do
+    #   user = build(:user, card_security_code: "a234")
+    #   user.valid?
+    #   expect(user.errors[:card_security_code]).to include("の入力が正しくありません")
+    # end
 
   end
 end

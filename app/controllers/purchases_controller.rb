@@ -24,7 +24,7 @@ class PurchasesController < ApplicationController
     customer: card.customer_id,
     currency: 'jpy',
     )
-    @item.update(buyer_id: current_user.id)
+    @item.update_attributes(buyer_id: current_user.id)
     redirect_to action: 'buy'
     # else
     #   flash[:alert] = '購入に失敗しました。'
