@@ -9,12 +9,14 @@
       =link_to "",class:"container__content--mypage-user" do
         %figure.container__content--mypage-user-img
           = image_tag '/merukari_member_photo.png', class:'container__content--mypage-user-img-new'
-        %h2.container__content--mypage-user-name  晃平
+        %h2.container__content--mypage-user-name  
+          = @user.nickname
         .container__content--mypage-user-number
           .container__content--mypage-user-number-evaluation  評価
-          %span.container__content--mypage-user-number-value 27
+          %span.container__content--mypage-user-number-value 0
           .container__content--mypage-user-number-exhibit  出品数
-          %span.container__content--mypage-user-number-value 22
+          %span.container__content--mypage-user-number-value 
+            = @items.length
     //--タブ1--//
     %section.container__content--tabs.tabs
       %input(id="notice" class="container__content--tabs-notice" type="radio" name="tab_item" checked="checked")
@@ -28,6 +30,42 @@
 
           -# %li.container__content--mypage-buy-detail-trade-list 現在、お知らせはありません
           
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務職からのメッセージ
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務職からのメッセージ
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+          
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務職からのメッセージ
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+
           %li.container__content--tabs-detail-notice-list
             =link_to "",class:"container__content--tabs-detail-notice-list-link" do
               %figure.container__content--tabs-detail-notice-list-link-body
@@ -55,7 +93,43 @@
                 = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
               .container__content--tabs-detail-notice-list-link-message
                 .container__content--tabs-detail-notice-list-link-message-text 
-                  ああああああああああ
+                  《友達・家族を招待すると必ずP1,000プレゼント》招待コードをシェアしてメルペイをすすめよう！
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+          
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務局から個別メッセージ「【重要】取引キャンセルのお知らせ」
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+          
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  《事務局から個別メッセージ「ログイン通知」
+                .container__content--tabs-detail-notice-list-link-message-time
+                  =fa_icon "clock", class: 'icon-time'
+                  %span １時間
+              = fa_icon 'chevron-right', class: 'icon-chevron'
+          
+          %li.container__content--tabs-detail-notice-list
+            =link_to "",class:"container__content--tabs-detail-notice-list-link" do
+              %figure.container__content--tabs-detail-notice-list-link-body
+                = image_tag '/mercari_profile.png', class:'container__content--tabs-detail-notice-list-link-body-img'
+              .container__content--tabs-detail-notice-list-link-message
+                .container__content--tabs-detail-notice-list-link-message-text 
+                  事務局から個別メッセージ「出品者へ商品を発送するよう通知しました」
                 .container__content--tabs-detail-notice-list-link-message-time
                   =fa_icon "clock", class: 'icon-time'
                   %span １時間

@@ -9,7 +9,7 @@
         %section.buy__content.buy-item
           .buy__content__inner
             %h3.buy-item-image
-              =image_tag src="https://static.mercdn.net/thumb/photos/m88079333407_1.jpg?1571292583"
+              = image_tag "#{@item.images.first.image}"
             %p.buy-item-name
               =@item.title
         %section.buy__content.buy-item
