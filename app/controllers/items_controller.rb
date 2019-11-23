@@ -85,6 +85,20 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.user_id == current_user.id
+      @item.update(item_params)
+      redirect_to item_path(@item)
+    else
+      redirect_to item_path(@item), notice: "商品の編集はできません"
+    end
+  end
+
 
   def purchase
   end

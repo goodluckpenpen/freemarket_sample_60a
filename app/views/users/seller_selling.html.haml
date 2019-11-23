@@ -19,7 +19,7 @@
             =link_to "売却済",seller_sold_users_path,class:"container__content--group-tabs-list-name"
       .container__content--group-wrap
         %ul.container__content--group-wrap-listing
-          -if @item_trading.blank?
+          -if @item_selling.blank?
             .container__content--group-wrap-listing-lists
               .container__content--group-wrap-listing-lists-list
                 取引中の商品がありません

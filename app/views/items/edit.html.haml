@@ -1,0 +1,154 @@
+= render "new-header"
+
+= form_for(@item) do |f|
+  .items-sell
+    .items-sell__infomations
+      %h2.items-sell__infomations__item
+        商品の情報を入力
+    
+    .items-sell__imgs
+      %h3.items-sell__imgs__head 
+        出品画像
+        %span.items-sell__imgs__head__required
+          必須 
+      %p 最大10枚までアップロードできます
+
+      = f.fields_for :images do |image|
+        = image.label :image ,class: "input_area" do
+          .items-sell__imgs__dropzone
+            = image.file_field :image, id: "item_images_attributes_0_image", class: "upload-image"
+            #preview
+              -# １〜５枚目プレビュー表示
+              .items-sell__imgs__dropzone__input                           
+                .items-sell__imgs__dropzone__input__description
+                  .items-sell__imgs__dropzone__input__description__text
+                    ドラッグアンドドロップ
+                    %br
+                    またはクリックしてファイルをアップロード
+
+        -# .items-sell__imgs__dropzone2
+        -#   #preview2
+        -#     -# ６〜１０枚目プレビュー表示
+        -#     .items-sell__imgs__dropzone2__input2
+        -#       = image.label :image, for: "upload-image" do
+        -#         .input_area
+        -#           = image.file_field :image_url, id: "upload-image", class: "upload-image", 'data-image': 0
+        -#           .btn_edit
+        -#             編集
+        -#           .btn_delete
+        -#             削除
+        -#         .items-sell__imgs__dropzone2__input2__description
+        -#           .items-sell__imgs__dropzone2__input2__description__text
+        -#             ドラッグアンドドロップ
+        -#             %br
+        -#             またはクリックしてファイルをアップロード
+  
+    -# %p.items-sell__imgs__no-imgs
+    -#   画像がありません
+
+    .items-sell__message
+      .items-sell__message__name
+        %label.items-sell__message__name__head
+          商品名
+          %span.items-sell__message__name__head__required
+            必須
+          = f.text_field :title, class: "items-sell__message__name__main2", placeholder: "商品名（必須40文字まで）"
+        %p.items-sell__message__name__no-name
+          -# 入力してください
+      .items-sell__message__content
+        %label.items-sell__message__content__head
+          商品の説明
+          %span.items-sell__message__content__head__required
+            必須
+          = f.text_area :text, class: "items-sell__message__content__main3", rows: 5, placeholder: "商品の説明（必須1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+        %p.items-sell__message__content__no-content
+          -# 入力してください
+          
+    .items-sell__details.clearfix
+      %label.items-sell__details__left
+        商品の詳細
+      .items-sell__details__right
+        .items-sell__details__right__category
+          %label.items-sell__details__right__category__head
+            カテゴリー
+            %span.items-sell__details__right__category__head__required
+              必須
+          .items-sell__details__right__category__frame
+            %i
+              = fa_icon 'angle-down', class: "fa-2x"
+            = f.collection_select :category_id, @parents, :id, :name,{prompt: "---"}, class: "items-sell__details__right__category__frame__main", id: "parent-form", name: 'item[category_id]'
+
+        .items-sell__details__right__status
+          %label.items-sell__details__right__status__head
+            商品の状態
+            %span.items-sell__details__right__status__head__required
+              必須
+          .items-sell__details__right__status__frame
+            %i
+              = fa_icon 'angle-down', class: "fa-2x"
+            = f.select :condition_id, [["新品、未使用","1"],["未使用に近い","2"],["目立った傷や汚れなし","3"],["やや傷や汚れあり","4"],["傷や汚れあり","5"],["全体的に状態が悪い","6"]], {prompt: "---"}, class: "items-sell__details__right__status__frame__main"
+    .items-sell__delivery.clearfix
+      .items-sell__delivery__left
+        %label.items-sell__delivery__left__head
+          配送について
+          = link_to "？", "", class: "items-sell__delivery__left__inquiry"
+      .items-sell__delivery__right
+        .items-sell__delivery__right__burden
+          %label.items-sell__delivery__right__burden__head
+            配送料の負担
+            %span.items-sell__delivery__right__burden__head__required
+              必須
+          .items-sell__delivery__right__burden__frame 
+            %i
+              = fa_icon 'angle-down', class: "fa-2x" 
+            = f.select :delivery_fee_id, [["送料込み(出品者負担)","1"],["着払い(購入者負担)","2"]], {prompt: "---"}, class: "items-sell__delivery__right__burden__frame__main", id: "deliver-form", name: 'item[delivery_fee_id]'
+        .items-sell__delivery__right__area
+          %label.items-sell__delivery__right__area__head
+            発送元の地域
+            %span.items-sell__delivery__right__area__head__required
+              必須
+        .items-sell__delivery__right__area__frame
+          .items-sell__delivery__right__area__frame__icon
+            %i
+              = fa_icon 'angle-down', class: "fa-2x"
+            = f.select :delivery_area_id, [["北海道","1"],["青森県","2"],["秋田県","3"],["岩手県","4"],["宮城県","5"],["山形県","6"],["福島県","7"],["茨城県","8"],["栃木県","9"],["群馬県","10"],["埼玉県","11"],["千葉県","12"],["東京都","13"],["神奈川県","14"],["新潟県","15"],["富山県","16"],["石川県","17"],["福井県","18"],["山梨県","19"],["長野県","20"],["岐阜県","21"],["静岡県","22"],["愛知県","23"],["三重県","24"],["滋賀県","25"],["京都府","26"],["大阪府","27"],["兵庫県","28"],["奈良県","29"],["和歌山県","30"],["鳥取県","31"],["島根県","32"],["岡山県","33"],["広島県","34"],["山口県","35"],["徳島県","36"],["香川県","37"],["愛媛県","38"],["高知県","39"],["福岡県","40"],["佐賀県","41"],["長崎県","42"],["熊本県","43"],["大分県","44"],["宮崎県","45"],["鹿児島県","46"],["沖縄県","47"],["未定","48"]], { prompt: " ---"}, class: "items-sell__delivery__right__area__frame__main"
+        .items-sell__delivery__right__date
+          %label.items-sell__delivery__right__date__head
+            発送までの日数
+            %span.items-sell__delivery__right__date__head__required
+              必須
+        .items-sell__delivery__right__date__frame
+          %i
+            = fa_icon 'angle-down', class: "fa-2x"
+          = f.select :delivery_day_id, [["1〜2日で発送","1"],["2〜3日で発送","2"],["4〜7日で発送","3"]], {prompt: "---"}, class: "items-sell__delivery__right__date__frame__main"
+    .items-sell__price
+      %label
+        販売価格(300~9,999,999)
+        = link_to "？", "", class: "items-sell__price__inquiry"
+      %ul.items-sell__price__right
+        %li.items-sell__price__right__list1
+          %label.items-sell__price__right__list1__top
+            価格
+            %span.items-sell__price__right__list1__top__required
+              必須
+          .items-sell__price__right__list1__plices
+            %p.items-sell__price__right__list1__plices__yen
+            ¥
+            = f.text_field :price, class: "items-sell__price__right__list1__plices__example", placeholder: "例）300"
+            
+        %li.items-sell__price__right__list2
+          .items-sell__price__right__list2__center
+            販売手数料(10%)
+          .items-sell__price__right__list2__last
+            ー
+        %li.items-sell__price__right__list3
+          .items-sell__price__right__list3__bottom
+            販売利益
+          .items-sell__price__right__list3__last
+            ー
+    .items-sell__exhibit        
+      %button.items-sell__exhibit__decide
+        = f.submit "変更する", class: "items-sell__exhibit__decide__window"
+      %button.items-sell__exhibit__return 
+        = link_to "キャンセル",  mypage_users_path
+= render "new-footer"
