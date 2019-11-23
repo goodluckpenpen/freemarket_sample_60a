@@ -4,8 +4,6 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
 
-  process resize_to_fit: [50, 50]
-
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
 
@@ -15,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # else
     storage :fog
   # end
-
+  process resize_to_fit: [50, 50]
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -28,15 +26,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # 保存するファイルの命名規則
-  def filename
-    "something.jpg" if original_filename
-  end
+  # def filename
+  #   "something.jpg" if original_filename
+  # end
 
-  protected
+  # protected
   # 一意となるトークンを作成
-  def secure_token
-     var = :"@#{mounted_as}_secure_token"
-     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
-  end
-
+  # def secure_token
+  #    var = :"@#{mounted_as}_secure_token"
+  #    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 end
