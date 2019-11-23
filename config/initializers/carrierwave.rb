@@ -17,6 +17,6 @@ CarrierWave.configure do |config|
 
   config.fog_directory  = 'melcari'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/melcari'
-  # end
+  end
 end
 
