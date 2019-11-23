@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items,only: [:index, :new, :show, :create, :destroy] do
+  resources :items,only: [:index, :new, :show, :create, :edit, :update, :destroy] do
     # get "items/item"
     get "items/bought"
     get "items/purchase"
