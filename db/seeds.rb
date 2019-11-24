@@ -375,7 +375,7 @@
 #   Image.create(image:"#{array[rand(3)]}",item_id:"#{no+1}")
 # end
 
-array = ["kanadagusu"]
+array = ["kanadagusu.jpg"]
 # ["https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6006/http-__www.aya-koya.com_images_s_201906_CLOW03231-1.jpg",
 #   "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6007/https-__askul.c.yimg.jp_img_product_3L1_P164113_3L1.jpg",
 #   "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6008/https-__d1uzk9o9cg136f.cloudfront.net_f_16782548_rc_2019_08_02_35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
