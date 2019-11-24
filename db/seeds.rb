@@ -384,7 +384,7 @@ array = ["http-__www.aya-koya.com_images_s_201906_CLOW03231-1.jpg",
   "https-__img1.kakaku.k-img.com_images_productimage_fullscale_J0000028276.jpg",
   "https-__item-shopping.c.yimg.jp_i_n_kagukouboukuraya_top-0002.jpeg"]
 2000.times do |no|
-  Image.create!(image:"#{array[rand(rand(1..8))]}",item_id:"#{no + 6014}")
+  Image.create!(image:"#{array[rand(rand(1..8))]}",item_id:"#{no + 1}")
 end
 
 # array = ["B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg","B9nQcbKkRWKoJ9Q4gUm%bQ.jpg"]
