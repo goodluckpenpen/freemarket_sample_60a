@@ -375,14 +375,14 @@
 #   Image.create(image:"#{array[rand(3)]}",item_id:"#{no+1}")
 # end
 
-array = ["http-__www.aya-koya.com_images_s_201906_CLOW03231-1.jpg",
-  "https-__askul.c.yimg.jp_img_product_3L1_P164113_3L1.jpg",
-  "https-__d1uzk9o9cg136f.cloudfront.net_f_16782548_rc_2019_08_02_35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
-  "https-__images-na.ssl-images-amazon.com_images_I_31kwsNfHchL.jpg",
-  "https-__picture1.goo-net.com_7009571151_30191030_J_70095711513019103000100.jpg",
-  "https-__images-na.ssl-images-amazon.com_images_I_41qJb2tJMIL._AC_.jpg",
-  "https-__img1.kakaku.k-img.com_images_productimage_fullscale_J0000028276.jpg",
-  "https-__item-shopping.c.yimg.jp_i_n_kagukouboukuraya_top-0002.jpeg"]
+array = ["https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6006/http-__www.aya-koya.com_images_s_201906_CLOW03231-1.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6007/https-__askul.c.yimg.jp_img_product_3L1_P164113_3L1.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6008/https-__d1uzk9o9cg136f.cloudfront.net_f_16782548_rc_2019_08_02_35e494ebf7d9a9192b7866b821119f5213fdc15f_xlarge.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6009/https-__images-na.ssl-images-amazon.com_images_I_31kwsNfHchL.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6010/https-__images-na.ssl-images-amazon.com_images_I_41qJb2tJMIL._AC_.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6011/https-__img1.kakaku.k-img.com_images_productimage_fullscale_J0000028276.jpg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6012/https-__item-shopping.c.yimg.jp_i_n_kagukouboukuraya_top-0002.jpeg",
+  "https://melcari.s3-ap-northeast-1.amazonaws.com/uploads/image/image/6013/https-__picture1.goo-net.com_7009571151_30191030_J_70095711513019103000100.jpg"]
 2000.times do |no|
   Image.create!(image:"#{array[rand(rand(1..8))]}",item_id:"#{no + 1}")
 end
