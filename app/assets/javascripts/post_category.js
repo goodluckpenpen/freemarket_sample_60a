@@ -16,7 +16,7 @@ $(document).on('turbolinks:load',function(){
       <i>
        <i class="fa fa-angle-down fa-2x"></i>
       </i>
-      <select class="items-sell__details__right__category__frame__main" id="${select_id}">
+      <select class="items-sell__details__right__category__frame__main" id="${select_id}" name='item[category_id]'>
       <option value="">---</option>
      </div>`
     add_box.append(html)
